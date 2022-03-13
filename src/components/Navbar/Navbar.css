@@ -1,0 +1,35 @@
+.navbar {
+  background-color: #fff;
+  min-height: max-content;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  text-align: left;
+  padding: 1rem 4rem;
+  display: flex;
+  justify-content: space-between;
+}
+.navbar h1 {
+  font-size: 1.8rem;
+}
+.logo {
+  text-decoration: none;
+  color: black;
+}
+.ct-input {
+  border: 1px solid black;
+}
+.nav-icon {
+  display: flex;
+  margin: 0rem 0.5rem;
+}
+.badge {
+  font-size: 12px;
+  padding: 0 4px;
+  font-weight: bolder;
+  background: #fff;
+  border: 1px solid gray;
+}
+.input {
+  width: 60%;
+}

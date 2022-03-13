@@ -1,0 +1,15 @@
+.footer {
+  background-color: tan;
+  height: 200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+  position: absolute;
+
+  width: 100%;
+}
+.footer-left li {
+  list-style: none;
+  cursor: pointer;
+}
