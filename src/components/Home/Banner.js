@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Banner.css";
 function Banner() {
   return (
@@ -8,7 +9,9 @@ function Banner() {
           <h1>Cristals</h1>
           <p>Curated Collections / Ethically Conscious</p>
           <button className="ct-btn ct-gray main-cta">
-            <a href="####">Shop Here</a>
+            <Link to="/routes/Products" className="banner-link">
+              Shop Here
+            </Link>
           </button>
         </div>
       </main>
