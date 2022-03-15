@@ -12,10 +12,11 @@
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 .img-container {
-  /* width: 300px; */
   height: 400px;
+  max-width: 1000%;
 }
 .content {
+  margin: 1rem 0rem;
   max-width: 40%;
   display: flex;
   align-items: flex-start;

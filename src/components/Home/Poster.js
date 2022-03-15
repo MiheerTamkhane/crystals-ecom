@@ -13,7 +13,6 @@ function Poster({ data }) {
         <h2>{data.title}</h2>
         <p>{data.desc}</p>
         <button className="ct-btn ct-gray">
-          {/* <a href="./products.html">Shop Here</a> */}
           <Link to="/routes/ProductsPage" className="link">
             Shop Here
           </Link>
