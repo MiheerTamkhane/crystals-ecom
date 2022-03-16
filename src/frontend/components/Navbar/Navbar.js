@@ -1,42 +1,41 @@
 import React from "react";
+
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 function Navbar() {
   return (
     <nav className="nav-bar navbar">
       <div className="ct-nav-logo">
-        <Link to="/" className="logo">
-          <h1>Navbar</h1>
-        </Link>
+        <NavLink to="/" className="logo">
+          <img src="/assets/images/Crystals.png" alt="" />
+          <h1>Crystals</h1>
+        </NavLink>
       </div>
-      {/* <div class="ct-input-div input">
-        <input
-          type="search"
-          id="ct-input"
-          class="ct-input"
-          placeholder="Search..."
-        />
-      </div> */}
       <div className="ct-right-nav">
         <div className="ct-nav-user">
           <div className="ct-nav-icons ">
-            <div className="basic-badge nav-icon">
-              <Link to="./components/Wishlist">
-                <img src="/assets/svg/wishlist.svg" alt="" />
-                <span className="badge-pop badge">7</span>
-              </Link>
-            </div>
-            <div className="basic-badge nav-icon">
-              <Link to="./components/DemoCart">
-                <img src="/assets/svg/cart.svg" alt="" />
-                <span className="badge-pop badge">7</span>
-              </Link>
-            </div>
-            <div className="basic-badge nav-icon">
-              <Link to="./components/DemoProds">
-                <img src="/assets/svg/user.svg" alt="" />
-              </Link>
-            </div>
+            <NavLink
+              to="./routes/Cart/DemoCart"
+              className={({ isActive }) =>
+                isActive
+                  ? "basic-badge nav-icon icon-selected"
+                  : "basic-badge nav-icon icon"
+              }
+            >
+              <img src="/assets/svg/cart.svg" alt="cart" />
+              {/* <span className="badge-pop badge">7</span> */}
+            </NavLink>
+
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive
+                  ? "basic-badge nav-icon icon-selected"
+                  : "basic-badge nav-icon icon"
+              }
+            >
+              <img src="/assets/svg/user.svg" alt="account" />
+            </NavLink>
           </div>
         </div>
       </div>

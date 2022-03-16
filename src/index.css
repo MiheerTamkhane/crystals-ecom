@@ -1,18 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&family=Source+Sans+Pro:wght@300&display=swap");
+/* font-family: 'Open Sans', sans-serif;
+font-family: 'Spirax', cursive; */
+
 * {
   padding: 0%;
   margin: 0%;
   box-sizing: border-box;
 }
+:root {
+  --heading: #222831;
+  --text: #393e46;
+  --primary: var(--violet-700);
+  --body: #f7f7f7;
+}
 body {
+  background-color: var(--body);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 1.6;
+  font-family: "Nunito", sans-serif;
+  color: var(--text);
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+h1 {
+  font-family: "Source Sans Pro", sans-serif;
+}
+.App {
+  background-color: var(--body);
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.link {
+  text-decoration: none;
+  color: var(--body);
+  font-family: "Nunito", sans-serif;
+}
+input[type="checkbox"] {
+  accent-color: var(--violet-500);
 }

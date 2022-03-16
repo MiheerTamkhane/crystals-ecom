@@ -1,15 +1,34 @@
 .footer {
-  background-color: tan;
+  background-color: var(--text);
+  color: var(--body);
   height: 200px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 2rem;
   position: absolute;
-
   width: 100%;
 }
-.footer-left li {
+
+.footer-left .logo h1 {
+  letter-spacing: 0.1em;
+}
+.footer-left small {
+  margin-left: 12px;
+}
+.footer-right {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.footer-right li {
   list-style: none;
   cursor: pointer;
+}
+.quick-links {
+  text-align: center;
+}
+.contact-us {
+  text-align: right;
 }

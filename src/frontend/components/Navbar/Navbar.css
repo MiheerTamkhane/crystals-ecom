@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #fff;
+  background-color: var(--body);
   min-height: max-content;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
@@ -8,21 +8,28 @@
   padding: 1rem 4rem;
   display: flex;
   justify-content: space-between;
+  color: var(--gray-500);
 }
 .navbar h1 {
   font-size: 1.8rem;
+  letter-spacing: 0.1em;
 }
 .logo {
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  color: black;
+  color: var(--primary);
 }
-.ct-input {
-  border: 1px solid black;
+.logo img {
+  width: 40px;
 }
 .nav-icon {
   display: flex;
+  justify-content: center;
   margin: 0rem 0.5rem;
+  cursor: pointer;
 }
+
 .badge {
   font-size: 12px;
   padding: 0 4px;
@@ -30,6 +37,11 @@
   background: #fff;
   border: 1px solid gray;
 }
-.input {
-  width: 60%;
+.icon {
+  filter: invert(22%) sepia(4%) saturate(1712%) hue-rotate(178deg)
+    brightness(88%) contrast(86%);
+}
+.icon-selected {
+  filter: invert(16%) sepia(58%) saturate(7170%) hue-rotate(264deg)
+    brightness(88%) contrast(91%);
 }

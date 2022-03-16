@@ -1,17 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Banner.css";
 function Banner() {
   return (
     <div>
       <main className="hero">
         <div className="hero-container">
-          <h1>Cristals</h1>
+          <h1>CRYSTALS</h1>
           <p>Curated Collections / Ethically Conscious</p>
           <button className="ct-btn ct-gray main-cta">
-            <Link to="/routes/Products" className="banner-link">
+            <NavLink to="/" className="banner-link">
               Shop Here
-            </Link>
+            </NavLink>
           </button>
         </div>
       </main>
