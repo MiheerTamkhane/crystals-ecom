@@ -14,7 +14,7 @@ const Home = () => {
       title: "Crystal Jewellery",
       desc: "We have a beautiful range of jewellery to suit all budgets.",
       img: "/assets/images/land-product2.jpg",
-      right: true,
+      left: false,
     },
   ];
 

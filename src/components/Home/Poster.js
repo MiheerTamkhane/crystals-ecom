@@ -18,7 +18,7 @@ function Poster({ data }) {
           </Link>
         </button>
       </div>
-      {data.right && (
+      {!data.left && (
         <div className="img-container">
           <img src={data.img} alt="poster-img" />
         </div>

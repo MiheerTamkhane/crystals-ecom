@@ -1,5 +1,5 @@
 import React from "react";
-import Filter from "../components/Products/Filter";
+import Filter from "../components/Filter/Filter";
 import ProductListing from "../components/Products/ProductListing";
 import "./ProductsPage.css";
 function ProductsPage() {
