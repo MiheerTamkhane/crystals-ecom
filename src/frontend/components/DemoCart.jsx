@@ -1,11 +1,9 @@
 import React from "react";
-import Accordion from "./Accordion/Accordion";
 
 function DemoCart() {
   return (
     <div>
-      <h2>Accordion below</h2>
-      <Accordion />
+      <h1>Cart Page</h1>
     </div>
   );
 }

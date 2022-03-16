@@ -21,7 +21,7 @@ function Navbar() {
         <div className="ct-nav-user">
           <div className="ct-nav-icons ">
             <div className="basic-badge nav-icon">
-              <Link to="./components/DemoProds">
+              <Link to="./components/Wishlist">
                 <img src="/assets/svg/wishlist.svg" alt="" />
                 <span className="badge-pop badge">7</span>
               </Link>
