@@ -1,8 +1,8 @@
 .hero {
   background-image: url("./landing.png");
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: 0rem;
+  background-size: cover;
+  background-position: 0rem -7rem;
   backdrop-filter: brightness(10%);
   background-color: rgba(0, 0, 0, 1);
 }
@@ -15,10 +15,10 @@
   height: 90vh;
   text-align: center;
   font-size: 1.6rem;
-  color: var(--gray-300);
+  color: var(--gray-900);
 }
 .hero-container h1 {
-  color: var(--gray-300);
+  color: var(--gray-900);
   font-size: 4rem;
   padding: 0.5rem;
   letter-spacing: 0.1em;
@@ -35,4 +35,14 @@
 }
 .main-cta:hover {
   background-color: var(--violet-700);
+}
+@media only screen and (max-width: 750px) {
+  .hero-container,
+  .hero-container h1 {
+    color: var(--gray-100);
+  }
+  .hero {
+    background-size: contain;
+    background-position: 0rem 17rem;
+  }
 }

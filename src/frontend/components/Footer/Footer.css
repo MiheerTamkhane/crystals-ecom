@@ -51,7 +51,7 @@
   cursor: pointer;
   filter: invert(49%) sepia(17%) saturate(332%) hue-rotate(182deg)
     brightness(87%) contrast(86%);
-  transition: all 200ms ease-in;
+  transition: all 200ms ease;
 }
 .social-links:hover {
   filter: invert(99%) sepia(0%) saturate(6163%) hue-rotate(213deg)

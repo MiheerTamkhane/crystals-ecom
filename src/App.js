@@ -4,11 +4,12 @@ import DemoCart from "./frontend/routes/Cart/DemoCart";
 import Wishlist from "./frontend/routes/Wishlist/Wishlist";
 import Footer from "./frontend/components/Footer/Footer";
 import Home from "./frontend/routes/Home/Home";
-import Navbar from "./frontend/components/Navbar/Navbar";
+import Header from "./frontend/components/Header/Header";
+
 const App = () => {
   return (
-    <div className="App">
-      <Navbar />
+    <div className="app">
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/routes/Wishlist/Wishlist" element={<Wishlist />} />
