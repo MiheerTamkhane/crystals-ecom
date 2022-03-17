@@ -12,6 +12,9 @@ function Navbar() {
         </NavLink>
       </div>
       <div className="ct-right-nav">
+        <div className="hamburger nav-icon basic-badge">
+          <span className="material-icons">menu</span>
+        </div>
         <div className="ct-nav-user">
           <div className="ct-nav-icons ">
             <NavLink
@@ -22,8 +25,9 @@ function Navbar() {
                   : "basic-badge nav-icon icon"
               }
             >
-              <img src="/assets/svg/cart.svg" alt="cart" />
-              {/* <span className="badge-pop badge">7</span> */}
+              {/* <img src="/assets/svg/cart.svg" alt="cart" /> */}
+              <span className="material-icons">shopping_bag</span>
+              <small className="badge-pop badge">7</small>
             </NavLink>
 
             <NavLink
@@ -34,7 +38,8 @@ function Navbar() {
                   : "basic-badge nav-icon icon"
               }
             >
-              <img src="/assets/svg/user.svg" alt="account" />
+              {/* <img src="/assets/svg/user.svg" alt="account" /> */}
+              <span className="material-icons">person</span>
             </NavLink>
           </div>
         </div>

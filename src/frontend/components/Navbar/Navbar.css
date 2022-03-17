@@ -28,20 +28,44 @@
   justify-content: center;
   margin: 0rem 0.5rem;
   cursor: pointer;
+  text-decoration: none;
 }
 
+.nav-icon span {
+  font-size: 2rem;
+}
 .badge {
   font-size: 12px;
   padding: 0 4px;
   font-weight: bolder;
   background: #fff;
-  border: 1px solid gray;
+  border: 1px solid var(--gray-500);
 }
 .icon {
-  filter: invert(22%) sepia(4%) saturate(1712%) hue-rotate(178deg)
-    brightness(88%) contrast(86%);
+  color: var(--gray-500);
 }
 .icon-selected {
-  filter: invert(16%) sepia(58%) saturate(7170%) hue-rotate(264deg)
-    brightness(88%) contrast(91%);
+  color: blueviolet;
+}
+.hamburger {
+  display: none;
+}
+/* 750px */
+
+@media only screen and (max-width: 750px) {
+  .navbar {
+    padding: 1rem 2rem;
+  }
+  .ct-nav-user {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .nav-icon,
+  .nav-icon span {
+    padding: 0;
+    margin: 0;
+    font-size: 2rem;
+  }
 }

@@ -11,29 +11,44 @@ function Footer() {
             <h1>Crystals</h1>
           </NavLink>
           <small>Crystals © 2013 - 2022</small>
+          <div className="social-div">
+            <img
+              src="/assets/svg/github.svg"
+              alt="github"
+              className="social-links"
+            />
+            <img
+              src="/assets/svg/linkedin.svg"
+              alt="linkedin"
+              className="social-links"
+            />
+            <img
+              src="/assets/svg/twitter.svg"
+              alt="twitter"
+              className="social-links"
+            />
+          </div>
         </div>
       </div>
 
       <div className="footer-right">
-        <div className="quick-links">
-          <h2>Quick links</h2>
-          <ul>
-            <li>Search</li>
-            <li>About Us</li>
-            <li>Shipping</li>
-            <li>Refunds & Returns</li>
-            <li>Privacy Policy</li>
-          </ul>
+        <div className="footer-links">
+          <h3>QUICK LINKS</h3>
+          <p>SEARCH</p>
+          <p>ABOUT US</p>
+          <p>CONTACT US</p>
+          <p>REFUND & RETURN</p>
+          <p></p>
         </div>
-        <div className="contact-us">
-          <h2>Contact Us</h2>
-          <p>1077 Regents Park Nasik Road, Nasik</p>
-          <p>+919733148796</p>
-          <p>ghefukat@crystals.com</p>
+        <div className="footer-links">
+          <h3>SITEMAP</h3>
+          <p>HOME</p>
+          <p>PRODUCTS</p>
+          <p>CART</p>
         </div>
-        <div className="contact-us">
-          <h2>Developer</h2>
-          <p>code By Miheer</p>
+        <div className="footer-links">
+          <h3>DEVELOPER</h3>
+          <p>CODE BY MIHEER</p>
         </div>
       </div>
     </div>

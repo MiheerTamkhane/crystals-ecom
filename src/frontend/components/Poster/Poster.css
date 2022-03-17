@@ -11,6 +11,7 @@
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
+
 .img-container {
   height: 400px;
   max-width: 1000%;
@@ -26,4 +27,19 @@
 }
 .content h2 {
   color: var(--gray-700);
+}
+
+@media only screen and (max-width: 900px) {
+  .section-container {
+    flex-direction: column;
+  }
+  .section-col-rev {
+    flex-direction: column-reverse;
+  }
+  .content {
+    max-width: 80%;
+  }
+  .content-btn {
+    align-self: flex-end;
+  }
 }

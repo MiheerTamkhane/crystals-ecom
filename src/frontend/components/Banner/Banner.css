@@ -1,8 +1,10 @@
 .hero {
   background-image: url("./landing.png");
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 0rem -7rem;
+  background-size: contain;
+  background-position: 0rem;
+  backdrop-filter: brightness(10%);
+  background-color: rgba(0, 0, 0, 1);
 }
 .hero-container {
   display: flex;
@@ -13,19 +15,24 @@
   height: 90vh;
   text-align: center;
   font-size: 1.6rem;
-  background: rgba(0, 0, 0, 0.02);
+  color: var(--gray-300);
 }
 .hero-container h1 {
-  color: var(--primary);
+  color: var(--gray-300);
   font-size: 4rem;
   padding: 0.5rem;
   letter-spacing: 0.1em;
 }
 .ct-btn .banner-link {
   text-decoration: none;
-  color: var(--body);
+  color: var(--gray-300);
 }
 .main-cta {
   font-size: 1.2rem;
   margin: 1rem;
+  background-color: var(--violet-500);
+  transition: all 250ms ease-in;
+}
+.main-cta:hover {
+  background-color: var(--violet-700);
 }

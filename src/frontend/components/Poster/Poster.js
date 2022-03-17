@@ -3,7 +3,11 @@ import "./Poster.css";
 import { NavLink } from "react-router-dom";
 function Poster({ data }) {
   return (
-    <section className="section-container">
+    <section
+      className={
+        data.left ? "section-container" : "section-container section-col-rev"
+      }
+    >
       {data.left && (
         <div className="img-container">
           <img src={data.img} alt="poster-img" />
@@ -12,7 +16,7 @@ function Poster({ data }) {
       <div className="content">
         <h2>{data.title}</h2>
         <p>{data.desc}</p>
-        <button className="ct-btn ct-gray">
+        <button className="ct-btn ct-gray content-btn">
           <NavLink to="/" className="link">
             SHOP HERE
           </NavLink>

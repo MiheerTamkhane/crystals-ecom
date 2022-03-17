@@ -8,9 +8,9 @@ function Banner() {
         <div className="hero-container">
           <h1>CRYSTALS</h1>
           <p>Curated Collections / Ethically Conscious</p>
-          <button className="ct-btn ct-gray main-cta">
+          <button className="ct-btn  main-cta">
             <NavLink to="/" className="banner-link">
-              Shop Here
+              SHOP HERE
             </NavLink>
           </button>
         </div>
