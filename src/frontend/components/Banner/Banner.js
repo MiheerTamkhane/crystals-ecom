@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Banner.css";
 function Banner() {
   return (
@@ -9,9 +9,12 @@ function Banner() {
           <h1>CRYSTALS</h1>
           <p>Curated Collections / Ethically Conscious</p>
           <button className="ct-btn  main-cta">
-            <NavLink to="/" className="banner-link">
+            <Link
+              to="/routes/ProductsPage/ProductsPage"
+              className="banner-link"
+            >
               SHOP HERE
-            </NavLink>
+            </Link>
           </button>
         </div>
       </main>

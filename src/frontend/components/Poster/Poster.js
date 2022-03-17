@@ -1,6 +1,6 @@
 import React from "react";
 import "./Poster.css";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 function Poster({ data }) {
   return (
     <section
@@ -17,9 +17,9 @@ function Poster({ data }) {
         <h2>{data.title}</h2>
         <p>{data.desc}</p>
         <button className="ct-btn ct-gray content-btn">
-          <NavLink to="/" className="link">
+          <Link to="/routes/ProductsPage/ProductsPage" className="link">
             SHOP HERE
-          </NavLink>
+          </Link>
         </button>
       </div>
       {!data.left && (
