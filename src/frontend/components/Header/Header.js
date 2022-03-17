@@ -1,9 +1,7 @@
 import React from "react";
 import MobileNavbar from "../MobileNavbar/MobileNavbar";
 import Navbar from "../Navbar/Navbar";
-import { useNavContext } from "../../contexts/NavContext/NavContext";
-function Heading() {
-  const { isNav } = useNavContext();
+function Header() {
   return (
     <div>
       <Navbar />
@@ -12,4 +10,4 @@ function Heading() {
   );
 }
 
-export default Heading;
+export { Header };

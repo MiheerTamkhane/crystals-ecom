@@ -8,4 +8,4 @@ function Wishlist() {
   );
 }
 
-export default Wishlist;
+export { Wishlist };

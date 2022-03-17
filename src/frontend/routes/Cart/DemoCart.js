@@ -8,4 +8,4 @@ function DemoCart() {
   );
 }
 
-export default DemoCart;
+export { DemoCart };
