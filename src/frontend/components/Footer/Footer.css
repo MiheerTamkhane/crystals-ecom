@@ -13,7 +13,8 @@
   gap: 2rem;
 }
 
-.footer-left .logo h1 {
+.footer-left,
+.logo h1 {
   letter-spacing: 0.1em;
 }
 .footer-left small {
@@ -40,6 +41,14 @@
 .footer-links {
   display: flex;
   flex-direction: column;
+}
+.footer-links .footer-link {
+  text-decoration: none;
+  color: var(--gray-500);
+  transition: all 200ms ease-in;
+}
+.footer-links .footer-link:hover {
+  color: var(--gray-100);
 }
 .social-div {
   margin: 1rem 0;
