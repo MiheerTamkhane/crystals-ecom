@@ -20,21 +20,6 @@ import { v4 as uuid } from "uuid";
 //     "70% bonanza",
 //     "Republic Day Sale"
 //   ]),
-//   idealFor: faker.random.arrayElement([
-//     "Men",
-//     "Women",
-//     "Girl",
-//     "Boy",
-//     "Senior"
-//   ]),
-//   level: faker.random.arrayElement([
-//     "beginner",
-//     "amateur",
-//     "intermediate",
-//     "advanced",
-//     "professional"
-//   ]),
-//   color: faker.commerce.color()
 // }
 
 export const products = [
