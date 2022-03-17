@@ -13,7 +13,8 @@
   gap: 2rem;
 }
 
-.footer-left .logo h1 {
+.footer-left,
+.logo h1 {
   letter-spacing: 0.1em;
 }
 .footer-left small {
@@ -41,6 +42,14 @@
   display: flex;
   flex-direction: column;
 }
+.footer-links .footer-link {
+  text-decoration: none;
+  color: var(--gray-500);
+  transition: all 200ms ease-in;
+}
+.footer-links .footer-link:hover {
+  color: var(--gray-100);
+}
 .social-div {
   margin: 1rem 0;
   display: flex;
@@ -51,7 +60,7 @@
   cursor: pointer;
   filter: invert(49%) sepia(17%) saturate(332%) hue-rotate(182deg)
     brightness(87%) contrast(86%);
-  transition: all 200ms ease-in;
+  transition: all 200ms ease;
 }
 .social-links:hover {
   filter: invert(99%) sepia(0%) saturate(6163%) hue-rotate(213deg)

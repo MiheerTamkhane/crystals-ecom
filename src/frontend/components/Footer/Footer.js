@@ -12,21 +12,27 @@ function Footer() {
           </NavLink>
           <small>Crystals © 2013 - 2022</small>
           <div className="social-div">
-            <img
-              src="/assets/svg/github.svg"
-              alt="github"
-              className="social-links"
-            />
-            <img
-              src="/assets/svg/linkedin.svg"
-              alt="linkedin"
-              className="social-links"
-            />
-            <img
-              src="/assets/svg/twitter.svg"
-              alt="twitter"
-              className="social-links"
-            />
+            <a href="">
+              <img
+                src="/assets/svg/github.svg"
+                alt="github"
+                className="social-links"
+              />
+            </a>
+            <a href="">
+              <img
+                src="/assets/svg/linkedin.svg"
+                alt="linkedin"
+                className="social-links"
+              />
+            </a>
+            <a href="">
+              <img
+                src="/assets/svg/twitter.svg"
+                alt="twitter"
+                className="social-links"
+              />
+            </a>
           </div>
         </div>
       </div>
@@ -42,9 +48,15 @@ function Footer() {
         </div>
         <div className="footer-links">
           <h3>SITEMAP</h3>
-          <p>HOME</p>
-          <p>PRODUCTS</p>
-          <p>CART</p>
+          <NavLink to="/" className="footer-link">
+            <p>HOME</p>
+          </NavLink>
+          <NavLink to="/" className="footer-link">
+            <p>PRODUCTS</p>
+          </NavLink>
+          <NavLink to="/" className="footer-link">
+            <p>HOME</p>
+          </NavLink>
         </div>
         <div className="footer-links">
           <h3>DEVELOPER</h3>
@@ -55,4 +67,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export { Footer };
