@@ -10,16 +10,16 @@
   color: var(--gray-100);
 }
 
-.mobile-navbar-open {
+/* .mobile-navbar-open {
   width: 100vw;
   height: 100vh;
-}
+} */
 
 .navbar-head {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--gray-900);
   padding: 1rem 2rem;
   padding-left: 2rem;
 }
@@ -38,10 +38,16 @@
   list-style: none;
   font-size: 1.6rem;
   padding: 0.5rem;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--gray-900);
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
+}
+@media only screen and (max-width: 750px) {
+  .mobile-navbar-open {
+    width: 100vw;
+    height: 100vh;
+  }
 }
