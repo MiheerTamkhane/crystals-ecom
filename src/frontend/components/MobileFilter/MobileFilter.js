@@ -1,9 +1,8 @@
 import React from "react";
 import "./MobileFilter.css";
 import { useAccordion } from "../../contexts/AccordionContext/AccordionContext";
-import Filter from "../Filter/Filter";
 const MobileFilter = () => {
-  const { isMobileFilter, setIsMobileFilter } = useAccordion();
+  const { setIsMobileFilter } = useAccordion();
   return (
     <div className="mobile-filter">
       <button
@@ -12,7 +11,6 @@ const MobileFilter = () => {
       >
         <span>Filter</span> <span className="material-icons">sort</span>
       </button>
-      {/* {isMobileFilter && <Filter />} */}
     </div>
   );
 };

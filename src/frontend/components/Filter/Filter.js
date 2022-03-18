@@ -34,7 +34,22 @@ function Filter() {
             <label>150</label>
             <label>200</label>
           </div>
-          <input type="range" className="range" />
+          <input
+            type="range"
+            className="range"
+            list="steplist"
+            min="0"
+            max="1500"
+            step="300"
+          />
+          <datalist id="steplist">
+            <option>0</option>
+            <option>300</option>
+            <option>600</option>
+            <option>900</option>
+            <option>1200</option>
+            <option>1500</option>
+          </datalist>
         </div>
       </div>
 
