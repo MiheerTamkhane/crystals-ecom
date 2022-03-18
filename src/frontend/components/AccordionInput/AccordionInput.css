@@ -1,0 +1,22 @@
+.accordion-input {
+  list-style: none;
+  margin: 0.5rem 0rem;
+  display: flex;
+  align-items: center;
+}
+.accordion-input > * {
+  margin: 0 6px;
+}
+input[type="radio"]:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -3px;
+  left: -3px;
+  position: relative;
+  background-color: var(--violet-500);
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}

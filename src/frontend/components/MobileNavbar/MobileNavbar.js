@@ -1,31 +1,67 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+import { useAccordion } from "../../contexts/AccordionContext/AccordionContext";
 import { useNavContext } from "../../contexts/NavContext/NavContext";
 import "./MobileNavbar.css";
 function MobileNavbar() {
   const { isNav, setIsNav } = useNavContext();
+  const { setIsMobileFilter } = useAccordion();
   return (
     <div
       className={isNav ? "mobile-navbar mobile-navbar-open" : "mobile-navbar"}
     >
       <div className="navbar-head">
-        <h1>Crystals</h1>
-        <span className="material-icons" onClick={() => setIsNav(false)}>
+        <NavLink
+          to="/"
+          className="mobile-nav-link-heading"
+          onClick={() => setIsNav(false)}
+        >
+          <h1>Crystals</h1>
+        </NavLink>
+        <span
+          className="material-icons"
+          onClick={() => {
+            setIsNav(false);
+            setIsMobileFilter(false);
+          }}
+        >
           close
         </span>
       </div>
       <ul className="navbar-body">
-        <li>
-          <span> Porducts</span>
+        <NavLink
+          to="/routes/ProductsPage/ProductsPage"
+          className="mobile-nav-link"
+          onClick={() => {
+            setIsNav(false);
+            setIsMobileFilter(false);
+          }}
+        >
+          <span>Porducts</span>
           <span className="material-icons">navigate_next</span>
-        </li>
-        <li>
-          <span> Cart</span>
+        </NavLink>
+        <NavLink
+          to="/"
+          className="mobile-nav-link"
+          onClick={() => {
+            setIsNav(false);
+            setIsMobileFilter(false);
+          }}
+        >
+          <span>Cart</span>
           <span className="material-icons">navigate_next</span>
-        </li>
-        <li>
-          <span> Login</span>
+        </NavLink>
+        <NavLink
+          to="/"
+          className="mobile-nav-link"
+          onClick={() => {
+            setIsNav(false);
+            setIsMobileFilter(false);
+          }}
+        >
+          <span>Login</span>
           <span className="material-icons">navigate_next</span>
-        </li>
+        </NavLink>
       </ul>
     </div>
   );

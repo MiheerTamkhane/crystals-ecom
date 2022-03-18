@@ -1,0 +1,70 @@
+.filter-bar {
+  height: 90vh;
+  border-right: 1px solid var(--gray-300);
+  padding: 1rem 0rem;
+  flex: 0.2;
+  overflow-y: scroll;
+}
+
+.filter-comp {
+  padding: 0rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+  align-items: center;
+}
+.filter-heading {
+  margin-bottom: 0.5rem;
+}
+.prices {
+  display: flex;
+  justify-content: space-between;
+}
+.range {
+  padding-top: 0.2rem;
+  width: 100%;
+}
+
+.list {
+  list-style: none;
+}
+.list li {
+  padding: 0.2rem 0;
+}
+.list input,
+.list label {
+  cursor: pointer;
+}
+.mobile-filter-close {
+  display: none;
+}
+@media only screen and (max-width: 750px) {
+  .remove-filter {
+    position: absolute;
+    z-index: 99;
+    background-color: var(--violet-300);
+    left: -1000px;
+    width: 100%;
+    height: 100%;
+    transition: all 250ms ease;
+  }
+
+  .add-filter-bar {
+    position: absolute;
+    z-index: 99;
+    background-color: var(--body);
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    transition: all 250ms ease;
+  }
+  .mobile-filter-close {
+    display: flex;
+    cursor: pointer;
+  }
+}

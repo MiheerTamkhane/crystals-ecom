@@ -1,0 +1,22 @@
+.mobile-filter-btn {
+  margin: 1rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  font-size: 1.2rem;
+  padding: 6px 10px;
+  border-radius: 10px;
+  gap: 10px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  cursor: pointer;
+}
+.mobile-filter {
+  display: none;
+}
+@media only screen and (max-width: 750px) {
+  .mobile-filter {
+    display: flex;
+  }
+}

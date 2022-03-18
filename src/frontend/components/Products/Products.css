@@ -1,3 +1,9 @@
+.products-container {
+  display: flex;
+  flex-direction: column;
+  flex: 0.8;
+}
+
 .products-div {
   display: flex;
   width: 100%;
@@ -13,6 +19,7 @@
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 7px;
 }
 .product-card h4 {
   padding-top: 0.4rem;
@@ -27,4 +34,16 @@
   width: 100%;
   justify-content: center;
   background-color: var(--orange-300);
+}
+.ct-card-wish {
+  cursor: pointer;
+  color: var(--gray-500);
+}
+
+.card-wish-uncheck {
+  cursor: pointer;
+}
+.sold-out-theme {
+  filter: brightness(70%);
+  cursor: not-allowed;
 }

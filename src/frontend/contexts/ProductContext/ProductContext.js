@@ -8,7 +8,6 @@ const ProductsProvider = ({ children }) => {
   useEffect(() => {
     (async () => {
       const response = await axios.get("/api/products");
-      //   setLoader(false);
       setProducts(response.data.products);
     })();
   }, []);
