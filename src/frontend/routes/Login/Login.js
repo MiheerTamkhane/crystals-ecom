@@ -33,7 +33,7 @@ const Login = () => {
         <button className="ct-form-btn ct-violet-btn" type="submit">
           LOGIN
         </button>
-        <NavLink to="/routes/SignUp/SignUp" className="login-link">
+        <NavLink to="/routes/SignUp/SignUp" className="form-link">
           Create new account
           <span className="material-icons">chevron_right</span>
         </NavLink>

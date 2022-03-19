@@ -26,9 +26,9 @@
 .ct-violet-btn {
   color: var(--gray-100);
   background-color: var(--violet-500);
-  margin: 0;
   transition: all 250ms ease;
   font-family: "Nunito", sans-serif;
+  margin: 0;
 }
 .ct-violet-btn:hover {
   background-color: var(--violet-700);
@@ -39,7 +39,9 @@
   gap: 0.3rem;
   flex-wrap: wrap;
 }
-.login-link {
+.form-link {
+  width: fit-content;
+  margin: 1rem auto;
   text-decoration: none;
   display: flex;
   justify-content: center;
@@ -47,6 +49,6 @@
   color: var(--gray-500);
   transition: all 250ms ease;
 }
-.login-link:hover {
+.form-link:hover {
   color: var(--violet-700);
 }

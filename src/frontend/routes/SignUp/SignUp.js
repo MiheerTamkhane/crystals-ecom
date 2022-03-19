@@ -38,7 +38,7 @@ const SignUp = () => {
         <button className="ct-form-btn ct-violet-btn" type="submit">
           CREATE NEW ACCOUNT
         </button>
-        <NavLink to="/routes/Login/Login" className="login-link">
+        <NavLink to="/routes/Login/Login" className="form-link">
           Already have an account
           <span className="material-icons">chevron_right</span>
         </NavLink>
