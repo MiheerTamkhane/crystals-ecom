@@ -1,11 +1,14 @@
 import React from "react";
+import { Filter } from "../../components/index";
+import { Products } from "../../components/index";
 import "./ProductsPage.css";
 function ProductsPage() {
   return (
     <div className="products-page">
-      <h1>Product Page</h1>
+      <Filter />
+      <Products />
     </div>
   );
 }
 
-export default ProductsPage;
+export { ProductsPage };

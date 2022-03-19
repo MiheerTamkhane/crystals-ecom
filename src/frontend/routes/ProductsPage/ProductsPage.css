@@ -1,3 +1,9 @@
 .products-page {
   display: flex;
 }
+
+@media only screen and (max-width: 750px) {
+  .products-container {
+    flex: 1;
+  }
+}

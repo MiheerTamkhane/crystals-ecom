@@ -1,8 +1,7 @@
 import React from "react";
-
-import "./Navbar.css";
 import { NavLink } from "react-router-dom";
-import { useNavContext } from "../../contexts/NavContext/NavContext";
+import "./Navbar.css";
+import { useNavContext } from "../../contexts/NavContext";
 function Navbar() {
   const { setIsNav } = useNavContext();
   return (
@@ -13,6 +12,7 @@ function Navbar() {
           <h1>Crystals</h1>
         </NavLink>
       </div>
+      {/* Search bar will come here  */}
       <div className="ct-right-nav">
         <div className="hamburger nav-icon basic-badge">
           <span className="material-icons" onClick={() => setIsNav(true)}>
@@ -29,7 +29,6 @@ function Navbar() {
                   : "basic-badge nav-icon icon"
               }
             >
-              {/* <img src="/assets/svg/cart.svg" alt="cart" /> */}
               <span className="material-icons">shopping_bag</span>
               <small className="badge-pop badge">7</small>
             </NavLink>
@@ -42,7 +41,6 @@ function Navbar() {
                   : "basic-badge nav-icon icon"
               }
             >
-              {/* <img src="/assets/svg/user.svg" alt="account" /> */}
               <span className="material-icons">person</span>
             </NavLink>
           </div>
@@ -52,4 +50,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export { Navbar };

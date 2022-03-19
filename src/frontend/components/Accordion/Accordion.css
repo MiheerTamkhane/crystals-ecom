@@ -1,0 +1,25 @@
+.accordion {
+  margin-top: 0.5rem;
+}
+
+.title {
+  border-bottom: 1px solid var(--gray-500);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 6px 1.2rem;
+}
+.title span {
+  font-size: 1.6rem;
+}
+.acc-content {
+  max-height: 0;
+  padding: 0rem 1rem;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0, 1, 0, 1);
+}
+.acc-content.show {
+  max-height: 100vh;
+  transition: all 0.3s cubic-bezier(1, 0, 1, 0);
+}
