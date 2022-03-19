@@ -4,9 +4,9 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
-import { NavProvider } from "./frontend/contexts/NavContext/NavContext";
-import { ProductsProvider } from "./frontend/contexts/ProductContext/ProductContext";
-import { AccordionProvider } from "./frontend/contexts/AccordionContext/AccordionContext";
+import { NavProvider } from "./frontend/contexts/NavContext";
+import { ProductsProvider } from "./frontend/contexts/ProductContext";
+import { FilterProvider } from "./frontend/contexts/FilterContext";
 // Call make Server
 makeServer();
 
@@ -15,9 +15,9 @@ ReactDOM.render(
     <BrowserRouter>
       <ProductsProvider>
         <NavProvider>
-          <AccordionProvider>
+          <FilterProvider>
             <App />
-          </AccordionProvider>
+          </FilterProvider>
         </NavProvider>
       </ProductsProvider>
     </BrowserRouter>

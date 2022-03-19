@@ -1,5 +1,5 @@
-import "./AccordionInput.css";
-export default function AccordionInputComp({ data }) {
+import "./FilterInput.css";
+function FilterInput({ data }) {
   return (
     <ul>
       {data.map((item, i) => {
@@ -9,6 +9,7 @@ export default function AccordionInputComp({ data }) {
               type={item.inputType}
               id={item.typeTitle}
               name={item.inputType}
+              className="filter-input"
             />
             <label htmlFor={item.typeTitle}>{item.typeTitle}</label>
           </li>
@@ -17,3 +18,5 @@ export default function AccordionInputComp({ data }) {
     </ul>
   );
 }
+
+export { FilterInput };

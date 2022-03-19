@@ -1,12 +1,16 @@
 .filter-bar {
-  height: 90vh;
+  max-height: 90vh;
   border-right: 1px solid var(--gray-300);
   padding: 1rem 0rem;
   flex: 0.2;
-  overflow-y: scroll;
+  overflow: auto;
 }
-
+.filter-bar::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
 .filter-comp {
+  overflow: auto;
   padding: 0rem 1.2rem;
   display: flex;
   justify-content: space-between;
@@ -28,6 +32,7 @@
 .range {
   padding-top: 0.2rem;
   width: 100%;
+  accent-color: var(--violet-500);
 }
 
 .list {

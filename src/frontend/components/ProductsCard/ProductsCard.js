@@ -1,10 +1,8 @@
 import React from "react";
 import "./ProductsCard.css";
-import { useState } from "react";
-import { useProducts } from "../../contexts/ProductContext/ProductContext";
+import { useProducts } from "../../contexts/ProductContext";
 const ProductsCard = () => {
   const { products } = useProducts();
-  const [isWish, setIsWish] = useState(false);
   return (
     <div className="products-div">
       {products.map((product) => {
@@ -18,7 +16,10 @@ const ProductsCard = () => {
                 BESTSELLER
               </span>
             )}
-            <span className="material-icons  ct-card-wish">
+            <span
+              className="material-icons  ct-card-wish"
+              onClick={() => setIsWish((wish) => !wish)}
+            >
               favorite_border
             </span>
             <img src={product.image} alt="fist" className="ct-card-img" />
@@ -39,4 +40,4 @@ const ProductsCard = () => {
   );
 };
 
-export default ProductsCard;
+export { ProductsCard };

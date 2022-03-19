@@ -1,11 +1,11 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { DemoCart } from "./frontend";
-import { Wishlist } from "./frontend";
-import { Footer } from "./frontend";
-import { Home } from "./frontend";
-import { Header } from "./frontend";
-import { ProductsPage } from "./frontend/routes/ProductsPage/ProductsPage";
+import { DemoCart } from "./frontend/index";
+import { Wishlist } from "./frontend/index";
+import { Footer } from "./frontend/index";
+import { Home } from "./frontend/index";
+import { Header } from "./frontend/index";
+import { ProductsPage } from "./frontend/index";
 
 const App = () => {
   return (

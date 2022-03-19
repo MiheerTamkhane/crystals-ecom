@@ -1,10 +1,10 @@
 import React from "react";
-import { useAccordion } from "../../contexts/AccordionContext/AccordionContext";
-import Accordion from "../Accordion/Accordion";
+import { useFilter } from "../../contexts/FilterContext";
+import { Accordion } from "../index";
 import "./Filter.css";
 
 function Filter() {
-  const { data, isMobileFilter, setIsMobileFilter } = useAccordion();
+  const { data, isMobileFilter, setIsMobileFilter } = useFilter();
 
   return (
     <section
@@ -30,25 +30,25 @@ function Filter() {
         <h3 className="filter-heading">Price</h3>
         <div>
           <div className="prices list">
-            <label>50</label>
-            <label>150</label>
-            <label>200</label>
+            <label>0</label>
+            <label>2500</label>
+            <label>5000</label>
           </div>
           <input
             type="range"
             className="range"
             list="steplist"
             min="0"
-            max="1500"
-            step="300"
+            max="5000"
+            step="1000"
           />
           <datalist id="steplist">
             <option>0</option>
-            <option>300</option>
-            <option>600</option>
-            <option>900</option>
-            <option>1200</option>
-            <option>1500</option>
+            <option>1000</option>
+            <option>2000</option>
+            <option>3000</option>
+            <option>4000</option>
+            <option>5000</option>
           </datalist>
         </div>
       </div>
@@ -60,4 +60,4 @@ function Filter() {
   );
 }
 
-export default Filter;
+export { Filter };

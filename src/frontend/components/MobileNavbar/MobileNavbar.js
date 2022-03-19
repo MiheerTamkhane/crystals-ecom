@@ -1,11 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { useAccordion } from "../../contexts/AccordionContext/AccordionContext";
-import { useNavContext } from "../../contexts/NavContext/NavContext";
+import { useFilter } from "../../contexts/FilterContext";
+import { useNavContext } from "../../contexts/NavContext";
 import "./MobileNavbar.css";
 function MobileNavbar() {
   const { isNav, setIsNav } = useNavContext();
-  const { setIsMobileFilter } = useAccordion();
+  const { setIsMobileFilter } = useFilter();
   return (
     <div
       className={isNav ? "mobile-navbar mobile-navbar-open" : "mobile-navbar"}
@@ -67,4 +67,4 @@ function MobileNavbar() {
   );
 }
 
-export default MobileNavbar;
+export { MobileNavbar };

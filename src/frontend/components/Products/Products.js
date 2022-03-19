@@ -1,16 +1,16 @@
 import React from "react";
 import "./Products.css";
 
-import MobileFilter from "../MobileFilter/MobileFilter";
-import ProductsCard from "../ProductsCard/ProductsCard";
+import { MobileFilterBtn } from "../index";
+import { ProductsCard } from "../index";
 
 const Products = () => {
   return (
     <div className="products-container">
-      <MobileFilter />
+      <MobileFilterBtn />
       <ProductsCard />
     </div>
   );
 };
 
-export default Products;
+export { Products };

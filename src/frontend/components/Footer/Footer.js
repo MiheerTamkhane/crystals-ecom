@@ -39,12 +39,12 @@ function Footer() {
 
       <div className="footer-right">
         <div className="footer-links">
-          <h3>QUICK LINKS</h3>
+          <h3>TO MORE INFO</h3>
           <p>SEARCH</p>
           <p>ABOUT US</p>
           <p>CONTACT US</p>
           <p>REFUND & RETURN</p>
-          <p></p>
+          <p>PRIVACY</p>
         </div>
         <div className="footer-links">
           <h3>SITEMAP</h3>

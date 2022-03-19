@@ -1,10 +1,10 @@
 import { createContext, useContext, useState } from "react";
 
-const AccordionContext = createContext();
+const FilterContext = createContext();
 
-const useAccordion = () => useContext(AccordionContext);
+const useFilter = () => useContext(FilterContext);
 
-const AccordionProvider = ({ children }) => {
+const FilterProvider = ({ children }) => {
   const data = [
     {
       title: "Categoies",
@@ -29,18 +29,24 @@ const AccordionProvider = ({ children }) => {
         { typeTitle: "High to Low", inputType: "radio" },
       ],
     },
+    {
+      title: "Ratings",
+      types: [
+        { typeTitle: "4 Stars & above", inputType: "radio" },
+        { typeTitle: "3 Stars & above", inputType: "radio" },
+        { typeTitle: "2 Stars & above", inputType: "radio" },
+      ],
+    },
   ];
 
   // Mobile navar show-hide state here...
   const [isMobileFilter, setIsMobileFilter] = useState(false);
 
   return (
-    <AccordionContext.Provider
-      value={{ data, isMobileFilter, setIsMobileFilter }}
-    >
+    <FilterContext.Provider value={{ data, isMobileFilter, setIsMobileFilter }}>
       {children}
-    </AccordionContext.Provider>
+    </FilterContext.Provider>
   );
 };
 
-export { useAccordion, AccordionProvider };
+export { useFilter, FilterProvider };

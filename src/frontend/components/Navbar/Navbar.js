@@ -1,8 +1,7 @@
 import React from "react";
-
-import "./Navbar.css";
 import { NavLink } from "react-router-dom";
-import { useNavContext } from "../../contexts/NavContext/NavContext";
+import "./Navbar.css";
+import { useNavContext } from "../../contexts/NavContext";
 function Navbar() {
   const { setIsNav } = useNavContext();
   return (
@@ -51,4 +50,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export { Navbar };

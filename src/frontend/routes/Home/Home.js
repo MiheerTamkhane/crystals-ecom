@@ -1,7 +1,7 @@
 import React from "react";
-import Banner from "../../components/Banner/Banner";
+import { Banner } from "../../components/index";
 
-import Poster from "../../components/Poster/Poster";
+import { Poster } from "../../components/index";
 
 const Home = () => {
   const homeData = [

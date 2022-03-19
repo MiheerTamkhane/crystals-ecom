@@ -1,6 +1,6 @@
 import React from "react";
-import Filter from "../../components/Filter/Filter";
-import Products from "../../components/Products/Products";
+import { Filter } from "../../components/index";
+import { Products } from "../../components/index";
 import "./ProductsPage.css";
 function ProductsPage() {
   return (
