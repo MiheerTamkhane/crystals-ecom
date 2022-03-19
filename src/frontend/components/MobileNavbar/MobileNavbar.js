@@ -41,7 +41,7 @@ function MobileNavbar() {
           <span className="material-icons">navigate_next</span>
         </NavLink>
         <NavLink
-          to="/"
+          to="/routes/Cart/DemoCart"
           className="mobile-nav-link"
           onClick={() => {
             setIsNav(false);
@@ -52,7 +52,18 @@ function MobileNavbar() {
           <span className="material-icons">navigate_next</span>
         </NavLink>
         <NavLink
-          to="/"
+          to="/routes/SignUp/SignUp"
+          className="mobile-nav-link"
+          onClick={() => {
+            setIsNav(false);
+            setIsMobileFilter(false);
+          }}
+        >
+          <span>SignUp</span>
+          <span className="material-icons">navigate_next</span>
+        </NavLink>
+        <NavLink
+          to="/routes/Login/Login"
           className="mobile-nav-link"
           onClick={() => {
             setIsNav(false);

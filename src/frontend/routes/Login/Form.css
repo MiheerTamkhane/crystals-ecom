@@ -1,0 +1,52 @@
+.form-container {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ct-form {
+  border-radius: 7px;
+}
+.ct-input {
+  color: var(--gray-500);
+  border-color: var(--violet-700);
+  font-size: 1rem;
+}
+.login-check-input {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.login-check-input > span {
+  margin-left: 5px;
+}
+.ct-form h2 {
+  color: var(--gray-700);
+}
+.ct-violet-btn {
+  color: var(--gray-100);
+  background-color: var(--violet-500);
+  margin: 0;
+  transition: all 250ms ease;
+  font-family: "Nunito", sans-serif;
+}
+.ct-violet-btn:hover {
+  background-color: var(--violet-700);
+}
+.ct-checkbox-div {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+.login-link {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--gray-500);
+  transition: all 250ms ease;
+}
+.login-link:hover {
+  color: var(--violet-700);
+}
