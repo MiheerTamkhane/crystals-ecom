@@ -11,6 +11,7 @@
   color: var(--gray-500);
   border-color: var(--violet-700);
   font-size: 1rem;
+  border-radius: 3px;
 }
 .login-check-input {
   cursor: pointer;
@@ -29,6 +30,7 @@
   transition: all 250ms ease;
   font-family: "Nunito", sans-serif;
   margin: 0;
+  border-radius: 3px;
 }
 .ct-violet-btn:hover {
   background-color: var(--violet-700);
