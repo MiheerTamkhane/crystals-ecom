@@ -6,7 +6,8 @@ import { Footer } from "./frontend/index";
 import { Home } from "./frontend/index";
 import { Header } from "./frontend/index";
 import { ProductsPage } from "./frontend/index";
-
+import { SignUp } from "./frontend/index";
+import { Login } from "./frontend/index";
 const App = () => {
   return (
     <div className="app">
@@ -19,7 +20,9 @@ const App = () => {
           path="/routes/ProductsPage/ProductsPage"
           element={<ProductsPage />}
         />
-        <Route path="/" element={<Home />} />
+        <Route path="/routes/Wishlist/Wishlist" element={<Wishlist />} />
+        <Route path="/routes/SignUp/SignUp" element={<SignUp />} />
+        <Route path="/routes/Login/Login" element={<Login />} />
       </Routes>
       <Footer />
     </div>
