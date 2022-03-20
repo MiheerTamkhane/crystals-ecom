@@ -22,7 +22,19 @@ function Navbar() {
         <div className="ct-nav-user">
           <div className="ct-nav-icons ">
             <NavLink
-              to="./routes/Cart/DemoCart"
+              to="/Wishlist"
+              className={({ isActive }) =>
+                isActive
+                  ? "basic-badge nav-icon icon-selected"
+                  : "basic-badge nav-icon icon"
+              }
+            >
+              <span className="material-icons">favorite</span>
+              <small className="badge-pop badge">7</small>
+            </NavLink>
+
+            <NavLink
+              to="/DemoCart"
               className={({ isActive }) =>
                 isActive
                   ? "basic-badge nav-icon icon-selected"
@@ -34,14 +46,14 @@ function Navbar() {
             </NavLink>
 
             <NavLink
-              to="/"
+              to="/Login"
               className={({ isActive }) =>
                 isActive
                   ? "basic-badge nav-icon icon-selected"
                   : "basic-badge nav-icon icon"
               }
             >
-              <span className="material-icons">person</span>
+              <span className="material-icons">login</span>
             </NavLink>
           </div>
         </div>

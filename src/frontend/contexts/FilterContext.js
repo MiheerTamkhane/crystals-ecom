@@ -7,7 +7,7 @@ const useFilter = () => useContext(FilterContext);
 const FilterProvider = ({ children }) => {
   const data = [
     {
-      title: "Categoies",
+      title: "Categories",
       types: [
         { typeTitle: "Necklace", inputType: "checkbox" },
         { typeTitle: "Rings", inputType: "checkbox" },
