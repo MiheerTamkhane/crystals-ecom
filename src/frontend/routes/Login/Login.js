@@ -25,7 +25,7 @@ const Login = () => {
 
         <div className="ct-checkbox-div">
           <label for="checkbox" className="login-check-input">
-            <input type="checkbox" id="checkbox" required />
+            <input type="checkbox" id="checkbox" />
             <span>Remember me</span>
           </label>
           <a href="####">Forgot your password?</a>
