@@ -1,6 +1,6 @@
 import React from "react";
-import { MobileNavbar } from "../index";
-import { Navbar } from "../index";
+import { MobileNavbar, Navbar } from "../index";
+
 function Header() {
   return (
     <div>

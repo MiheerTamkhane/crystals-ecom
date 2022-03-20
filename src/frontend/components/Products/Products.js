@@ -1,8 +1,7 @@
 import React from "react";
 import "./Products.css";
 
-import { MobileFilterBtn } from "../index";
-import { ProductsCard } from "../index";
+import { MobileFilterBtn, ProductsCard } from "../index";
 
 const Products = () => {
   return (

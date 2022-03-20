@@ -48,14 +48,14 @@ function Footer() {
         </div>
         <div className="footer-links">
           <h3>SITEMAP</h3>
-          <NavLink to="/" className="footer-link">
+          <NavLink to="/Home" className="footer-link">
             <p>HOME</p>
           </NavLink>
-          <NavLink to="/" className="footer-link">
+          <NavLink to="/ProductsPage" className="footer-link">
             <p>PRODUCTS</p>
           </NavLink>
-          <NavLink to="/" className="footer-link">
-            <p>HOME</p>
+          <NavLink to="/Login" className="footer-link">
+            <p>LOGIN</p>
           </NavLink>
         </div>
         <div className="footer-links">

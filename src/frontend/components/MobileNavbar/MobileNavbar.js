@@ -30,7 +30,7 @@ function MobileNavbar() {
       </div>
       <ul className="navbar-body">
         <NavLink
-          to="/routes/ProductsPage/ProductsPage"
+          to="/ProductsPage"
           className="mobile-nav-link"
           onClick={() => {
             setIsNav(false);
@@ -52,7 +52,7 @@ function MobileNavbar() {
           <span className="material-icons">navigate_next</span>
         </NavLink>
         <NavLink
-          to="/routes/SignUp/SignUp"
+          to="/SignUp"
           className="mobile-nav-link"
           onClick={() => {
             setIsNav(false);
@@ -63,7 +63,7 @@ function MobileNavbar() {
           <span className="material-icons">navigate_next</span>
         </NavLink>
         <NavLink
-          to="/routes/Login/Login"
+          to="/Login"
           className="mobile-nav-link"
           onClick={() => {
             setIsNav(false);
