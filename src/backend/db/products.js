@@ -15,17 +15,19 @@ export const products = [
     isBestSeller: false,
     material: "Aquamarine, Sterling Silver",
     category: "necklace",
-    rating: 3,
+    intention: "anxiety-stress",
+    rating: 2.5,
   },
   {
     _id: uuid(),
     name: "Decadorn Silver Birthstone Pendant - February Amethyst",
     image: "/assets/images/necklace/necklace9.webp",
-    price: 2999,
+    price: 1599,
     inStock: true,
     isBestSeller: false,
     material: "Amethyst stone, Sterling Silver",
     category: "necklace",
+    intention: "clarity-growth",
     rating: 3,
   },
 
@@ -39,6 +41,7 @@ export const products = [
     material: "Pink Ruby, 14k Gold Vermeil on Sterling Silver",
     category: "necklace",
     rating: 3.5,
+    intention: "anxiety-stress",
   },
 
   {
@@ -51,6 +54,7 @@ export const products = [
     material: "Moss Green Agate with a gold detail bead",
     category: "rings",
     rating: 3,
+    intention: "clarity-growth",
   },
   {
     _id: uuid(),
@@ -61,6 +65,7 @@ export const products = [
     isBestSeller: false,
     material: "18Karat Gold vermeil on Sterling Silver",
     category: "rings",
+    intention: "love-peace",
     rating: 3,
   },
   {
@@ -72,6 +77,7 @@ export const products = [
     isBestSeller: false,
     material: "Peridot, Diamonds, 14k gold vermeil on sterling silver",
     category: "rings",
+    intention: "anxiety-stress",
     rating: 4,
     rings: true,
   },
@@ -84,7 +90,8 @@ export const products = [
     isBestSeller: true,
     material: "FLUORITE",
     category: "bracelets",
-    rating: 4,
+    intention: "love-peace",
+    rating: 5,
   },
   {
     _id: uuid(),
@@ -95,6 +102,7 @@ export const products = [
     isBestSeller: false,
     material: "Rose Quartz",
     category: "bracelets",
+    intention: "clarity-growth",
     rating: 3.5,
   },
   {
@@ -106,6 +114,7 @@ export const products = [
     isBestSeller: true,
     material: "Amazonite",
     category: "bracelets",
+    intention: "love-peace",
     rating: 3,
     bracelets: true,
   },

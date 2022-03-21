@@ -6,17 +6,18 @@ import {
   useReducer,
 } from "react";
 import axios from "axios";
+import {
+  filterByCategory,
+  filterByIntention,
+  sortedProducts,
+  filterByUserRatings,
+  filterByPriceRange,
+  composeAll,
+} from "../utils/FilterUtils";
+import { filterReducer } from "../reducers/filterReducer";
+
+import { useProducts } from "./ProductContext";
 const FilterContext = createContext();
-
-const useFilter = () => {
-  const context = useContext(FilterContext);
-
-  if (context === undefined) {
-    throw new Error("useProvider must be used within a ProductsProvider");
-  }
-
-  return context;
-};
 
 const FilterProvider = ({ children }) => {
   // Mobile filter show-hide state here...
@@ -34,24 +35,25 @@ const FilterProvider = ({ children }) => {
     })();
   }, []);
 
-  function reducer(state, action) {
-    console.log(state, action);
-    switch (action.type) {
-      case "BYCATEGORY":
-        return {
-          ...state,
-          category: state.category.includes(action.payload)
-            ? state.category.filter((val) => val !== action.payload)
-            : [...state.category, action.payload],
-        };
-      default:
-        return state;
-    }
-  }
-
-  const [state, dispatch] = useReducer(reducer, {
+  const [state, dispatch] = useReducer(filterReducer, {
     category: [],
+    intention: [],
+    sortBy: null,
+    userRatings: null,
+    priceRange: 0,
   });
+  const { products } = useProducts();
+
+  const filteredProducts = composeAll(
+    state,
+    products,
+    filterByCategory,
+    filterByIntention,
+    sortedProducts,
+    filterByUserRatings,
+    filterByPriceRange
+  );
+
   return (
     <FilterContext.Provider
       value={{
@@ -60,11 +62,22 @@ const FilterProvider = ({ children }) => {
         categories,
         state,
         dispatch,
+        filteredProducts,
       }}
     >
       {children}
     </FilterContext.Provider>
   );
+};
+
+const useFilter = () => {
+  const context = useContext(FilterContext);
+
+  if (context === undefined) {
+    throw new Error("useProvider must be used within a ProductsProvider");
+  }
+
+  return context;
 };
 
 export { useFilter, FilterProvider };

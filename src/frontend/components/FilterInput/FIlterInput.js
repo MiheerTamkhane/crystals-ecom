@@ -1,4 +1,3 @@
-import { useFilter } from "../../contexts/FilterContext";
 import "./FilterInput.css";
 function FilterInput({ data }) {
   // const { dispatch } = useFilter();

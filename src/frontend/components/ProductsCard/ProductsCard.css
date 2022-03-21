@@ -35,3 +35,16 @@
   filter: brightness(70%);
   cursor: not-allowed;
 }
+.price-rating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.rating-div {
+  display: flex;
+  align-items: center;
+}
+.star {
+  color: #ffc725;
+  font-size: 1.2rem;
+}

@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { useFilter } from "../../contexts/FilterContext";
-import { useNavContext } from "../../contexts/NavContext";
+import { useFilter, useNavContext } from "../../contexts/contextExport";
 import "./MobileNavbar.css";
 function MobileNavbar() {
   const { isNav, setIsNav } = useNavContext();
@@ -37,11 +36,11 @@ function MobileNavbar() {
             setIsMobileFilter(false);
           }}
         >
-          <span>Porducts</span>
+          <span>Products</span>
           <span className="material-icons">navigate_next</span>
         </NavLink>
         <NavLink
-          to="/routes/Cart/DemoCart"
+          to="/DemoCart"
           className="mobile-nav-link"
           onClick={() => {
             setIsNav(false);
