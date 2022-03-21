@@ -1,21 +1,20 @@
+import { useFilter } from "../../contexts/FilterContext";
 import "./FilterInput.css";
 function FilterInput({ data }) {
+  // const { dispatch } = useFilter();
+
   return (
-    <ul>
-      {data.map((item, i) => {
-        return (
-          <li key={i} className="accordion-input">
-            <input
-              type={item.inputType}
-              id={item.typeTitle}
-              name={item.inputType}
-              className="filter-input"
-            />
-            <label htmlFor={item.typeTitle}>{item.typeTitle}</label>
-          </li>
-        );
-      })}
-    </ul>
+    <div className="accordion-input">
+      <label htmlFor="necklace">
+        <input
+          type="checkbox"
+          id="necklace"
+          name="category"
+          className="filter-input"
+        />
+        necklace
+      </label>
+    </div>
   );
 }
 

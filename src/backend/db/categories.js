@@ -8,20 +8,54 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "fiction",
-    description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+    categoryName: "necklace",
+    inputType: "checkbox",
   },
   {
     _id: uuid(),
-    categoryName: "non-fiction",
-    description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+    categoryName: "rings",
+    inputType: "checkbox",
   },
   {
     _id: uuid(),
-    categoryName: "horror",
-    description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+    categoryName: "bracelets",
+    inputType: "checkbox",
+  },
+];
+const data = [
+  {
+    title: "Categories",
+    actionType: "categories",
+    types: [
+      { typeTitle: "Necklace", inputType: "checkbox" },
+      { typeTitle: "Rings", inputType: "checkbox" },
+      { typeTitle: "Bracelets", inputType: "checkbox" },
+    ],
+  },
+  {
+    title: "By Intention",
+    actionType: "byintention",
+    types: [
+      { typeTitle: "For Anxiety/Stress", inputType: "checkbox" },
+      { typeTitle: "For Clarity/Growth", inputType: "checkbox" },
+      { typeTitle: "For Love/Peace", inputType: "checkbox" },
+    ],
+  },
+  {
+    title: "Ratings",
+    actionType: "ratings",
+    types: [
+      { typeTitle: "4 Stars & above", inputType: "radio" },
+      { typeTitle: "3 Stars & above", inputType: "radio" },
+      { typeTitle: "2 Stars & above", inputType: "radio" },
+    ],
+  },
+  {
+    title: "Sort By",
+    actionType: "sortby",
+    types: [
+      { typeTitle: "Low to High", inputType: "radio" },
+      { typeTitle: "High to Low", inputType: "radio" },
+    ],
   },
 ];

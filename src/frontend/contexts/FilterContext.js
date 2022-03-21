@@ -1,49 +1,67 @@
-import { createContext, useContext, useState } from "react";
-
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useReducer,
+} from "react";
+import axios from "axios";
 const FilterContext = createContext();
 
-const useFilter = () => useContext(FilterContext);
+const useFilter = () => {
+  const context = useContext(FilterContext);
+
+  if (context === undefined) {
+    throw new Error("useProvider must be used within a ProductsProvider");
+  }
+
+  return context;
+};
 
 const FilterProvider = ({ children }) => {
-  const data = [
-    {
-      title: "Categories",
-      types: [
-        { typeTitle: "Necklace", inputType: "checkbox" },
-        { typeTitle: "Rings", inputType: "checkbox" },
-        { typeTitle: "Bracelets", inputType: "checkbox" },
-      ],
-    },
-    {
-      title: "By Intention",
-      types: [
-        { typeTitle: "For Anxiety/Stress", inputType: "checkbox" },
-        { typeTitle: "For Clarity/Growth", inputType: "checkbox" },
-        { typeTitle: "For Love/Peace", inputType: "checkbox" },
-      ],
-    },
-    {
-      title: "Sort By",
-      types: [
-        { typeTitle: "Low to High", inputType: "radio" },
-        { typeTitle: "High to Low", inputType: "radio" },
-      ],
-    },
-    {
-      title: "Ratings",
-      types: [
-        { typeTitle: "4 Stars & above", inputType: "radio" },
-        { typeTitle: "3 Stars & above", inputType: "radio" },
-        { typeTitle: "2 Stars & above", inputType: "radio" },
-      ],
-    },
-  ];
-
-  // Mobile navar show-hide state here...
+  // Mobile filter show-hide state here...
   const [isMobileFilter, setIsMobileFilter] = useState(false);
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await axios.get("/api/categories");
 
+        setCategories(data.categories);
+      } catch (err) {
+        console.error(err.message);
+      }
+    })();
+  }, []);
+
+  function reducer(state, action) {
+    console.log(state, action);
+    switch (action.type) {
+      case "BYCATEGORY":
+        return {
+          ...state,
+          category: state.category.includes(action.payload)
+            ? state.category.filter((val) => val !== action.payload)
+            : [...state.category, action.payload],
+        };
+      default:
+        return state;
+    }
+  }
+
+  const [state, dispatch] = useReducer(reducer, {
+    category: [],
+  });
   return (
-    <FilterContext.Provider value={{ data, isMobileFilter, setIsMobileFilter }}>
+    <FilterContext.Provider
+      value={{
+        isMobileFilter,
+        setIsMobileFilter,
+        categories,
+        state,
+        dispatch,
+      }}
+    >
       {children}
     </FilterContext.Provider>
   );

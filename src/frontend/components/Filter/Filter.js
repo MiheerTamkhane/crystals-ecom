@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
 import { useFilter } from "../../contexts/FilterContext";
-import { Accordion } from "../index";
+import { useProducts } from "../../contexts/ProductContext";
+import { Accordion, FilterInput } from "../index";
 import "./Filter.css";
 
 function Filter() {
-  const { data, isMobileFilter, setIsMobileFilter } = useFilter();
+  const { isMobileFilter, setIsMobileFilter, state, dispatch } = useFilter();
 
   return (
     <section
@@ -52,10 +54,65 @@ function Filter() {
           </datalist>
         </div>
       </div>
-
-      {data.map((item, i) => (
-        <Accordion key={i} data={item} />
-      ))}
+      <Accordion title="Categories">
+        <div className="accordion-input">
+          <label htmlFor="necklace">
+            <input
+              type="checkbox"
+              id="necklace"
+              name="category"
+              className="filter-input"
+              value="necklace"
+              checked={state.category.includes("necklace")}
+              onChange={(e) =>
+                dispatch({
+                  type: "BYCATEGORY",
+                  payload: "necklace",
+                })
+              }
+            />
+            Necklace
+          </label>
+        </div>
+        <div className="accordion-input">
+          <label htmlFor="rings">
+            <input
+              type="checkbox"
+              id="rings"
+              name="category"
+              className="filter-input"
+              value="rings"
+              checked={state.category.includes("rings")}
+              onChange={(e) =>
+                dispatch({
+                  type: "BYCATEGORY",
+                  payload: "rings",
+                })
+              }
+            />
+            Rings
+          </label>
+        </div>
+        <div className="accordion-input">
+          <label htmlFor="bracelets">
+            <input
+              type="checkbox"
+              id="bracelets"
+              name="category"
+              className="filter-input"
+              value="bracelets"
+              checked={state.category.includes("bracelets")}
+              onChange={(e) =>
+                dispatch({
+                  type: "BYCATEGORY",
+                  payload: "bracelets",
+                })
+              }
+            />
+            Bracelets
+          </label>
+        </div>
+      </Accordion>
     </section>
   );
 }

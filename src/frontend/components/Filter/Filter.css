@@ -48,6 +48,15 @@
 .mobile-filter-close {
   display: none;
 }
+.accordion-input label {
+  margin-left: 1.5rem;
+  cursor: pointer;
+}
+.filter-input {
+  accent-color: var(--violet-500);
+  margin: 0 6px;
+}
+
 @media only screen and (max-width: 750px) {
   .remove-filter {
     position: absolute;
