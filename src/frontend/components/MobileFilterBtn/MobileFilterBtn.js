@@ -1,6 +1,6 @@
 import React from "react";
 import "./MobileFilterBtn.css";
-import { useFilter } from "../../contexts/FilterContext";
+import { useFilter } from "../../contexts/contextExport";
 const MobileFilterBtn = () => {
   const { setIsMobileFilter } = useFilter();
   return (

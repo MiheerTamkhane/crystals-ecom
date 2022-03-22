@@ -4,9 +4,12 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
-import { NavProvider } from "./frontend/contexts/NavContext";
-import { ProductsProvider } from "./frontend/contexts/ProductContext";
-import { FilterProvider } from "./frontend/contexts/FilterContext";
+import {
+  NavProvider,
+  ProductsProvider,
+  FilterProvider,
+} from "./frontend/contexts/contextExport";
+
 // Call make Server
 makeServer();
 

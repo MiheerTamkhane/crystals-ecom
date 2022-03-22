@@ -17,7 +17,13 @@
   margin: 1rem 0;
   flex-direction: column;
 }
-
+.filter-comp a {
+  cursor: pointer;
+  transition: all 250ms ease;
+}
+.filter-comp a:hover {
+  color: var(--violet-700);
+}
 .flex-row {
   flex-direction: row;
   align-items: center;
@@ -48,6 +54,15 @@
 .mobile-filter-close {
   display: none;
 }
+.accordion-input label {
+  margin-left: 1.5rem;
+  cursor: pointer;
+}
+.filter-input {
+  accent-color: var(--violet-500);
+  margin: 0 6px;
+}
+
 @media only screen and (max-width: 750px) {
   .remove-filter {
     position: absolute;

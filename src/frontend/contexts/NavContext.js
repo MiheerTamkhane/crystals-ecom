@@ -2,7 +2,15 @@ import { useContext, createContext, useState } from "react";
 
 const NavContext = createContext();
 
-const useNavContext = () => useContext(NavContext);
+const useNavContext = () => {
+  const context = useContext(NavContext);
+
+  if (context === undefined) {
+    throw new Error("useProvider must be used within a ProductsProvider");
+  }
+
+  return context;
+};
 
 const NavProvider = ({ children }) => {
   const [isNav, setIsNav] = useState(false);

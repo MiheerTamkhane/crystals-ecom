@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
-import { useNavContext } from "../../contexts/NavContext";
+import { useNavContext } from "../../contexts/contextExport";
 function Navbar() {
   const { setIsNav } = useNavContext();
   return (

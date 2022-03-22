@@ -16,10 +16,17 @@
 .acc-content {
   max-height: 0;
   padding: 0rem 1rem;
+  gap: 0.5rem;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0, 1, 0, 1);
 }
 .acc-content.show {
   max-height: 100vh;
   transition: all 0.3s cubic-bezier(1, 0, 1, 0);
+}
+.accordion-input {
+  list-style: none;
+  margin: 0.5rem 0rem;
+  display: flex;
+  align-items: center;
 }
