@@ -6,56 +6,49 @@ import { v4 as uuid } from "uuid";
  * */
 
 export const categories = [
-  {
-    _id: uuid(),
-    categoryName: "necklace",
-    inputType: "checkbox",
-  },
-  {
-    _id: uuid(),
-    categoryName: "rings",
-    inputType: "checkbox",
-  },
-  {
-    _id: uuid(),
-    categoryName: "bracelets",
-    inputType: "checkbox",
-  },
+  [
+    {
+      _id: uuid(),
+      categoryName: "necklace",
+    },
+    {
+      _id: uuid(),
+      categoryName: "rings",
+    },
+    {
+      _id: uuid(),
+      categoryName: "bracelets",
+    },
+  ],
+  [
+    {
+      _id: uuid(),
+      intentionName: "anxiety-stress",
+    },
+    {
+      _id: uuid(),
+      intentionName: "clarity-growth",
+    },
+    {
+      _id: uuid(),
+      intentionName: "love-peace",
+    },
+  ],
 ];
-const data = [
-  {
-    title: "Categories",
-    actionType: "categories",
-    types: [
-      { typeTitle: "Necklace", inputType: "checkbox" },
-      { typeTitle: "Rings", inputType: "checkbox" },
-      { typeTitle: "Bracelets", inputType: "checkbox" },
-    ],
-  },
-  {
-    title: "By Intention",
-    actionType: "byintention",
-    types: [
-      { typeTitle: "For Anxiety/Stress", inputType: "checkbox" },
-      { typeTitle: "For Clarity/Growth", inputType: "checkbox" },
-      { typeTitle: "For Love/Peace", inputType: "checkbox" },
-    ],
-  },
-  {
-    title: "Ratings",
-    actionType: "ratings",
-    types: [
-      { typeTitle: "4 Stars & above", inputType: "radio" },
-      { typeTitle: "3 Stars & above", inputType: "radio" },
-      { typeTitle: "2 Stars & above", inputType: "radio" },
-    ],
-  },
-  {
-    title: "Sort By",
-    actionType: "sortby",
-    types: [
-      { typeTitle: "Low to High", inputType: "radio" },
-      { typeTitle: "High to Low", inputType: "radio" },
-    ],
-  },
-];
+
+// const intention = [
+//   {
+//     _id: uuid(),
+//     intentionName: "anxiety-stress",
+//   },
+//   {
+//     _id: uuid(),
+//     intentionName: "clarity-growth",
+//   },
+//   {
+//     _id: uuid(),
+//     intentionName: "love-peace",
+//   },
+// ];
+
+// export { categories, intention };

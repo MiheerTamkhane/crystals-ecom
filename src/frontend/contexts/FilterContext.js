@@ -5,7 +5,7 @@ import {
   useEffect,
   useReducer,
 } from "react";
-import axios from "axios";
+
 import {
   filterByCategory,
   filterByIntention,
@@ -22,18 +22,6 @@ const FilterContext = createContext();
 const FilterProvider = ({ children }) => {
   // Mobile filter show-hide state here...
   const [isMobileFilter, setIsMobileFilter] = useState(false);
-  const [categories, setCategories] = useState([]);
-  useEffect(() => {
-    (async () => {
-      try {
-        const { data } = await axios.get("/api/categories");
-
-        setCategories(data.categories);
-      } catch (err) {
-        console.error(err.message);
-      }
-    })();
-  }, []);
 
   const [state, dispatch] = useReducer(filterReducer, {
     category: [],
@@ -59,7 +47,6 @@ const FilterProvider = ({ children }) => {
       value={{
         isMobileFilter,
         setIsMobileFilter,
-        categories,
         state,
         dispatch,
         filteredProducts,

@@ -11,9 +11,9 @@ import {
   SORT_BY,
   CLEAR,
 } from "../../constants/filterConstants";
+import categoryData from "./filterData";
 function Filter() {
   const { isMobileFilter, setIsMobileFilter, state, dispatch } = useFilter();
-
   return (
     <section
       className={
@@ -65,218 +65,104 @@ function Filter() {
         </div>
       </div>
       <Accordion title="Categories">
-        <div className="accordion-input">
-          <label htmlFor="necklace">
-            <input
-              type="checkbox"
-              id="necklace"
-              name="category"
-              className="filter-input"
-              value="necklace"
-              checked={state.category.includes("necklace")}
-              onChange={() =>
-                dispatch({
-                  type: BY_CATEGORY,
-                  payload: "necklace",
-                })
-              }
-            />
-            Necklace
-          </label>
-        </div>
-        <div className="accordion-input">
-          <label htmlFor="rings">
-            <input
-              type="checkbox"
-              id="rings"
-              name="category"
-              className="filter-input"
-              value="rings"
-              checked={state.category.includes("rings")}
-              onChange={() =>
-                dispatch({
-                  type: BY_CATEGORY,
-                  payload: "rings",
-                })
-              }
-            />
-            Rings
-          </label>
-        </div>
-        <div className="accordion-input">
-          <label htmlFor="bracelets">
-            <input
-              type="checkbox"
-              id="bracelets"
-              name="category"
-              className="filter-input"
-              value="bracelets"
-              checked={state.category.includes("bracelets")}
-              onChange={() =>
-                dispatch({
-                  type: BY_CATEGORY,
-                  payload: "bracelets",
-                })
-              }
-            />
-            Bracelets
-          </label>
-        </div>
+        {categoryData[0].map((item) => {
+          return (
+            <div key={item._id} className="accordion-input">
+              <label htmlFor={item.categoryName}>
+                <input
+                  type="checkbox"
+                  id={item.categoryName}
+                  name="categories"
+                  className="filter-input"
+                  value={item.value}
+                  checked={state.category.includes(item.value)}
+                  onChange={(e) => {
+                    dispatch({
+                      type: BY_CATEGORY,
+                      payload: e.target.value,
+                    });
+                  }}
+                />
+                {item.categoryName}
+              </label>
+            </div>
+          );
+        })}
       </Accordion>
       <Accordion title="By Intention">
-        <div className="accordion-input">
-          <label htmlFor="anxiety-stress">
-            <input
-              type="checkbox"
-              id="anxiety-stress"
-              name="intention"
-              className="filter-input"
-              value="anxiety-stress"
-              checked={state.intention.includes("anxiety-stress")}
-              onChange={() =>
-                dispatch({
-                  type: BY_INTENTION,
-                  payload: "anxiety-stress",
-                })
-              }
-            />
-            Anxiety / Stress
-          </label>
-        </div>
-        <div className="accordion-input">
-          <label htmlFor="clarity-growth">
-            <input
-              type="checkbox"
-              id="clarity-growth"
-              name="intention"
-              className="filter-input"
-              value="clarity-growth"
-              checked={state.intention.includes("clarity-growth")}
-              onChange={() =>
-                dispatch({
-                  type: BY_INTENTION,
-                  payload: "clarity-growth",
-                })
-              }
-            />
-            Clarity / Growth
-          </label>
-        </div>
-        <div className="accordion-input">
-          <label htmlFor="love-peace">
-            <input
-              type="checkbox"
-              id="love-peace"
-              name="intention"
-              className="filter-input"
-              value="love-peace"
-              checked={state.intention.includes("love-peace")}
-              onChange={() =>
-                dispatch({
-                  type: BY_INTENTION,
-                  payload: "love-peace",
-                })
-              }
-            />
-            Love / Peace
-          </label>
-        </div>
+        {categoryData[1].map((item) => {
+          return (
+            <div key={item._id} className="accordion-input">
+              <label htmlFor={item.intentionName}>
+                <input
+                  type="checkbox"
+                  id={item.intentionName}
+                  name="intention"
+                  className="filter-input"
+                  value={item.value}
+                  checked={state.intention.includes(item.value)}
+                  onChange={(e) => {
+                    dispatch({
+                      type: BY_INTENTION,
+                      payload: e.target.value,
+                    });
+                  }}
+                />
+                {item.intentionName}
+              </label>
+            </div>
+          );
+        })}
       </Accordion>
 
       <Accordion title="User Ratings">
-        <div className="accordion-input">
-          <label htmlFor="fourStars">
-            <input
-              type="radio"
-              id="fourStars"
-              name="ratings"
-              className="filter-input"
-              value="fourStar"
-              checked={state.userRatings === 4}
-              onChange={() =>
-                dispatch({
-                  type: BY_USER_RATINGS,
-                  payload: 4,
-                })
-              }
-            />
-            4 Stars & above
-          </label>
-        </div>
-        <div className="accordion-input">
-          <label htmlFor="threeStars">
-            <input
-              type="radio"
-              id="threeStars"
-              name="ratings"
-              className="filter-input"
-              checked={state.userRatings === 3}
-              onChange={() =>
-                dispatch({
-                  type: BY_USER_RATINGS,
-                  payload: 3,
-                })
-              }
-            />
-            3 Stars & above
-          </label>
-        </div>
-        <div className="accordion-input">
-          <label htmlFor="twoStars">
-            <input
-              type="radio"
-              id="twoStars"
-              name="ratings"
-              className="filter-input"
-              checked={state.userRatings === 2}
-              onChange={() =>
-                dispatch({
-                  type: BY_USER_RATINGS,
-                  payload: 2,
-                })
-              }
-            />
-            2 Stars & above
-          </label>
-        </div>
+        {categoryData[2].map((item) => {
+          return (
+            <div className="accordion-input">
+              <label htmlFor={item.rating}>
+                <input
+                  type="radio"
+                  id={item.rating}
+                  name="ratings"
+                  className="filter-input"
+                  value="fourStar"
+                  checked={state.userRatings === item.userRating}
+                  onChange={() =>
+                    dispatch({
+                      type: BY_USER_RATINGS,
+                      payload: item.userRating,
+                    })
+                  }
+                />
+                {item.rating}
+              </label>
+            </div>
+          );
+        })}
       </Accordion>
       <Accordion title="Sort By">
-        <div className="accordion-input">
-          <label htmlFor="logToHigh">
-            <input
-              type="radio"
-              id="logToHigh"
-              name="lowhigh"
-              className="filter-input"
-              checked={state.sortBy === "LOW_TO_HIGH"}
-              onChange={() =>
-                dispatch({
-                  type: SORT_BY,
-                  payload: "LOW_TO_HIGH",
-                })
-              }
-            />
-            Low to High
-          </label>
-        </div>
-        <div className="accordion-input">
-          <label htmlFor="highToLow">
-            <input
-              type="radio"
-              id="highToLow"
-              name="lowhigh"
-              className="filter-input"
-              checked={state.sortBy === "HIGH_TO_LOW"}
-              onChange={() =>
-                dispatch({
-                  type: SORT_BY,
-                  payload: "HIGH_TO_LOW",
-                })
-              }
-            />
-            High to Low
-          </label>
-        </div>
+        {categoryData[3].map((item) => {
+          return (
+            <div className="accordion-input">
+              <label htmlFor={item.name}>
+                <input
+                  type="radio"
+                  id={item.name}
+                  name="sort"
+                  className="filter-input"
+                  checked={state.sortBy === item.value}
+                  onChange={() =>
+                    dispatch({
+                      type: SORT_BY,
+                      payload: item.value,
+                    })
+                  }
+                />
+                {item.name}
+              </label>
+            </div>
+          );
+        })}
       </Accordion>
     </section>
   );
