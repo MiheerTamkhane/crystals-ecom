@@ -45,17 +45,6 @@ function Navbar() {
               <span className="material-icons">shopping_bag</span>
               <small className="badge-pop badge">7</small>
             </NavLink>
-            <NavLink
-              to="/DemoCart"
-              className={({ isActive }) =>
-                isActive
-                  ? "basic-badge nav-icon icon-selected"
-                  : "basic-badge nav-icon icon"
-              }
-            >
-              <span className="material-icons">shopping_bag</span>
-              <small className="badge-pop badge">7</small>
-            </NavLink>
 
             {auth ? (
               <NavLink
