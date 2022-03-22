@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useFilter } from "../../contexts/contextExport";
-import { Accordion } from "../index";
+import { Accordion } from "../componentsExport";
 import "./Filter.css";
 import {
   PRICE_RANGE,

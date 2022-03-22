@@ -1,3 +1,9 @@
+.products-div {
+  display: flex;
+
+  justify-content: center;
+}
+
 .product-card {
   background-color: #fff;
   box-sizing: border-box;

@@ -6,23 +6,45 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const [auth, setAuth] = useState(false);
-  const signinHandler = async (e, user) => {
+  const loginHandler = async (e, { email, password }) => {
     e.preventDefault();
     try {
       const response = await axios.post("/api/auth/login", {
-        email: user.email,
-        password: user.password,
+        email: email,
+        password: password,
       });
       localStorage.setItem("authToken", response.data.encodedToken);
       setAuth(true);
       navigate("/productsPage");
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  const signupHandler = async (e, { firstName, lastName, email, password }) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("/api/auth/signup", {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password,
+      });
+      localStorage.setItem("authToken", response.data.encodedToken);
+      setAuth(true);
+      navigate("/productsPage");
+    } catch (err) {
+      console.error(err);
     }
   };
 
+  const logoutHandler = () => {
+    localStorage.removeItem("authToken");
+    setAuth(false);
+  };
   return (
-    <AuthContext.Provider value={{ auth, setAuth, signinHandler }}>
+    <AuthContext.Provider
+      value={{ auth, setAuth, loginHandler, signupHandler, logoutHandler }}
+    >
       {children}
     </AuthContext.Provider>
   );

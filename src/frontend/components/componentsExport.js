@@ -1,5 +1,4 @@
 export { Accordion } from "./Accordion/Accordion";
-export { FilterInput } from "./FilterInput/FIlterInput";
 export { Banner } from "./Banner/Banner";
 export { Filter } from "./Filter/Filter";
 export { Footer } from "./Footer/Footer";

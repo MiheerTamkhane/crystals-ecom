@@ -1,9 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
-import { useNavContext } from "../../contexts/contextExport";
+import { useNavContext, useAuth } from "../../contexts/contextExport";
 function Navbar() {
   const { setIsNav } = useNavContext();
+  const { auth, logoutHandler } = useAuth();
   return (
     <nav className="nav-bar navbar">
       <div className="ct-nav-logo">
@@ -45,16 +46,31 @@ function Navbar() {
               <small className="badge-pop badge">7</small>
             </NavLink>
 
-            <NavLink
-              to="/Login"
-              className={({ isActive }) =>
-                isActive
-                  ? "basic-badge nav-icon icon-selected"
-                  : "basic-badge nav-icon icon"
-              }
-            >
-              <span className="material-icons">login</span>
-            </NavLink>
+            {auth ? (
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive
+                    ? "basic-badge nav-icon icon-selected"
+                    : "basic-badge nav-icon icon"
+                }
+              >
+                <span className="material-icons" onClick={logoutHandler}>
+                  logout
+                </span>
+              </NavLink>
+            ) : (
+              <NavLink
+                to="/Login"
+                className={({ isActive }) =>
+                  isActive
+                    ? "basic-badge nav-icon icon-selected"
+                    : "basic-badge nav-icon icon"
+                }
+              >
+                <span className="material-icons">login</span>
+              </NavLink>
+            )}
           </div>
         </div>
       </div>

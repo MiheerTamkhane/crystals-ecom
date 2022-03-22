@@ -1,5 +1,5 @@
 import React from "react";
-import { MobileNavbar, Navbar } from "../index";
+import { MobileNavbar, Navbar } from "../componentsExport";
 
 function Header() {
   return (

@@ -4,14 +4,14 @@ import { useAuth } from "../../contexts/contextExport";
 
 import "./Form.css";
 const Login = () => {
-  const [user, setUser] = useState({
+  const [userLogin, setUserLogin] = useState({
     email: "",
     password: "",
   });
-  const { signinHandler } = useAuth();
+  const { loginHandler } = useAuth();
   return (
     <main className="form-container">
-      <form className="ct-form" onSubmit={() => signinHandler(e, user)}>
+      <form className="ct-form" onSubmit={(e) => loginHandler(e, userLogin)}>
         <h2>Login</h2>
         <div className="ct-input-div">
           <input
@@ -19,8 +19,10 @@ const Login = () => {
             className="ct-input"
             placeholder="Email..."
             required
-            value={user.email}
-            onChange={(e) => setUser({ ...user, email: e.target.value })}
+            value={userLogin.email}
+            onChange={(e) =>
+              setUserLogin({ ...userLogin, email: e.target.value })
+            }
           />
         </div>
         <div className="ct-input-div">
@@ -29,8 +31,10 @@ const Login = () => {
             className="ct-input"
             placeholder="Password..."
             required
-            value={user.password}
-            onChange={(e) => setUser({ ...user, password: e.target.value })}
+            value={userLogin.password}
+            onChange={(e) =>
+              setUserLogin({ ...userLogin, password: e.target.value })
+            }
           />
         </div>
 
@@ -48,7 +52,7 @@ const Login = () => {
           className="ct-btn ct-gray login-guest"
           type="submit"
           onClick={(e) =>
-            signinHandler(e, {
+            loginHandler(e, {
               email: "johndoe@gmail.com",
               password: "johnDoe123",
             })

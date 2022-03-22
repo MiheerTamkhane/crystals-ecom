@@ -1,5 +1,5 @@
 import React from "react";
-import { Banner, Poster } from "../../components/index";
+import { Banner, Poster } from "../../components/componentsExport";
 
 const Home = () => {
   const homeData = [

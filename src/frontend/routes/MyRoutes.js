@@ -9,19 +9,34 @@ import {
   Login,
 } from "../index";
 import Mockman from "mockman-js";
-
-const Routers = () => {
+import { ProtectedRoute } from "../ProtectedRoute/ProtectedRoute";
+const MyRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/Wishlist" element={<Wishlist />} />
-      <Route path="/DemoCart" element={<DemoCart />} />
       <Route path="/ProductsPage" element={<ProductsPage />} />
       <Route path="/SignUp" element={<SignUp />} />
       <Route path="/Login" element={<Login />} />
       <Route path="/mock" element={<Mockman />} />
+
+      <Route
+        path="/DemoCart"
+        element={
+          <ProtectedRoute>
+            <DemoCart />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/Wishlist"
+        element={
+          <ProtectedRoute>
+            <Wishlist />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   );
 };
 
-export { Routers };
+export { MyRoutes };

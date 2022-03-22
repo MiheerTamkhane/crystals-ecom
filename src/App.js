@@ -1,12 +1,12 @@
 import React from "react";
 
-import { Routers } from "./frontend/router/Routers";
+import { MyRoutes } from "./frontend/routes/MyRoutes";
 import { Header, Footer } from "./frontend/index";
 const App = () => {
   return (
     <div className="app">
       <Header />
-      <Routers />
+      <MyRoutes />
       <Footer />
     </div>
   );
