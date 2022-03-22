@@ -8,6 +8,22 @@ const SignUp = () => {
         <h2>Sign up</h2>
         <div className="ct-input-div">
           <input
+            type="text"
+            className="ct-input"
+            placeholder="First Name..."
+            required
+          />
+        </div>
+        <div className="ct-input-div">
+          <input
+            type="text"
+            className="ct-input"
+            placeholder="Last Name..."
+            required
+          />
+        </div>
+        <div className="ct-input-div">
+          <input
             type="email"
             className="ct-input"
             placeholder="Email..."
@@ -22,20 +38,13 @@ const SignUp = () => {
             required
           />
         </div>
-        <div className="ct-input-div">
-          <input
-            type="password"
-            className="ct-input"
-            placeholder="Confirm Password..."
-            required
-          />
-        </div>
+
         <div className="ct-checkbox-div">
           <input type="checkbox" id="checkbox" required />
-          <label for="checkbox">I accept all Terms & Conditions.</label>
+          <label htmlFor="checkbox">I accept all Terms & Conditions.</label>
         </div>
 
-        <button className="ct-form-btn ct-violet-btn" type="submit">
+        <button className="ct-form-btn form-btn" type="submit">
           CREATE NEW ACCOUNT
         </button>
         <NavLink to="/Login" className="form-link">

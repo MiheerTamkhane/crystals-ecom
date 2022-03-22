@@ -24,7 +24,7 @@
 .ct-form h2 {
   color: var(--gray-700);
 }
-.ct-violet-btn {
+.form-btn {
   color: var(--gray-100);
   background-color: var(--violet-500);
   transition: all 250ms ease;
@@ -32,8 +32,16 @@
   margin: 0;
   border-radius: 3px;
 }
-.ct-violet-btn:hover {
+.form-btn:hover {
   background-color: var(--violet-700);
+}
+.login-guest {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-family: "Nunito", sans-serif;
+  margin-top: 0.5rem;
+  border-radius: 3px;
 }
 .ct-checkbox-div {
   display: flex;
@@ -43,7 +51,7 @@
 }
 .form-link {
   width: fit-content;
-  margin: 1rem auto;
+  margin: 0.5rem auto;
   text-decoration: none;
   display: flex;
   justify-content: center;

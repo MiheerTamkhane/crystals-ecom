@@ -8,6 +8,7 @@ import {
   SignUp,
   Login,
 } from "../index";
+import Mockman from "mockman-js";
 
 const Routers = () => {
   return (
@@ -18,6 +19,7 @@ const Routers = () => {
       <Route path="/ProductsPage" element={<ProductsPage />} />
       <Route path="/SignUp" element={<SignUp />} />
       <Route path="/Login" element={<Login />} />
+      <Route path="/mock" element={<Mockman />} />
     </Routes>
   );
 };

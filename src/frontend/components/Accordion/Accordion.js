@@ -6,7 +6,10 @@ function Accordion({ children, title }) {
 
   return (
     <div className="accordion">
-      <div className="title" onClick={() => setExapandAcc(!expandAcc)}>
+      <div
+        className="accordion-title"
+        onClick={() => setExapandAcc(!expandAcc)}
+      >
         <h3>{title}</h3>
         <span className="material-icons">
           {expandAcc ? "expand_less" : "expand_more"}

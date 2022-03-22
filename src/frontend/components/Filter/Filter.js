@@ -118,7 +118,7 @@ function Filter() {
       <Accordion title="User Ratings">
         {categoryData[2].map((item) => {
           return (
-            <div className="accordion-input">
+            <div key={item._id} className="accordion-input">
               <label htmlFor={item.rating}>
                 <input
                   type="radio"
@@ -143,7 +143,7 @@ function Filter() {
       <Accordion title="Sort By">
         {categoryData[3].map((item) => {
           return (
-            <div className="accordion-input">
+            <div key={item._id} className="accordion-input">
               <label htmlFor={item.name}>
                 <input
                   type="radio"
