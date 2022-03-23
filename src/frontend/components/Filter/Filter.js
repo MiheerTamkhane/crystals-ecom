@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useFilter } from "../../contexts/contextExport";
-import { Accordion } from "../index";
+import { Accordion } from "../componentsExport";
 import "./Filter.css";
 import {
   PRICE_RANGE,
@@ -14,6 +14,7 @@ import {
 import categoryData from "./filterData";
 function Filter() {
   const { isMobileFilter, setIsMobileFilter, state, dispatch } = useFilter();
+
   return (
     <section
       className={
@@ -118,7 +119,7 @@ function Filter() {
       <Accordion title="User Ratings">
         {categoryData[2].map((item) => {
           return (
-            <div className="accordion-input">
+            <div key={item._id} className="accordion-input">
               <label htmlFor={item.rating}>
                 <input
                   type="radio"
@@ -143,7 +144,7 @@ function Filter() {
       <Accordion title="Sort By">
         {categoryData[3].map((item) => {
           return (
-            <div className="accordion-input">
+            <div key={item._id} className="accordion-input">
               <label htmlFor={item.name}>
                 <input
                   type="radio"

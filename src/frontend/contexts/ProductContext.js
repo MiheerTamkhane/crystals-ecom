@@ -6,7 +6,7 @@ const useProducts = () => {
   const context = useContext(ProductContext);
 
   if (context === undefined) {
-    throw new Error("useProvider must be used within a ProductsProvider");
+    throw new Error("useProducts must be used within a ProductsProvider");
   }
 
   return context;

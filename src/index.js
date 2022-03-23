@@ -8,6 +8,7 @@ import {
   NavProvider,
   ProductsProvider,
   FilterProvider,
+  AuthProvider,
 } from "./frontend/contexts/contextExport";
 
 // Call make Server
@@ -16,13 +17,15 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ProductsProvider>
-        <NavProvider>
-          <FilterProvider>
-            <App />
-          </FilterProvider>
-        </NavProvider>
-      </ProductsProvider>
+      <AuthProvider>
+        <ProductsProvider>
+          <NavProvider>
+            <FilterProvider>
+              <App />
+            </FilterProvider>
+          </NavProvider>
+        </ProductsProvider>
+      </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

@@ -1,5 +1,5 @@
 import React from "react";
-import { Filter, Products } from "../../components/index";
+import { Filter, Products } from "../../components/componentsExport";
 import "./ProductsPage.css";
 function ProductsPage() {
   return (

@@ -1,10 +1,4 @@
-import {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  useReducer,
-} from "react";
+import { createContext, useContext, useState, useReducer } from "react";
 
 import {
   filterByCategory,
@@ -61,7 +55,7 @@ const useFilter = () => {
   const context = useContext(FilterContext);
 
   if (context === undefined) {
-    throw new Error("useProvider must be used within a ProductsProvider");
+    throw new Error("useFilter must be used within a FilterProvider");
   }
 
   return context;

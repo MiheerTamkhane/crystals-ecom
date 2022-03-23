@@ -6,7 +6,7 @@ const useNavContext = () => {
   const context = useContext(NavContext);
 
   if (context === undefined) {
-    throw new Error("useProvider must be used within a ProductsProvider");
+    throw new Error("useNavContext must be used within a NavProvider");
   }
 
   return context;
