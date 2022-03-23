@@ -9,6 +9,7 @@ import {
   ProductsProvider,
   FilterProvider,
   AuthProvider,
+  WishlistProvider,
 } from "./frontend/contexts/contextExport";
 
 // Call make Server
@@ -18,13 +19,15 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <ProductsProvider>
-          <NavProvider>
-            <FilterProvider>
-              <App />
-            </FilterProvider>
-          </NavProvider>
-        </ProductsProvider>
+        <WishlistProvider>
+          <ProductsProvider>
+            <NavProvider>
+              <FilterProvider>
+                <App />
+              </FilterProvider>
+            </NavProvider>
+          </ProductsProvider>
+        </WishlistProvider>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,

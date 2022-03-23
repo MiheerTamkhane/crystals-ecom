@@ -17,6 +17,7 @@ const Login = () => {
         password: password,
       });
       localStorage.setItem("authToken", response.data.encodedToken);
+      localStorage.setItem("user", response.data.foundUser.firstName);
       setAuth((prevAuth) => ({
         ...prevAuth,
         user: response.data.foundUser.firstName,
