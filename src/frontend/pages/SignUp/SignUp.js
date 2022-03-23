@@ -1,19 +1,42 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../../contexts/contextExport";
-
+import axios from "axios";
 const SignUp = () => {
-  const { signupHandler } = useAuth();
+  const { auth, setAuth } = useAuth();
+  const navigate = useNavigate();
   const [userSignup, setUserSignup] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
   });
+  const signupHandler = async ({ firstName, lastName, email, password }) => {
+    try {
+      const response = await axios.post("/api/auth/signup", {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password,
+      });
+      localStorage.setItem("authToken", response.data.encodedToken);
+      setAuth(true);
+      navigate("/productsPage");
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <main className="form-container">
-      <form className="ct-form" onSubmit={(e) => signupHandler(e, userSignup)}>
+      <form
+        className="ct-form"
+        onSubmit={(e) => {
+          e.preventDefault();
+          signupHandler(userSignup);
+        }}
+      >
         <h2>Sign up</h2>
         <div className="ct-input-div">
           <input
@@ -72,10 +95,12 @@ const SignUp = () => {
         <button className="ct-form-btn form-btn" type="submit">
           CREATE NEW ACCOUNT
         </button>
-        <NavLink to="/Login" className="form-link">
-          Already have an account
-          <span className="material-icons">chevron_right</span>
-        </NavLink>
+        {!auth && (
+          <NavLink to="/Login" className="form-link">
+            Already have an account
+            <span className="material-icons">chevron_right</span>
+          </NavLink>
+        )}
       </form>
     </main>
   );

@@ -4,7 +4,12 @@ import "./Navbar.css";
 import { useNavContext, useAuth } from "../../contexts/contextExport";
 function Navbar() {
   const { setIsNav } = useNavContext();
-  const { auth, logoutHandler } = useAuth();
+  const { auth, setAuth } = useAuth();
+
+  const logoutHandler = () => {
+    localStorage.removeItem("authToken");
+    setAuth(false);
+  };
   return (
     <nav className="nav-bar navbar">
       <div className="ct-nav-logo">

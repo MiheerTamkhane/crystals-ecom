@@ -13,8 +13,6 @@ import { ProtectedRoute } from "../ProtectedRoute/ProtectedRoute";
 import { useAuth } from "../contexts/contextExport";
 const MyRoutes = () => {
   const { auth } = useAuth();
-  console.log(auth);
-
   return (
     <Routes>
       <Route path="/" element={<Home />} />

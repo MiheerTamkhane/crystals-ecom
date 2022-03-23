@@ -14,6 +14,7 @@ import {
 import categoryData from "./filterData";
 function Filter() {
   const { isMobileFilter, setIsMobileFilter, state, dispatch } = useFilter();
+
   return (
     <section
       className={

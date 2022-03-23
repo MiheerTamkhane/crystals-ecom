@@ -1,17 +1,38 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/contextExport";
-
+import axios from "axios";
 import "./Form.css";
 const Login = () => {
+  const navigate = useNavigate();
+
   const [userLogin, setUserLogin] = useState({
     email: "",
     password: "",
   });
-  const { loginHandler } = useAuth();
+  const { auth, setAuth } = useAuth();
+  const loginHandler = async ({ email, password }) => {
+    try {
+      const response = await axios.post("/api/auth/login", {
+        email: email,
+        password: password,
+      });
+      localStorage.setItem("authToken", response.data.encodedToken);
+      setAuth(true);
+      navigate("/productsPage");
+    } catch (err) {
+      console.error(err);
+    }
+  };
   return (
     <main className="form-container">
-      <form className="ct-form" onSubmit={(e) => loginHandler(e, userLogin)}>
+      <form
+        className="ct-form"
+        onSubmit={(e) => {
+          e.preventDefault();
+          loginHandler(userLogin);
+        }}
+      >
         <h2>Login</h2>
         <div className="ct-input-div">
           <input
@@ -51,19 +72,22 @@ const Login = () => {
         <button
           className="ct-btn ct-gray login-guest"
           type="submit"
-          onClick={(e) =>
-            loginHandler(e, {
+          onClick={(e) => {
+            e.preventDefault();
+            loginHandler({
               email: "johndoe@gmail.com",
               password: "johnDoe123",
-            })
-          }
+            });
+          }}
         >
           LOGIN AS GUEST
         </button>
-        <NavLink to="/SignUp" className="form-link">
-          Create new account
-          <span className="material-icons">chevron_right</span>
-        </NavLink>
+        {!auth && (
+          <NavLink to="/SignUp" className="form-link">
+            Create new account
+            <span className="material-icons">chevron_right</span>
+          </NavLink>
+        )}
       </form>
     </main>
   );
