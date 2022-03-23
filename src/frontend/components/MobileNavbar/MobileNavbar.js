@@ -1,10 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { useFilter, useNavContext } from "../../contexts/contextExport";
+import {
+  useFilter,
+  useNavContext,
+  useAuth,
+} from "../../contexts/contextExport";
 import "./MobileNavbar.css";
 function MobileNavbar() {
   const { isNav, setIsNav } = useNavContext();
   const { setIsMobileFilter } = useFilter();
+  const { auth, setAuth } = useAuth();
   return (
     <div
       className={isNav ? "mobile-navbar mobile-navbar-open" : "mobile-navbar"}
@@ -50,28 +55,45 @@ function MobileNavbar() {
           <span>Cart</span>
           <span className="material-icons">navigate_next</span>
         </NavLink>
-        <NavLink
-          to="/SignUp"
-          className="mobile-nav-link"
-          onClick={() => {
-            setIsNav(false);
-            setIsMobileFilter(false);
-          }}
-        >
-          <span>SignUp</span>
-          <span className="material-icons">navigate_next</span>
-        </NavLink>
-        <NavLink
-          to="/Login"
-          className="mobile-nav-link"
-          onClick={() => {
-            setIsNav(false);
-            setIsMobileFilter(false);
-          }}
-        >
-          <span>Login</span>
-          <span className="material-icons">navigate_next</span>
-        </NavLink>
+        {!auth ? (
+          <>
+            <NavLink
+              to="/SignUp"
+              className="mobile-nav-link"
+              onClick={() => {
+                setIsNav(false);
+                setIsMobileFilter(false);
+              }}
+            >
+              <span>Sign-up</span>
+              <span className="material-icons">navigate_next</span>
+            </NavLink>
+            <NavLink
+              to="/"
+              className="mobile-nav-link"
+              onClick={() => {
+                setIsNav(false);
+                setIsMobileFilter(false);
+              }}
+            >
+              <span>Login</span>
+              <span className="material-icons">navigate_next</span>
+            </NavLink>
+          </>
+        ) : (
+          <NavLink
+            to="/"
+            className="mobile-nav-link"
+            onClick={() => {
+              setIsNav(false);
+              setIsMobileFilter(false);
+              setAuth((prevUser) => ({ ...prevUser, status: false }));
+            }}
+          >
+            <span>Logout</span>
+            <span className="material-icons">navigate_next</span>
+          </NavLink>
+        )}
       </ul>
     </div>
   );

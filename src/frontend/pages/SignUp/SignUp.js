@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useAuth } from "../../contexts/contextExport";
 import axios from "axios";
 const SignUp = () => {
-  const { auth, setAuth } = useAuth();
+  const { setAuth } = useAuth();
   const navigate = useNavigate();
   const [userSignup, setUserSignup] = useState({
     firstName: "",
@@ -21,13 +21,17 @@ const SignUp = () => {
         password: password,
       });
       localStorage.setItem("authToken", response.data.encodedToken);
-      setAuth(true);
-      navigate("/productsPage");
+      setAuth((prevAuth) => ({
+        ...prevAuth,
+        user: firstName,
+        status: true,
+        authToken: response.data.encodedToken,
+      }));
+      navigate("/ProductsPage");
     } catch (err) {
       console.error(err);
     }
   };
-
   return (
     <main className="form-container">
       <form
@@ -95,12 +99,11 @@ const SignUp = () => {
         <button className="ct-form-btn form-btn" type="submit">
           CREATE NEW ACCOUNT
         </button>
-        {!auth && (
-          <NavLink to="/Login" className="form-link">
-            Already have an account
-            <span className="material-icons">chevron_right</span>
-          </NavLink>
-        )}
+
+        <NavLink to="/" className="form-link">
+          Already have an account
+          <span className="material-icons">chevron_right</span>
+        </NavLink>
       </form>
     </main>
   );

@@ -8,7 +8,11 @@ function Navbar() {
 
   const logoutHandler = () => {
     localStorage.removeItem("authToken");
-    setAuth(false);
+    setAuth((prevAuth) => ({
+      ...prevAuth,
+      status: false,
+      authToken: null,
+    }));
   };
   return (
     <nav className="nav-bar navbar">
@@ -51,19 +55,18 @@ function Navbar() {
               <small className="badge-pop badge">7</small>
             </NavLink>
 
-            {auth ? (
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  isActive
-                    ? "basic-badge nav-icon icon-selected"
-                    : "basic-badge nav-icon icon"
-                }
-              >
-                <span className="material-icons" onClick={logoutHandler}>
-                  logout
-                </span>
-              </NavLink>
+            {auth.status ? (
+              <>
+                <NavLink
+                  to="/ProductsPage"
+                  className="basic-badge nav-icon icon"
+                >
+                  <span className="material-icons" onClick={logoutHandler}>
+                    logout
+                  </span>
+                </NavLink>
+                <h3>Hi, {auth.user}</h3>
+              </>
             ) : (
               <NavLink
                 to="/Login"

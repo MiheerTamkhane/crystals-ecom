@@ -29,6 +29,7 @@
   margin: 0rem 0.5rem;
   cursor: pointer;
   text-decoration: none;
+  background-color: none;
 }
 
 .nav-icon span {

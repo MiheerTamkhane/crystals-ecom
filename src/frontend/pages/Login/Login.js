@@ -5,7 +5,6 @@ import axios from "axios";
 import "./Form.css";
 const Login = () => {
   const navigate = useNavigate();
-
   const [userLogin, setUserLogin] = useState({
     email: "",
     password: "",
@@ -18,8 +17,13 @@ const Login = () => {
         password: password,
       });
       localStorage.setItem("authToken", response.data.encodedToken);
-      setAuth(true);
-      navigate("/productsPage");
+      setAuth((prevAuth) => ({
+        ...prevAuth,
+        user: response.data.foundUser.firstName,
+        status: true,
+        authToken: response.data.encodedToken,
+      }));
+      navigate("/ProductsPage");
     } catch (err) {
       console.error(err);
     }
@@ -82,7 +86,7 @@ const Login = () => {
         >
           LOGIN AS GUEST
         </button>
-        {!auth && (
+        {!auth.status && (
           <NavLink to="/SignUp" className="form-link">
             Create new account
             <span className="material-icons">chevron_right</span>

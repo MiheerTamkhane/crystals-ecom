@@ -19,7 +19,7 @@ const MyRoutes = () => {
       <Route path="/ProductsPage" element={<ProductsPage />} />
       {/*👇 passing the SignUp and Login page to user only if he/she is not authorised 
       else unmounting or not showing it to use  */}
-      {!auth && (
+      {!auth.status && (
         <>
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/Login" element={<Login />} />
