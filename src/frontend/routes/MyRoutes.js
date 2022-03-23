@@ -10,15 +10,25 @@ import {
 } from "../index";
 import Mockman from "mockman-js";
 import { ProtectedRoute } from "../ProtectedRoute/ProtectedRoute";
+import { useAuth } from "../contexts/contextExport";
 const MyRoutes = () => {
+  const { auth } = useAuth();
+  console.log(auth);
+
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/ProductsPage" element={<ProductsPage />} />
-      <Route path="/SignUp" element={<SignUp />} />
-      <Route path="/Login" element={<Login />} />
-      <Route path="/mock" element={<Mockman />} />
+      {/*👇 passing the SignUp and Login page to user only if he/she is not authorised 
+      else unmounting or not showing it to use  */}
+      {!auth && (
+        <>
+          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/Login" element={<Login />} />
+        </>
+      )}
 
+      {/*👇 Protected routes for Cart and Wishlist components, only show when user is authorised */}
       <Route
         path="/DemoCart"
         element={
@@ -35,6 +45,7 @@ const MyRoutes = () => {
           </ProtectedRoute>
         }
       />
+      <Route path="/mock" element={<Mockman />} />
     </Routes>
   );
 };
