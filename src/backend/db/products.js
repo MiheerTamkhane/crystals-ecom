@@ -96,7 +96,7 @@ export const products = [
   {
     _id: uuid(),
     name: "Rose Quartz Beaded Bracelet",
-    image: "/assets/images/bracelets/bracelet2.webp",
+    image: "/assets/images/bracelets/bracelet4.webp",
     price: 349,
     inStock: true,
     isBestSeller: false,

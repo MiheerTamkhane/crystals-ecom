@@ -14,18 +14,19 @@ const SignUp = () => {
   });
   const signupHandler = async ({ firstName, lastName, email, password }) => {
     try {
-      const response = await axios.post("/api/auth/signup", {
+      const request = await axios.post("/api/auth/signup", {
         firstName: firstName,
         lastName: lastName,
         email: email,
         password: password,
       });
-      localStorage.setItem("authToken", response.data.encodedToken);
+      localStorage.setItem("authToken", request.data.encodedToken);
+      localStorage.setItem("user", request.data.createdUser.firstName);
       setAuth((prevAuth) => ({
         ...prevAuth,
-        user: firstName,
+        user: request.data.createdUser.firstName,
         status: true,
-        authToken: response.data.encodedToken,
+        authToken: request.data.encodedToken,
       }));
       navigate("/ProductsPage");
     } catch (err) {

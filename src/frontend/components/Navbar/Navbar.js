@@ -1,11 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
-import { useNavContext, useAuth } from "../../contexts/contextExport";
+import {
+  useNavContext,
+  useAuth,
+  useWishlist,
+} from "../../contexts/contextExport";
 function Navbar() {
   const { setIsNav } = useNavContext();
   const { auth, setAuth } = useAuth();
-
+  const { wishlist } = useWishlist();
   const logoutHandler = () => {
     localStorage.removeItem("authToken");
     setAuth((prevAuth) => ({
@@ -40,7 +44,9 @@ function Navbar() {
               }
             >
               <span className="material-icons">favorite</span>
-              <small className="badge-pop badge">7</small>
+              {wishlist.length > 0 && (
+                <small className="badge-pop badge">{wishlist.length}</small>
+              )}
             </NavLink>
 
             <NavLink
