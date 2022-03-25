@@ -1,13 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import {
-  Home,
-  Wishlist,
-  DemoCart,
-  ProductsPage,
-  SignUp,
-  Login,
-} from "../index";
+import { Home, Wishlist, Cart, ProductsPage, SignUp, Login } from "../index";
 import Mockman from "mockman-js";
 import { ProtectedRoute } from "../ProtectedRoute/ProtectedRoute";
 import { useAuth } from "../contexts/contextExport";
@@ -28,10 +21,10 @@ const MyRoutes = () => {
 
       {/*👇 Protected routes for Cart and Wishlist components, only show when user is authorised */}
       <Route
-        path="/DemoCart"
+        path="/Cart"
         element={
           <ProtectedRoute>
-            <DemoCart />
+            <Cart />
           </ProtectedRoute>
         }
       />

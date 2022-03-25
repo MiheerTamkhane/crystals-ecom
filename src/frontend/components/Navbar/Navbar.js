@@ -50,7 +50,7 @@ function Navbar() {
             </NavLink>
 
             <NavLink
-              to="/DemoCart"
+              to="/Cart"
               className={({ isActive }) =>
                 isActive
                   ? "basic-badge nav-icon icon-selected"

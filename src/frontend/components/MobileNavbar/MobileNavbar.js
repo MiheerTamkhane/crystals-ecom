@@ -45,7 +45,7 @@ function MobileNavbar() {
           <span className="material-icons">navigate_next</span>
         </NavLink>
         <NavLink
-          to="/DemoCart"
+          to="/Cart"
           className="mobile-nav-link"
           onClick={() => {
             setIsNav(false);
