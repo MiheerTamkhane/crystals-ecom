@@ -34,12 +34,7 @@ function Wishlist() {
                     BESTSELLER
                   </span>
                 )}
-                <button
-                  className="material-icons  ct-card-wish added-wishlist"
-                  onClick={() => {
-                    removeFromWishlist(authToken, product, setWishlist);
-                  }}
-                >
+                <button className="material-icons  ct-card-wish added-wishlist">
                   favorite
                 </button>
                 <img src={image} alt="fist" className="ct-card-img" />
@@ -56,8 +51,16 @@ function Wishlist() {
                   </div>
 
                   <div className="ct-card-btns">
-                    <button className="ct-btn ct-addcart card-btn">
-                      ADD TO CART
+                    <button className="ct-btn ct-addcart material-icons ">
+                      shopping_bag
+                    </button>
+                    <button
+                      className="ct-btn ct-wishlist material-icons"
+                      onClick={() => {
+                        removeFromWishlist(authToken, product, setWishlist);
+                      }}
+                    >
+                      delete
                     </button>
                   </div>
                 </div>
