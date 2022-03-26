@@ -1,13 +1,13 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { useWishlist, useAuth } from "../../contexts/contextExport";
-import { removeFromWishlist } from "../../services/servicesExport";
+import { Link } from "react-router-dom";
+import { useWishlist, useAuth, useCart } from "../../contexts/contextExport";
+import { removeFromWishlist, addToCart } from "../../services/servicesExport";
 import "./Wishlist.css";
 function Wishlist() {
   const { auth } = useAuth();
   const { authToken } = auth;
   const { wishlist, setWishlist } = useWishlist();
-
+  const { cart, setCart } = useCart();
   return (
     <main className="wishlist-page">
       <h2>{auth.user}'s Wishlist</h2>
@@ -51,7 +51,13 @@ function Wishlist() {
                   </div>
 
                   <div className="ct-card-btns">
-                    <button className="ct-btn ct-addcart material-icons ">
+                    <button
+                      className="ct-btn ct-addcart material-icons"
+                      onClick={() => {
+                        addToCart(authToken, product, cart, setCart);
+                        removeFromWishlist(authToken, product, setWishlist);
+                      }}
+                    >
                       shopping_bag
                     </button>
                     <button
@@ -70,7 +76,7 @@ function Wishlist() {
         ) : (
           <h1 className="empty-products">
             WISHLIST IS EMPTY! CHECK OUT
-            <NavLink to="/ProductsPage">products</NavLink>
+            <Link to="/ProductsPage">products</Link>
           </h1>
         )}
       </section>

@@ -1,0 +1,51 @@
+.order-container {
+  width: 40%;
+  background-color: #fff;
+  height: min-content;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+.order-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+}
+.order-checkout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+.order-checkout-btn {
+  color: var(--gray-100);
+  background-color: var(--violet-500);
+  transition: all 250ms ease;
+  margin: 5px;
+  font-size: 1.2rem;
+}
+.order-checkout-btn:hover {
+  color: var(--gray-100);
+  background-color: var(--violet-700);
+}
+.discount {
+  color: var(--red-500);
+}
+.giftbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.giftbox input {
+  margin-right: 5px;
+}
+@media only screen and (max-width: 800px) {
+  .order-container {
+    width: 90%;
+  }
+}

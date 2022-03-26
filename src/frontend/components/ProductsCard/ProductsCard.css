@@ -10,7 +10,7 @@
   margin: 1rem auto;
   min-height: max-content;
   width: 250px;
-  height: 400px;
+  height: 420px;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
@@ -35,6 +35,11 @@
   width: 100%;
   justify-content: center;
   background-color: var(--orange-300);
+  transition: all 250ms ease;
+}
+.card-btn.ct-pay {
+  color: var(--green-700);
+  background-color: var(--green-300);
 }
 .ct-card-wish {
   border: none;

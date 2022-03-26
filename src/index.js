@@ -10,7 +10,9 @@ import {
   FilterProvider,
   AuthProvider,
   WishlistProvider,
+  CartProvider,
 } from "./frontend/contexts/contextExport";
+import { Cart } from "./frontend";
 
 // Call make Server
 makeServer();
@@ -19,15 +21,17 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <WishlistProvider>
-          <ProductsProvider>
-            <NavProvider>
-              <FilterProvider>
-                <App />
-              </FilterProvider>
-            </NavProvider>
-          </ProductsProvider>
-        </WishlistProvider>
+        <CartProvider>
+          <WishlistProvider>
+            <ProductsProvider>
+              <NavProvider>
+                <FilterProvider>
+                  <App />
+                </FilterProvider>
+              </NavProvider>
+            </ProductsProvider>
+          </WishlistProvider>
+        </CartProvider>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,

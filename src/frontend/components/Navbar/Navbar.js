@@ -5,15 +5,19 @@ import {
   useNavContext,
   useAuth,
   useWishlist,
+  useCart,
 } from "../../contexts/contextExport";
 function Navbar() {
   const { setIsNav } = useNavContext();
   const { auth, setAuth } = useAuth();
   const { wishlist } = useWishlist();
+  const { cart } = useCart();
   const logoutHandler = () => {
     localStorage.removeItem("authToken");
+    localStorage.removeItem("user");
     setAuth((prevAuth) => ({
       ...prevAuth,
+      user: "",
       status: false,
       authToken: null,
     }));
@@ -58,7 +62,9 @@ function Navbar() {
               }
             >
               <span className="material-icons">shopping_bag</span>
-              <small className="badge-pop badge">7</small>
+              {cart.length > 0 && (
+                <small className="badge-pop badge">{cart.length}</small>
+              )}
             </NavLink>
 
             {auth.status ? (
