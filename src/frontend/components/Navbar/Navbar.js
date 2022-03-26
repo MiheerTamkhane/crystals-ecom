@@ -8,20 +8,11 @@ import {
   useCart,
 } from "../../contexts/contextExport";
 function Navbar() {
-  const { setIsNav } = useNavContext();
-  const { auth, setAuth } = useAuth();
+  const { setIsNav, logoutHandler } = useNavContext();
+  const { auth } = useAuth();
   const { wishlist } = useWishlist();
   const { cart } = useCart();
-  const logoutHandler = () => {
-    localStorage.removeItem("authToken");
-    localStorage.removeItem("user");
-    setAuth((prevAuth) => ({
-      ...prevAuth,
-      user: "",
-      status: false,
-      authToken: null,
-    }));
-  };
+
   return (
     <nav className="nav-bar navbar">
       <div className="ct-nav-logo">

@@ -14,8 +14,18 @@ const useNavContext = () => {
 
 const NavProvider = ({ children }) => {
   const [isNav, setIsNav] = useState(false);
+  const logoutHandler = () => {
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("user");
+    setAuth((prevAuth) => ({
+      ...prevAuth,
+      user: "",
+      status: false,
+      authToken: null,
+    }));
+  };
   return (
-    <NavContext.Provider value={{ isNav, setIsNav }}>
+    <NavContext.Provider value={{ isNav, setIsNav, logoutHandler }}>
       {children}
     </NavContext.Provider>
   );
