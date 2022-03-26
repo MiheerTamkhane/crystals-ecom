@@ -15,7 +15,6 @@ const OrderDetails = ({ orderDetails }) => {
       <p className="order-details">
         <span>Price (Total Quantity : {cartQuantity})</span>
         <span>₹{cartTotalPrice}</span>
-        {/* {cart.reduce((acc, curr) => acc.price + curr.price)} */}
       </p>
       <p className="order-details ">
         <span>Discount</span>
