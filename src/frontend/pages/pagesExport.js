@@ -1,4 +1,4 @@
-export { DemoCart } from "./Cart/DemoCart";
+export { Cart } from "./Cart/Cart";
 export { Home } from "./Home/Home";
 export { Login } from "./Login/Login";
 export { ProductsPage } from "./ProductsPage/ProductsPage";

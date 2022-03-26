@@ -1,6 +1,6 @@
 export {
   Home,
-  DemoCart,
+  Cart,
   Wishlist,
   ProductsPage,
   SignUp,

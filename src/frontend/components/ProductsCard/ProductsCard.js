@@ -1,9 +1,15 @@
 import React from "react";
 import "./ProductsCard.css";
-import { useFilter, useAuth, useWishlist } from "../../contexts/contextExport";
+import {
+  useFilter,
+  useAuth,
+  useWishlist,
+  useCart,
+} from "../../contexts/contextExport";
 import {
   removeFromWishlist,
   addToWishlist,
+  addToCart,
 } from "../../services/servicesExport";
 import { useNavigate } from "react-router-dom";
 const ProductsCard = () => {
@@ -12,21 +18,14 @@ const ProductsCard = () => {
   const { auth } = useAuth();
   const { authToken } = auth;
   const { wishlist, setWishlist } = useWishlist();
+  const { cart, setCart } = useCart();
 
   return (
     <div className="products-div">
       {filteredProducts.length !== 0 ? (
         filteredProducts.map((product) => {
-          const {
-            _id,
-            isBestSeller,
-            image,
-            name,
-            price,
-            rating,
-            material,
-            category,
-          } = product;
+          const { _id, isBestSeller, image, name, price, rating, material } =
+            product;
           return (
             <a
               key={_id}
@@ -66,7 +65,7 @@ const ProductsCard = () => {
               <div className="ct-product-stats">
                 <h4>{name}</h4>
                 <small className="ct-product-info">{material}</small>
-                <small className="ct-product-info">{category}</small>
+                {/* <small className="ct-product-info">{category}</small> */}
                 <div className="price-rating">
                   <h4>₹ {price}</h4>
                   <div className="rating-div">
@@ -76,9 +75,31 @@ const ProductsCard = () => {
                 </div>
 
                 <div className="ct-card-btns">
-                  <button className="ct-btn ct-addcart card-btn">
-                    ADD TO CART
-                  </button>
+                  {cart.find(
+                    (productInCart) => productInCart._id === product._id
+                  ) ? (
+                    <button
+                      className="ct-btn card-btn ct-pay"
+                      onClick={() => {
+                        navigate("/Cart");
+                      }}
+                    >
+                      GO TO CART
+                    </button>
+                  ) : (
+                    <button
+                      className="ct-btn ct-addcart card-btn"
+                      onClick={() => {
+                        if (auth.status) {
+                          addToCart(authToken, product, cart, setCart);
+                        } else {
+                          navigate("/Login");
+                        }
+                      }}
+                    >
+                      ADD TO CART
+                    </button>
+                  )}
                 </div>
               </div>
             </a>

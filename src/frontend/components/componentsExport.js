@@ -9,3 +9,4 @@ export { Navbar } from "./Navbar/Navbar";
 export { Poster } from "./Poster/Poster";
 export { Products } from "./Products/Products";
 export { ProductsCard } from "./ProductsCard/ProductsCard";
+export { OrderDetails } from "./OrderDetails/OrderDetails";
