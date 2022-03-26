@@ -6,9 +6,11 @@ const OrderDetails = ({ orderDetails }) => {
   return (
     <div className="order-container">
       <h2>Order Details</h2>
-      <small className="order-offer">
-        <small>Price</small>
-        <small>₹12312</small>
+      <small className="order-details">
+        <small className="order-offer">
+          CODEGHEFUKAT <span className="material-icons ">local_offer</span>
+        </small>
+        <small>-₹77</small>
       </small>
       <p className="order-details">
         <span>Price (Total Quantity : {cartQuantity})</span>

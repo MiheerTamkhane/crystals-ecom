@@ -35,6 +35,17 @@
 .discount {
   color: var(--red-500);
 }
+small.order-details {
+  color: var(--violet-500);
+}
+.order-offer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.order-offer span {
+  font-size: 1rem;
+}
 .giftbox {
   display: flex;
   align-items: center;
