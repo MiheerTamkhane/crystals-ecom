@@ -26,7 +26,7 @@ const OrderDetails = ({ orderDetails }) => {
       <hr />
       <h2 className="order-details">
         <span>Subtotal</span>
-        <span>{subtotal}</span>
+        <span>₹{subtotal}</span>
       </h2>
       <div className="order-checkout">
         <label htmlFor="giftbox" className="giftbox">
