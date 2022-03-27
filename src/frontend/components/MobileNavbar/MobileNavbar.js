@@ -9,7 +9,7 @@ import "./MobileNavbar.css";
 function MobileNavbar() {
   const { isNav, setIsNav, logoutHandler } = useNavContext();
   const { setIsMobileFilter } = useFilter();
-  const { auth, setAuth } = useAuth();
+  const { auth } = useAuth();
   return (
     <div
       className={isNav ? "mobile-navbar mobile-navbar-open" : "mobile-navbar"}
