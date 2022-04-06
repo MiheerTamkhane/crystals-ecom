@@ -1,4 +1,3 @@
-import React from "react";
 import "./Cart.css";
 import { Link } from "react-router-dom";
 import { useWishlist, useCart, useAuth } from "../../contexts/contextExport";
@@ -8,12 +7,11 @@ function Cart() {
   const { authToken } = auth;
   const {
     cart,
-    setCart,
     orderDetails,
     removeFromCartHandler,
     updateQtyOfCartProductHandler,
   } = useCart();
-  const { wishlist, setWishlist, addToWishlistHandler } = useWishlist();
+  const { wishlist, addToWishlistHandler } = useWishlist();
 
   return (
     <main className="cart-page">
