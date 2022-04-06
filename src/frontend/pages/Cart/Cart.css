@@ -59,11 +59,7 @@
   font-size: 1.2rem;
   cursor: pointer;
 }
-.ct-product-info {
-  padding: 0px 1.4rem;
-  border-right: 1px solid var(--gray-300);
-  border-left: 1px solid var(--gray-300);
-}
+
 .empty-products-container {
   margin-top: 1rem;
   max-width: 80%;
