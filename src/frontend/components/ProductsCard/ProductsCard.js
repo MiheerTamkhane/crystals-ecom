@@ -6,19 +6,15 @@ import {
   useWishlist,
   useCart,
 } from "../../contexts/contextExport";
-import {
-  removeFromWishlist,
-  addToWishlist,
-  addToCart,
-} from "../../services/servicesExport";
 import { useNavigate } from "react-router-dom";
 const ProductsCard = () => {
   const navigate = useNavigate();
   const { filteredProducts } = useFilter();
   const { auth } = useAuth();
   const { authToken } = auth;
-  const { wishlist, setWishlist } = useWishlist();
-  const { cart, setCart } = useCart();
+  const { wishlist, addToWishlistHandler, removeFromWishlistHandler } =
+    useWishlist();
+  const { cart, addToCartHandler } = useCart();
 
   return (
     <div className="products-div">
@@ -42,7 +38,7 @@ const ProductsCard = () => {
                 <button
                   className="material-icons  ct-card-wish added-wishlist"
                   onClick={() => {
-                    removeFromWishlist(authToken, product, setWishlist);
+                    removeFromWishlistHandler(authToken, _id);
                   }}
                 >
                   favorite
@@ -52,9 +48,9 @@ const ProductsCard = () => {
                   className="material-icons  ct-card-wish"
                   onClick={() => {
                     if (auth.status) {
-                      addToWishlist(authToken, product, wishlist, setWishlist);
+                      addToWishlistHandler(authToken, product, wishlist);
                     } else {
-                      navigate("/Login");
+                      navigate("/login");
                     }
                   }}
                 >
@@ -91,9 +87,9 @@ const ProductsCard = () => {
                       className="ct-btn ct-addcart card-btn"
                       onClick={() => {
                         if (auth.status) {
-                          addToCart(authToken, product, cart, setCart);
+                          addToCartHandler(authToken, product, cart);
                         } else {
-                          navigate("/Login");
+                          navigate("/login");
                         }
                       }}
                     >

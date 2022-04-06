@@ -1,13 +1,13 @@
 import axios from "axios";
 
-export const removeFromCart = async (authToken, product, setCart) => {
+export const removeFromCart = async (authToken, id) => {
   try {
-    const request = await axios.delete(`/api/user/cart/${product._id}`, {
+    const request = await axios.delete(`/api/user/cart/${id}`, {
       headers: {
         authorization: authToken,
       },
     });
-    setCart(request.data.cart);
+    return request.data.cart;
   } catch (e) {
     console.error(e);
   }

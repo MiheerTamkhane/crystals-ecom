@@ -31,7 +31,7 @@ function Navbar() {
         <div className="ct-nav-user">
           <div className="ct-nav-icons ">
             <NavLink
-              to="/Wishlist"
+              to="/wishlist"
               className={({ isActive }) =>
                 isActive
                   ? "basic-badge nav-icon icon-selected"
@@ -45,7 +45,7 @@ function Navbar() {
             </NavLink>
 
             <NavLink
-              to="/Cart"
+              to="/cart"
               className={({ isActive }) =>
                 isActive
                   ? "basic-badge nav-icon icon-selected"
@@ -61,7 +61,7 @@ function Navbar() {
             {auth.status ? (
               <>
                 <NavLink
-                  to="/ProductsPage"
+                  to="/productspage"
                   className="basic-badge nav-icon icon"
                 >
                   <span
@@ -75,7 +75,7 @@ function Navbar() {
               </>
             ) : (
               <NavLink
-                to="/Login"
+                to="/login"
                 className={({ isActive }) =>
                   isActive
                     ? "basic-badge nav-icon icon-selected"

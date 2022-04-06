@@ -1,13 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useWishlist, useAuth, useCart } from "../../contexts/contextExport";
-import { removeFromWishlist, addToCart } from "../../services/servicesExport";
 import "./Wishlist.css";
 function Wishlist() {
   const { auth } = useAuth();
   const { authToken } = auth;
-  const { wishlist, setWishlist } = useWishlist();
-  const { cart, setCart } = useCart();
+  const { wishlist, removeFromWishlistHandler } = useWishlist();
+  const { cart, addToCartHandler } = useCart();
   return (
     <main className="wishlist-page">
       <h2>{auth.user}'s Wishlist</h2>
@@ -54,8 +53,8 @@ function Wishlist() {
                     <button
                       className="ct-btn ct-addcart material-icons"
                       onClick={() => {
-                        addToCart(authToken, product, cart, setCart);
-                        removeFromWishlist(authToken, product, setWishlist);
+                        addToCartHandler(authToken, product, cart);
+                        removeFromWishlistHandler(authToken, _id);
                       }}
                     >
                       shopping_bag
@@ -63,7 +62,7 @@ function Wishlist() {
                     <button
                       className="ct-btn ct-wishlist material-icons"
                       onClick={() => {
-                        removeFromWishlist(authToken, product, setWishlist);
+                        removeFromWishlistHandler(authToken, _id);
                       }}
                     >
                       delete
@@ -74,10 +73,12 @@ function Wishlist() {
             );
           })
         ) : (
-          <h1 className="empty-products">
-            WISHLIST IS EMPTY! CHECK OUT
-            <Link to="/ProductsPage">products</Link>
-          </h1>
+          <div className="empty-products-container-wishlist">
+            <h1 className="empty-products">CART IS EMPTY! CHECK OUT</h1>
+            <Link to="/productspage" className="go-to-products-wishlist ct-btn">
+              PRODUCTS
+            </Link>
+          </div>
         )}
       </section>
     </main>

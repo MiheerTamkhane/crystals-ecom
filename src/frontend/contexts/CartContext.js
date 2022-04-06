@@ -1,7 +1,11 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import axios from "axios";
 import { useAuth } from "../contexts/contextExport";
-import { addToCart, getUserCart } from "../services/servicesExport";
+import {
+  addToCart,
+  getUserCart,
+  removeFromCart,
+  updateQtyOfCartProduct,
+} from "../services/servicesExport";
 const CartContext = createContext(null);
 
 const CartProvider = ({ children }) => {
@@ -38,8 +42,33 @@ const CartProvider = ({ children }) => {
     }
   );
 
+  // Add to Cart Handler function
+  const addToCartHandler = async (authToken, product, cart) => {
+    const data = await addToCart(authToken, product, cart);
+    setCart(data);
+  };
+
+  // Remove product from cart Handler
+  const removeFromCartHandler = async (authToken, id) => {
+    const data = await removeFromCart(authToken, id);
+    setCart(data);
+  };
+
+  const updateQtyOfCartProductHandler = async (authToken, id, type) => {
+    const data = await updateQtyOfCartProduct(authToken, id, type);
+    setCart(data);
+  };
   return (
-    <CartContext.Provider value={{ cart, setCart, orderDetails }}>
+    <CartContext.Provider
+      value={{
+        cart,
+        setCart,
+        orderDetails,
+        addToCartHandler,
+        removeFromCartHandler,
+        updateQtyOfCartProductHandler,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );
