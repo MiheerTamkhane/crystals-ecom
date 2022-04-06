@@ -38,7 +38,7 @@ function Navbar() {
                   : "basic-badge nav-icon icon"
               }
             >
-              <span className="material-icons">favorite</span>
+              <span className="material-icons-round">favorite_border</span>
               {wishlist.length > 0 && (
                 <small className="badge-pop badge">{wishlist.length}</small>
               )}
@@ -52,7 +52,7 @@ function Navbar() {
                   : "basic-badge nav-icon icon"
               }
             >
-              <span className="material-icons">shopping_bag</span>
+              <span className="material-icons-outlined">shopping_bag</span>
               {cart.length > 0 && (
                 <small className="badge-pop badge">{cart.length}</small>
               )}
