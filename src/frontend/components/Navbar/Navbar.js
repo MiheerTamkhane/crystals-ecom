@@ -8,20 +8,11 @@ import {
   useCart,
 } from "../../contexts/contextExport";
 function Navbar() {
-  const { setIsNav } = useNavContext();
+  const { setIsNav, logoutHandler } = useNavContext();
   const { auth, setAuth } = useAuth();
   const { wishlist } = useWishlist();
   const { cart } = useCart();
-  const logoutHandler = () => {
-    localStorage.removeItem("authToken");
-    localStorage.removeItem("user");
-    setAuth((prevAuth) => ({
-      ...prevAuth,
-      user: "",
-      status: false,
-      authToken: null,
-    }));
-  };
+
   return (
     <nav className="nav-bar navbar">
       <div className="ct-nav-logo">
@@ -47,7 +38,7 @@ function Navbar() {
                   : "basic-badge nav-icon icon"
               }
             >
-              <span className="material-icons">favorite</span>
+              <span className="material-icons-round">favorite_border</span>
               {wishlist.length > 0 && (
                 <small className="badge-pop badge">{wishlist.length}</small>
               )}
@@ -61,7 +52,7 @@ function Navbar() {
                   : "basic-badge nav-icon icon"
               }
             >
-              <span className="material-icons">shopping_bag</span>
+              <span className="material-icons-outlined">shopping_bag</span>
               {cart.length > 0 && (
                 <small className="badge-pop badge">{cart.length}</small>
               )}
@@ -73,7 +64,10 @@ function Navbar() {
                   to="/ProductsPage"
                   className="basic-badge nav-icon icon"
                 >
-                  <span className="material-icons" onClick={logoutHandler}>
+                  <span
+                    className="material-icons"
+                    onClick={() => logoutHandler(setAuth)}
+                  >
                     logout
                   </span>
                 </NavLink>

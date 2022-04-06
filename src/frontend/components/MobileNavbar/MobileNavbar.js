@@ -7,9 +7,9 @@ import {
 } from "../../contexts/contextExport";
 import "./MobileNavbar.css";
 function MobileNavbar() {
-  const { isNav, setIsNav } = useNavContext();
+  const { isNav, setIsNav, logoutHandler } = useNavContext();
   const { setIsMobileFilter } = useFilter();
-  const { auth, setAuth } = useAuth();
+  const { auth } = useAuth();
   return (
     <div
       className={isNav ? "mobile-navbar mobile-navbar-open" : "mobile-navbar"}
@@ -55,7 +55,18 @@ function MobileNavbar() {
           <span>Cart</span>
           <span className="material-icons">navigate_next</span>
         </NavLink>
-        {!auth ? (
+        <NavLink
+          to="/Wishlist"
+          className="mobile-nav-link"
+          onClick={() => {
+            setIsNav(false);
+            setIsMobileFilter(false);
+          }}
+        >
+          <span>Wishlist</span>
+          <span className="material-icons">navigate_next</span>
+        </NavLink>
+        {!auth.status ? (
           <>
             <NavLink
               to="/SignUp"
@@ -69,7 +80,7 @@ function MobileNavbar() {
               <span className="material-icons">navigate_next</span>
             </NavLink>
             <NavLink
-              to="/"
+              to="/Login"
               className="mobile-nav-link"
               onClick={() => {
                 setIsNav(false);
@@ -82,12 +93,12 @@ function MobileNavbar() {
           </>
         ) : (
           <NavLink
-            to="/"
+            to="/Login"
             className="mobile-nav-link"
             onClick={() => {
               setIsNav(false);
               setIsMobileFilter(false);
-              setAuth((prevUser) => ({ ...prevUser, status: false }));
+              logoutHandler();
             }}
           >
             <span>Logout</span>
