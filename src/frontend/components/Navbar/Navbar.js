@@ -9,7 +9,7 @@ import {
 } from "../../contexts/contextExport";
 function Navbar() {
   const { setIsNav, logoutHandler } = useNavContext();
-  const { auth } = useAuth();
+  const { auth, setAuth } = useAuth();
   const { wishlist } = useWishlist();
   const { cart } = useCart();
 
@@ -64,7 +64,10 @@ function Navbar() {
                   to="/ProductsPage"
                   className="basic-badge nav-icon icon"
                 >
-                  <span className="material-icons" onClick={logoutHandler}>
+                  <span
+                    className="material-icons"
+                    onClick={() => logoutHandler(setAuth)}
+                  >
                     logout
                   </span>
                 </NavLink>
