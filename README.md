@@ -1,6 +1,6 @@
 # CrystalKart
 
-CrystalKart is a Ecommerce site were you can buy the Curated & Ethically Conscious Collections of Crystals. Which will help you to allow positive, fruitful energy to flow into the body and do away with the negative, toxic energy.
+[CrystalKart.com](https://crystalkart.netlify.app/) is a Ecommerce site were you can buy the Curated & Ethically Conscious Collections of Crystals. Which will help you to allow positive, fruitful energy to flow into the body and do away with the negative, toxic energy.
 
 ## Description
 
