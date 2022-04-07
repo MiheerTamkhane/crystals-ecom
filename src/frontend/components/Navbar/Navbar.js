@@ -18,7 +18,7 @@ function Navbar() {
       <div className="ct-nav-logo">
         <NavLink to="/" className="logo">
           <img src="/assets/images/Crystals.png" alt="logo" />
-          <h1>Crystals</h1>
+          <h1>CrystalKart</h1>
         </NavLink>
       </div>
       {/* Search bar will come here  */}

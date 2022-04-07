@@ -20,7 +20,7 @@ function MobileNavbar() {
           className="mobile-nav-link-heading"
           onClick={() => setIsNav(false)}
         >
-          <h1>Crystals</h1>
+          <h1>CrystalKart</h1>
         </NavLink>
         <span
           className="material-icons"

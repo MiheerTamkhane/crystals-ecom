@@ -8,9 +8,9 @@ function Footer() {
         <div className="ct-nav-logo">
           <NavLink to="/" className="logo">
             <img src="/assets/images/Crystals.png" alt="" />
-            <h1>Crystals</h1>
+            <h1>CrystalKart</h1>
           </NavLink>
-          <small>Crystals © 2013 - 2022</small>
+          <small>CrystalKart © 2013 - 2022</small>
           <div className="social-div">
             <a href="">
               <img
