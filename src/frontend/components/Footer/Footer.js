@@ -12,21 +12,21 @@ function Footer() {
           </NavLink>
           <small>CrystalKart © 2013 - 2022</small>
           <div className="social-div">
-            <a href="">
+            <a href="https://github.com/MiheerTamkhane">
               <img
                 src="/assets/svg/github.svg"
                 alt="github"
                 className="social-links"
               />
             </a>
-            <a href="">
+            <a href="https://www.linkedin.com/in/miheer-tamkhane-19417b19a/">
               <img
                 src="/assets/svg/linkedin.svg"
                 alt="linkedin"
                 className="social-links"
               />
             </a>
-            <a href="">
+            <a href="https://twitter.com/MiheerTamkhane">
               <img
                 src="/assets/svg/twitter.svg"
                 alt="twitter"
