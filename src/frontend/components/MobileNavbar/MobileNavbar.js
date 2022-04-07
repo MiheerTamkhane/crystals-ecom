@@ -20,7 +20,7 @@ function MobileNavbar() {
           className="mobile-nav-link-heading"
           onClick={() => setIsNav(false)}
         >
-          <h1>Crystals</h1>
+          <h1>CrystalKart</h1>
         </NavLink>
         <span
           className="material-icons"
@@ -34,7 +34,7 @@ function MobileNavbar() {
       </div>
       <ul className="navbar-body">
         <NavLink
-          to="/ProductsPage"
+          to="/productspage"
           className="mobile-nav-link"
           onClick={() => {
             setIsNav(false);
@@ -45,7 +45,7 @@ function MobileNavbar() {
           <span className="material-icons">navigate_next</span>
         </NavLink>
         <NavLink
-          to="/Cart"
+          to="/cart"
           className="mobile-nav-link"
           onClick={() => {
             setIsNav(false);
@@ -56,7 +56,7 @@ function MobileNavbar() {
           <span className="material-icons">navigate_next</span>
         </NavLink>
         <NavLink
-          to="/Wishlist"
+          to="/wishlist"
           className="mobile-nav-link"
           onClick={() => {
             setIsNav(false);
@@ -69,7 +69,7 @@ function MobileNavbar() {
         {!auth.status ? (
           <>
             <NavLink
-              to="/SignUp"
+              to="/signup"
               className="mobile-nav-link"
               onClick={() => {
                 setIsNav(false);
@@ -93,7 +93,7 @@ function MobileNavbar() {
           </>
         ) : (
           <NavLink
-            to="/Login"
+            to="/login"
             className="mobile-nav-link"
             onClick={() => {
               setIsNav(false);

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const updateQtyOfCartProduct = async (authToken, id, setCart, type) => {
+export const updateQtyOfCartProduct = async (authToken, id, type) => {
   try {
     const { data } = await axios.post(
       `/api/user/cart/${id}`,
@@ -15,7 +15,8 @@ export const updateQtyOfCartProduct = async (authToken, id, setCart, type) => {
         },
       }
     );
-    setCart(data.cart);
+
+    return data.cart;
   } catch (error) {
     console.error(error.message);
   }

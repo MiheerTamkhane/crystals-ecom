@@ -12,3 +12,27 @@
   margin: 2rem 0;
   gap: 2rem;
 }
+
+.empty-products-container-wishlist {
+  width: 100%;
+  min-height: 60vh;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.go-to-products-wishlist {
+  text-decoration: none;
+  color: var(--gray-100);
+  background-color: var(--violet-500);
+  transition: 250ms ease;
+  font-family: "Nunito", sans-serif;
+  border-radius: 3px;
+}
+.go-to-products-wishlist:hover {
+  background-color: var(--violet-700);
+}

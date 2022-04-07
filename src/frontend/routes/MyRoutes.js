@@ -9,19 +9,19 @@ const MyRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/ProductsPage" element={<ProductsPage />} />
+      <Route path="/productspage" element={<ProductsPage />} />
       {/*👇 passing the SignUp and Login page to user only if he/she is not authorised 
       else unmounting or not showing it to use  */}
       {!auth.status && (
         <>
-          <Route path="/SignUp" element={<SignUp />} />
-          <Route path="/Login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
         </>
       )}
 
       {/*👇 Protected routes for Cart and Wishlist components, only show when user is authorised */}
       <Route
-        path="/Cart"
+        path="/cart"
         element={
           <ProtectedRoute>
             <Cart />
@@ -29,7 +29,7 @@ const MyRoutes = () => {
         }
       />
       <Route
-        path="/Wishlist"
+        path="/wishlist"
         element={
           <ProtectedRoute>
             <Wishlist />

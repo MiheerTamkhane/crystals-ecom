@@ -59,10 +59,30 @@
   font-size: 1.2rem;
   cursor: pointer;
 }
-.ct-product-info {
-  padding: 0px 1.4rem;
-  border-right: 1px solid var(--gray-300);
-  border-left: 1px solid var(--gray-300);
+
+.empty-products-container {
+  margin-top: 1rem;
+  max-width: 80%;
+  min-height: 60vh;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.go-to-products {
+  text-decoration: none;
+  color: var(--gray-100);
+  background-color: var(--violet-500);
+  transition: 250ms ease;
+  font-family: "Nunito", sans-serif;
+  border-radius: 3px;
+}
+
+.go-to-products:hover {
+  background-color: var(--violet-700);
 }
 @media only screen and (max-width: 800px) {
   .cart-container {

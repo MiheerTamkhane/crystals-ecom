@@ -1,13 +1,13 @@
 import axios from "axios";
 
-export const removeFromWishlist = async (authToken, product, setWishlist) => {
+export const removeFromWishlist = async (authToken, id) => {
   try {
-    const request = await axios.delete(`/api/user/wishlist/${product._id}`, {
+    const response = await axios.delete(`/api/user/wishlist/${id}`, {
       headers: {
         authorization: authToken,
       },
     });
-    setWishlist(request.data.wishlist);
+    return response.data.wishlist;
   } catch (e) {
     console.error(e);
   }

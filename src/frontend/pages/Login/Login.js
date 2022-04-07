@@ -24,7 +24,7 @@ const Login = () => {
         status: true,
         authToken: response.data.encodedToken,
       }));
-      navigate("/ProductsPage");
+      navigate("/productspage");
     } catch (err) {
       console.error(err);
     }
@@ -88,7 +88,7 @@ const Login = () => {
           LOGIN AS GUEST
         </button>
         {!auth.status && (
-          <NavLink to="/SignUp" className="form-link">
+          <NavLink to="/signup" className="form-link">
             Create new account
             <span className="material-icons">chevron_right</span>
           </NavLink>

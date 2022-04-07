@@ -1,11 +1,32 @@
 import { createContext, useContext, useState } from "react";
+import { addToWishlist, removeFromWishlist } from "../services/servicesExport";
 
 const WishlistContext = createContext(null);
 
 const WishlistProvider = ({ children }) => {
   const [wishlist, setWishlist] = useState([]);
+
+  // Add to wishlist Handler function
+  const addToWishlistHandler = async (authToken, product, wishlist) => {
+    const data = await addToWishlist(authToken, product, wishlist);
+    setWishlist(data);
+  };
+
+  // Remove from wishlist Handler function
+  const removeFromWishlistHandler = async (authToken, id) => {
+    const data = await removeFromWishlist(authToken, id);
+    setWishlist(data);
+  };
+
   return (
-    <WishlistContext.Provider value={{ wishlist, setWishlist }}>
+    <WishlistContext.Provider
+      value={{
+        wishlist,
+        setWishlist,
+        addToWishlistHandler,
+        removeFromWishlistHandler,
+      }}
+    >
       {children}
     </WishlistContext.Provider>
   );

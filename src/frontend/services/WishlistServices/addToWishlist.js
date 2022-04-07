@@ -1,8 +1,10 @@
 import axios from "axios";
 
-export const addToWishlist = (authToken, product, wishlist, setWishlist) => {
-  wishlist.find((productInWishlist) => productInWishlist._id === product._id)
-    ? alert("%cproduct exist in wishlist", "color : red")
+export const addToWishlist = async (authToken, product, wishlist) => {
+  return wishlist.find(
+    (productInWishlist) => productInWishlist._id === product._id
+  )
+    ? alert("product exist in wishlist")
     : (async () => {
         try {
           const { data } = await axios.post(
@@ -14,7 +16,7 @@ export const addToWishlist = (authToken, product, wishlist, setWishlist) => {
               },
             }
           );
-          setWishlist(data.wishlist);
+          return data.wishlist;
         } catch (e) {
           console.error(e);
         }

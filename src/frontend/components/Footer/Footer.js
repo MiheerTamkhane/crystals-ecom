@@ -8,25 +8,25 @@ function Footer() {
         <div className="ct-nav-logo">
           <NavLink to="/" className="logo">
             <img src="/assets/images/Crystals.png" alt="" />
-            <h1>Crystals</h1>
+            <h1>CrystalKart</h1>
           </NavLink>
-          <small>Crystals © 2013 - 2022</small>
+          <small>CrystalKart © 2013 - 2022</small>
           <div className="social-div">
-            <a href="">
+            <a href="https://github.com/MiheerTamkhane">
               <img
                 src="/assets/svg/github.svg"
                 alt="github"
                 className="social-links"
               />
             </a>
-            <a href="">
+            <a href="https://www.linkedin.com/in/miheer-tamkhane-19417b19a/">
               <img
                 src="/assets/svg/linkedin.svg"
                 alt="linkedin"
                 className="social-links"
               />
             </a>
-            <a href="">
+            <a href="https://twitter.com/MiheerTamkhane">
               <img
                 src="/assets/svg/twitter.svg"
                 alt="twitter"
@@ -51,7 +51,7 @@ function Footer() {
           <NavLink to="/Home" className="footer-link">
             <p>HOME</p>
           </NavLink>
-          <NavLink to="/ProductsPage" className="footer-link">
+          <NavLink to="/productspage" className="footer-link">
             <p>PRODUCTS</p>
           </NavLink>
         </div>

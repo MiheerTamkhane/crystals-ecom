@@ -1,18 +1,17 @@
-import React from "react";
 import "./Cart.css";
 import { Link } from "react-router-dom";
 import { useWishlist, useCart, useAuth } from "../../contexts/contextExport";
-import {
-  removeFromCart,
-  addToWishlist,
-  updateQtyOfCartProduct,
-} from "../../services/servicesExport";
 import { OrderDetails } from "../../components/componentsExport";
 function Cart() {
   const { auth } = useAuth();
   const { authToken } = auth;
-  const { cart, setCart, orderDetails } = useCart();
-  const { wishlist, setWishlist } = useWishlist();
+  const {
+    cart,
+    orderDetails,
+    removeFromCartHandler,
+    updateQtyOfCartProductHandler,
+  } = useCart();
+  const { wishlist, addToWishlistHandler } = useWishlist();
 
   return (
     <main className="cart-page">
@@ -42,12 +41,11 @@ function Cart() {
                         className="material-icons"
                         onClick={() => {
                           if (qty === 1) {
-                            removeFromCart(authToken, product, setCart);
+                            removeFromCartHandler(authToken, _id);
                           } else {
-                            updateQtyOfCartProduct(
+                            updateQtyOfCartProductHandler(
                               authToken,
                               _id,
-                              setCart,
                               "decrement"
                             );
                           }
@@ -59,10 +57,9 @@ function Cart() {
                       <small
                         className="material-icons"
                         onClick={() =>
-                          updateQtyOfCartProduct(
+                          updateQtyOfCartProductHandler(
                             authToken,
                             _id,
-                            setCart,
                             "increment"
                           )
                         }
@@ -82,14 +79,9 @@ function Cart() {
                       <button
                         className="ct-btn ct-addcart material-icons ct-wishlist"
                         onClick={() => {
-                          addToWishlist(
-                            authToken,
-                            product,
-                            wishlist,
-                            setWishlist
-                          );
+                          addToWishlistHandler(authToken, product, wishlist);
                           if (!wishlist.includes(product)) {
-                            removeFromCart(authToken, product, setCart);
+                            removeFromCartHandler(authToken, _id);
                           }
                         }}
                       >
@@ -98,7 +90,7 @@ function Cart() {
                       <button
                         className="ct-btn ct-red material-icons"
                         onClick={() => {
-                          removeFromCart(authToken, product, setCart);
+                          removeFromCartHandler(authToken, _id);
                         }}
                       >
                         delete
@@ -112,10 +104,12 @@ function Cart() {
           <OrderDetails orderDetails={orderDetails} />
         </section>
       ) : (
-        <h1 className="empty-products">
-          CART IS EMPTY! CHECK OUT
-          <Link to="/ProductsPage">products</Link>
-        </h1>
+        <div className="empty-products-container">
+          <h1 className="empty-products">CART IS EMPTY! CHECK OUT</h1>
+          <Link to="/productspage" className="go-to-products ct-btn">
+            PRODUCTS
+          </Link>
+        </div>
       )}
     </main>
   );
