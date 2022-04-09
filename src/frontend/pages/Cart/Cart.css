@@ -61,11 +61,8 @@
 }
 
 .empty-products-container {
-  margin-top: 1rem;
   max-width: 80%;
   min-height: 60vh;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   padding: 2rem;
   display: flex;
   flex-direction: column;
