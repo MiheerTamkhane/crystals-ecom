@@ -43,8 +43,8 @@ const CartProvider = ({ children }) => {
   );
 
   // Add to Cart Handler function
-  const addToCartHandler = async (authToken, product, cart) => {
-    const data = await addToCart(authToken, product, cart);
+  const addToCartHandler = async (authToken, product) => {
+    const data = await addToCart(authToken, product);
     setCart(data);
   };
 

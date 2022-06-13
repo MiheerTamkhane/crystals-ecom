@@ -10,11 +10,12 @@ const Login = () => {
     password: "",
   });
   const { auth, setAuth } = useAuth();
-  const loginHandler = async ({ email, password }) => {
+  const loginHandler = async ({ email, password }, e) => {
+    e.preventDefault();
     try {
       const response = await axios.post("/api/auth/login", {
-        email: email,
-        password: password,
+        email,
+        password,
       });
       localStorage.setItem("authToken", response.data.encodedToken);
       localStorage.setItem("user", response.data.foundUser.firstName);
@@ -34,8 +35,7 @@ const Login = () => {
       <form
         className="ct-form"
         onSubmit={(e) => {
-          e.preventDefault();
-          loginHandler(userLogin);
+          loginHandler(userLogin, e);
         }}
       >
         <h2>Login</h2>
@@ -78,11 +78,13 @@ const Login = () => {
           className="ct-btn ct-gray login-guest"
           type="submit"
           onClick={(e) => {
-            e.preventDefault();
-            loginHandler({
-              email: "johndoe@gmail.com",
-              password: "johnDoe123",
-            });
+            loginHandler(
+              {
+                email: "miheer@gmail.com",
+                password: "miheer123",
+              },
+              e
+            );
           }}
         >
           LOGIN AS GUEST

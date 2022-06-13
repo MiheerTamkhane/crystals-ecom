@@ -7,8 +7,8 @@ const WishlistProvider = ({ children }) => {
   const [wishlist, setWishlist] = useState([]);
 
   // Add to wishlist Handler function
-  const addToWishlistHandler = async (authToken, product, wishlist) => {
-    const data = await addToWishlist(authToken, product, wishlist);
+  const addToWishlistHandler = async (authToken, product) => {
+    const data = await addToWishlist(authToken, product);
     setWishlist(data);
   };
 

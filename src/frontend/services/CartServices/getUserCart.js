@@ -8,8 +8,7 @@ export const getUserCart = async (authToken) => {
       },
     });
     return data.cart;
-  } catch (e) {
-    console.error(e);
-    return;
+  } catch (err) {
+    console.error(err);
   }
 };
