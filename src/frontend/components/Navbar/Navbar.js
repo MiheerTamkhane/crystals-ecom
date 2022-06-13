@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import toast from "react-hot-toast";
 import "./Navbar.css";
 import {
   useNavContext,
@@ -66,7 +67,10 @@ function Navbar() {
                 >
                   <span
                     className="material-icons"
-                    onClick={() => logoutHandler(setAuth)}
+                    onClick={() => {
+                      logoutHandler(setAuth);
+                      toast("See you again, Logged out!", { icon: "👋" });
+                    }}
                   >
                     logout
                   </span>

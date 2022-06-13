@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/contextExport";
 import axios from "axios";
@@ -26,6 +27,7 @@ const Login = () => {
         authToken: response.data.encodedToken,
       }));
       navigate("/productspage");
+      toast.success("Logged in successfully!");
     } catch (err) {
       console.error(err);
     }

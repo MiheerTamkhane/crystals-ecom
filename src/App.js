@@ -12,8 +12,8 @@ const App = () => {
         position="bottom-right"
         toastOptions={{
           style: {
-            background: "rgb(109 40 217)",
-            color: "rgb(237 233 254)",
+            background: "#6d28d9",
+            color: "#f7f7f7",
           },
         }}
       />
