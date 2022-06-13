@@ -1,4 +1,5 @@
 import React from "react";
+import toast from "react-hot-toast";
 import "./ProductsCard.css";
 import {
   useFilter,
@@ -39,6 +40,7 @@ const ProductsCard = () => {
                   className="material-icons  ct-card-wish added-wishlist"
                   onClick={() => {
                     removeFromWishlistHandler(authToken, _id);
+                    toast.success("Product removed from wishlist!");
                   }}
                 >
                   favorite
@@ -48,9 +50,11 @@ const ProductsCard = () => {
                   className="material-icons  ct-card-wish"
                   onClick={() => {
                     if (auth.status) {
-                      addToWishlistHandler(authToken, product, wishlist);
+                      addToWishlistHandler(authToken, product);
+                      toast.success("Product added to wishlist!");
                     } else {
                       navigate("/login");
+                      toast.error("Pleast login first!");
                     }
                   }}
                 >
@@ -87,9 +91,11 @@ const ProductsCard = () => {
                       className="ct-btn ct-addcart card-btn"
                       onClick={() => {
                         if (auth.status) {
-                          addToCartHandler(authToken, product, cart);
+                          addToCartHandler(authToken, product);
+                          toast.success("Product added to Cart!");
                         } else {
                           navigate("/login");
+                          toast.error("Pleast login first!");
                         }
                       }}
                     >

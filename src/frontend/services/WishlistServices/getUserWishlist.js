@@ -8,7 +8,7 @@ export const getUserWishlist = async (authToken) => {
       },
     });
     return response.data.wishlist;
-  } catch (e) {
-    console.error(e);
+  } catch (err) {
+    console.error(err);
   }
 };

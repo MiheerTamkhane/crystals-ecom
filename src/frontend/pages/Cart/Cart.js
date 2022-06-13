@@ -1,5 +1,6 @@
 import "./Cart.css";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 import { useWishlist, useCart, useAuth } from "../../contexts/contextExport";
 import { OrderDetails } from "../../components/componentsExport";
 function Cart() {
@@ -42,6 +43,7 @@ function Cart() {
                         onClick={() => {
                           if (qty === 1) {
                             removeFromCartHandler(authToken, _id);
+                            toast.error("Product removed from Cart!");
                           } else {
                             updateQtyOfCartProductHandler(
                               authToken,
@@ -79,10 +81,15 @@ function Cart() {
                       <button
                         className="ct-btn ct-addcart material-icons ct-wishlist"
                         onClick={() => {
-                          addToWishlistHandler(authToken, product, wishlist);
-                          if (!wishlist.includes(product)) {
-                            removeFromCartHandler(authToken, _id);
+                          if (
+                            wishlist.find((prod) => prod._id === product._id)
+                          ) {
+                            toast.error("Product exist in wishlist!");
+                          } else {
+                            addToWishlistHandler(authToken, product);
+                            toast.success("Product moved to Wishlist!");
                           }
+                          removeFromCartHandler(authToken, _id);
                         }}
                       >
                         favorite
@@ -91,6 +98,7 @@ function Cart() {
                         className="ct-btn ct-red material-icons"
                         onClick={() => {
                           removeFromCartHandler(authToken, _id);
+                          toast.success("Product removed from Cart!");
                         }}
                       >
                         delete

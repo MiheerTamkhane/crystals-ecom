@@ -37,6 +37,7 @@ const MyRoutes = () => {
         }
       />
       <Route path="/mock" element={<Mockman />} />
+      <Route path="*" element={<Home />} />
     </Routes>
   );
 };

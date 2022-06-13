@@ -8,7 +8,7 @@ export const removeFromWishlist = async (authToken, id) => {
       },
     });
     return response.data.wishlist;
-  } catch (e) {
-    console.error(e);
+  } catch (err) {
+    console.error(err);
   }
 };

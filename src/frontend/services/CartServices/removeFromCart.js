@@ -8,7 +8,7 @@ export const removeFromCart = async (authToken, id) => {
       },
     });
     return request.data.cart;
-  } catch (e) {
-    console.error(e);
+  } catch (err) {
+    console.error(err);
   }
 };

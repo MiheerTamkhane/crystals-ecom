@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 import { useWishlist, useAuth, useCart } from "../../contexts/contextExport";
 import "./Wishlist.css";
 function Wishlist() {
@@ -51,21 +52,31 @@ function Wishlist() {
 
                   <div className="ct-card-btns">
                     <button
+                      className="ct-btn ct-wishlist material-icons"
+                      onClick={() => {
+                        removeFromWishlistHandler(authToken, _id);
+                        toast.success("Product removed from Wishlist!");
+                      }}
+                    >
+                      delete
+                    </button>
+                    <button
                       className="ct-btn ct-addcart material-icons"
                       onClick={() => {
-                        addToCartHandler(authToken, product, cart);
+                        if (
+                          cart.find(
+                            (productInCart) => productInCart._id === product._id
+                          )
+                        ) {
+                          toast.error("Product exist in Cart!");
+                        } else {
+                          addToCartHandler(authToken, product);
+                          toast.success("Product moved to Cart!");
+                        }
                         removeFromWishlistHandler(authToken, _id);
                       }}
                     >
                       shopping_bag
-                    </button>
-                    <button
-                      className="ct-btn ct-wishlist material-icons"
-                      onClick={() => {
-                        removeFromWishlistHandler(authToken, _id);
-                      }}
-                    >
-                      delete
                     </button>
                   </div>
                 </div>

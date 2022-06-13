@@ -1,4 +1,4 @@
-import React from "react";
+import toast from "react-hot-toast";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../../contexts/contextExport";
@@ -29,6 +29,7 @@ const SignUp = () => {
         authToken: request.data.encodedToken,
       }));
       navigate("/productspage");
+      toast.success("Signup Successfully!");
     } catch (err) {
       console.error(err);
     }
