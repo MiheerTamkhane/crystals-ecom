@@ -28,7 +28,7 @@ const SignUp = () => {
         status: true,
         authToken: request.data.encodedToken,
       }));
-      navigate("/productspage");
+      navigate("/products");
       toast.success("Signup Successfully!");
     } catch (err) {
       console.error(err);

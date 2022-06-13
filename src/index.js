@@ -12,7 +12,6 @@ import {
   WishlistProvider,
   CartProvider,
 } from "./frontend/contexts/contextExport";
-import { Cart } from "./frontend";
 
 // Call make Server
 makeServer();

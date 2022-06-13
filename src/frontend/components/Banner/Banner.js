@@ -9,7 +9,7 @@ function Banner() {
           <h1>CRYSTALKART</h1>
           <p>Curated Collections / Ethically Conscious</p>
           <button className="ct-btn  main-cta">
-            <Link to="/productspage" className="banner-link">
+            <Link to="/products" className="banner-link">
               SHOP HERE
             </Link>
           </button>

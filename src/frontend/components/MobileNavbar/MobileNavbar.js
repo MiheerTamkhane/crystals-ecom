@@ -34,7 +34,7 @@ function MobileNavbar() {
       </div>
       <ul className="navbar-body">
         <NavLink
-          to="/productspage"
+          to="/products"
           className="mobile-nav-link"
           onClick={() => {
             setIsNav(false);

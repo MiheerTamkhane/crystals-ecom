@@ -61,10 +61,7 @@ function Navbar() {
 
             {auth.status ? (
               <>
-                <NavLink
-                  to="/productspage"
-                  className="basic-badge nav-icon icon"
-                >
+                <NavLink to="/products" className="basic-badge nav-icon icon">
                   <span
                     className="material-icons"
                     onClick={() => {

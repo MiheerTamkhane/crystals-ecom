@@ -7,7 +7,7 @@ import {
   useWishlist,
   useCart,
 } from "../../contexts/contextExport";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 const ProductsCard = () => {
   const navigate = useNavigate();
   const { filteredProducts } = useFilter();
@@ -24,7 +24,8 @@ const ProductsCard = () => {
           const { _id, isBestSeller, image, name, price, rating, material } =
             product;
           return (
-            <a
+            <Link
+              to={`/products/${_id}`}
               key={_id}
               className="ct-basic-card ct-card-badge-div product-card"
             >
@@ -65,7 +66,6 @@ const ProductsCard = () => {
               <div className="ct-product-stats">
                 <h4>{name}</h4>
                 <small className="ct-product-info">{material}</small>
-                {/* <small className="ct-product-info">{category}</small> */}
                 <div className="price-rating">
                   <h4>₹ {price}</h4>
                   <div className="rating-div">
@@ -104,7 +104,7 @@ const ProductsCard = () => {
                   )}
                 </div>
               </div>
-            </a>
+            </Link>
           );
         })
       ) : (

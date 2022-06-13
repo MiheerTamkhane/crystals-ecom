@@ -51,7 +51,7 @@ function Footer() {
           <NavLink to="/Home" className="footer-link">
             <p>HOME</p>
           </NavLink>
-          <NavLink to="/productspage" className="footer-link">
+          <NavLink to="/products" className="footer-link">
             <p>PRODUCTS</p>
           </NavLink>
         </div>

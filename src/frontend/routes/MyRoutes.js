@@ -1,6 +1,14 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { Home, Wishlist, Cart, ProductsPage, SignUp, Login } from "../index";
+import {
+  Home,
+  Wishlist,
+  Cart,
+  ProductsPage,
+  SignUp,
+  Login,
+  SingleProductPage,
+} from "../index";
 import Mockman from "mockman-js";
 import { ProtectedRoute } from "../ProtectedRoute/ProtectedRoute";
 import { useAuth } from "../contexts/contextExport";
@@ -9,7 +17,8 @@ const MyRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/productspage" element={<ProductsPage />} />
+      <Route path="/products" element={<ProductsPage />} />
+      <Route path="/products/:productId" element={<SingleProductPage />} />
       {/*👇 passing the SignUp and Login page to user only if he/she is not authorised 
       else unmounting or not showing it to use  */}
       {!auth.status && (

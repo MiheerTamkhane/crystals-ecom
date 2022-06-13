@@ -26,7 +26,7 @@ const Login = () => {
         status: true,
         authToken: response.data.encodedToken,
       }));
-      navigate("/productspage");
+      navigate("/products");
       toast.success("Logged in successfully!");
     } catch (err) {
       console.error(err);

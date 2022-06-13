@@ -114,7 +114,7 @@ function Cart() {
       ) : (
         <div className="empty-products-container">
           <h1 className="empty-products">CART IS EMPTY! CHECK OUT</h1>
-          <Link to="/productspage" className="go-to-products ct-btn">
+          <Link to="/products" className="go-to-products ct-btn">
             PRODUCTS
           </Link>
         </div>
