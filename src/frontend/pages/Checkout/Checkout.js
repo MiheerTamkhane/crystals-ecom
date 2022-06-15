@@ -68,7 +68,7 @@ const Checkout = () => {
           </div>
           {cart.map((prod) => {
             return (
-              <div className="order-detail-titles">
+              <div key={prod._id} className="order-detail-titles">
                 <p>{prod.name}</p>
                 <p>{prod.qty}</p>
               </div>
