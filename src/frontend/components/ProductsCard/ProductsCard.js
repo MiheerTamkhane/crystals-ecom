@@ -24,9 +24,9 @@ const ProductsCard = () => {
           const { _id, isBestSeller, image, name, price, rating, material } =
             product;
           return (
-            <Link
-              to={`/products/${_id}`}
+            <div
               key={_id}
+              onClick={() => navigate(`/products/${_id}`)}
               className="ct-basic-card ct-card-badge-div product-card"
             >
               {isBestSeller && (
@@ -39,7 +39,8 @@ const ProductsCard = () => {
               ) ? (
                 <button
                   className="material-icons  ct-card-wish added-wishlist"
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.stopPropagation();
                     removeFromWishlistHandler(authToken, _id);
                     toast.success("Product removed from wishlist!");
                   }}
@@ -48,8 +49,9 @@ const ProductsCard = () => {
                 </button>
               ) : (
                 <button
-                  className="material-icons  ct-card-wish"
-                  onClick={() => {
+                  className="material-icons ct-card-wish"
+                  onClick={(e) => {
+                    e.stopPropagation();
                     if (auth.status) {
                       addToWishlistHandler(authToken, product);
                       toast.success("Product added to wishlist!");
@@ -80,7 +82,8 @@ const ProductsCard = () => {
                   ) ? (
                     <button
                       className="ct-btn card-btn ct-pay"
-                      onClick={() => {
+                      onClick={(e) => {
+                        e.stopPropagation();
                         navigate("/Cart");
                       }}
                     >
@@ -88,8 +91,10 @@ const ProductsCard = () => {
                     </button>
                   ) : (
                     <button
+                      type="button"
                       className="ct-btn ct-addcart card-btn"
-                      onClick={() => {
+                      onClick={(e) => {
+                        e.stopPropagation();
                         if (auth.status) {
                           addToCartHandler(authToken, product);
                           toast.success("Product added to Cart!");
@@ -104,7 +109,7 @@ const ProductsCard = () => {
                   )}
                 </div>
               </div>
-            </Link>
+            </div>
           );
         })
       ) : (

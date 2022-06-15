@@ -10,7 +10,7 @@ function Wishlist() {
   const { cart, addToCartHandler } = useCart();
   return (
     <main className="wishlist-page">
-      <h2>{auth.user}'s Wishlist</h2>
+      <h2>{auth?.user?.firstName}'s Wishlist</h2>
       <section className="wishlist-items">
         {wishlist.length !== 0 ? (
           wishlist.map((product) => {

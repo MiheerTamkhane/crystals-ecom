@@ -11,6 +11,7 @@ import {
   AuthProvider,
   WishlistProvider,
   CartProvider,
+  AddressProvider,
 } from "./frontend/contexts/contextExport";
 
 // Call make Server
@@ -25,7 +26,9 @@ ReactDOM.render(
             <ProductsProvider>
               <NavProvider>
                 <FilterProvider>
-                  <App />
+                  <AddressProvider>
+                    <App />
+                  </AddressProvider>
                 </FilterProvider>
               </NavProvider>
             </ProductsProvider>

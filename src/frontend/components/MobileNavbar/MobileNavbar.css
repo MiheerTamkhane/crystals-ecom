@@ -1,7 +1,7 @@
 .mobile-navbar {
   position: fixed;
   top: 0;
-  right: 0;
+  right: 0rem;
   z-index: 999;
   width: 0;
   height: 0;
@@ -45,6 +45,24 @@
 .mobile-nav-link-heading {
   text-decoration: none;
   color: var(--gray-100);
+}
+.mobile-nav-user {
+  font-size: 1.3rem;
+  color: var(--gray-300);
+  padding: 0.5rem;
+  cursor: pointer;
+  border: 1px solid var(--gray-300);
+  transition: all 0.3s cubic-bezier(0, 1, 0, 1);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  /* justify-content: flex-end; */
+  margin-bottom: 1rem;
+  width: 100%;
+}
+.mobile-nav-user:hover {
+  color: var(--body);
+  border-color: var(--body);
 }
 @media only screen and (max-width: 750px) {
   .mobile-navbar-open {

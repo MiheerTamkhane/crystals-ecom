@@ -16,7 +16,7 @@ function Cart() {
 
   return (
     <main className="cart-page">
-      <h2>{auth.user}'s Cart</h2>
+      <h2>{auth?.user?.firstName}'s Cart</h2>
 
       {cart.length !== 0 ? (
         <section className="cart-container">

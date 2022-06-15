@@ -19,10 +19,10 @@ const Login = () => {
         password,
       });
       localStorage.setItem("authToken", response.data.encodedToken);
-      localStorage.setItem("user", response.data.foundUser.firstName);
+      localStorage.setItem("user", JSON.stringify(response.data.foundUser));
       setAuth((prevAuth) => ({
         ...prevAuth,
-        user: response.data.foundUser.firstName,
+        user: response.data.foundUser,
         status: true,
         authToken: response.data.encodedToken,
       }));

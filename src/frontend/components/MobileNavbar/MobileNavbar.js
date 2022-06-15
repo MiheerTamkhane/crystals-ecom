@@ -34,6 +34,17 @@ function MobileNavbar() {
       </div>
       <ul className="navbar-body">
         <NavLink
+          to="/profile"
+          className="mobile-nav-user"
+          onClick={() => {
+            setIsNav(false);
+            setIsMobileFilter(false);
+          }}
+        >
+          <span className="material-icons-round">person</span>
+          <span className="user-name"> Hi, {auth.user.firstName}</span>
+        </NavLink>
+        <NavLink
           to="/products"
           className="mobile-nav-link"
           onClick={() => {

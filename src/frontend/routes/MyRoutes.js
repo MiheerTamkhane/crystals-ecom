@@ -8,7 +8,9 @@ import {
   SignUp,
   Login,
   SingleProductPage,
+  ProfilePage,
 } from "../index";
+import { ProfileCard, Addresses } from "../components/componentsExport";
 import Mockman from "mockman-js";
 import { ProtectedRoute } from "../ProtectedRoute/ProtectedRoute";
 import { useAuth } from "../contexts/contextExport";
@@ -29,22 +31,18 @@ const MyRoutes = () => {
       )}
 
       {/*👇 Protected routes for Cart and Wishlist components, only show when user is authorised */}
-      <Route
-        path="/cart"
-        element={
-          <ProtectedRoute>
-            <Cart />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/wishlist"
-        element={
-          <ProtectedRoute>
-            <Wishlist />
-          </ProtectedRoute>
-        }
-      />
+      <Route element={<ProtectedRoute />}>
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/wishlist" element={<Wishlist />} />
+        <Route
+          path="/profile"
+          element={<ProfilePage page={<ProfileCard />} />}
+        />
+        <Route
+          path="/profile/addresses"
+          element={<ProfilePage page={<Addresses />} />}
+        />
+      </Route>
       <Route path="/mock" element={<Mockman />} />
       <Route path="*" element={<Home />} />
     </Routes>

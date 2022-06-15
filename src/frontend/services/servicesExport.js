@@ -5,3 +5,7 @@ export { addToCart } from "./CartServices/addToCart";
 export { removeFromCart } from "./CartServices/removeFromCart";
 export { getUserCart } from "./CartServices/getUserCart";
 export { updateQtyOfCartProduct } from "./CartServices/updateQtyOfCartProduct";
+export { addAddressService } from "./AddressServices/addAddressService";
+export { getAddressService } from "./AddressServices/getAddressService";
+export { editAddressService } from "./AddressServices/editAddressService";
+export { deleteAddressService } from "./AddressServices/deleteAddressService";
