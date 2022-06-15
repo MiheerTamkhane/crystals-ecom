@@ -4,7 +4,6 @@ import { useAuth } from "../../contexts/contextExport";
 const ProfileCard = () => {
   const { auth } = useAuth();
   const { user } = auth;
-  console.log(user);
   return (
     <div className="profile-card">
       <h2>Profile Details : </h2>

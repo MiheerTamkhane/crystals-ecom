@@ -10,10 +10,15 @@ import {
   SingleProductPage,
   ProfilePage,
 } from "../index";
-import { ProfileCard, Addresses } from "../components/componentsExport";
+import {
+  ProfileCard,
+  Addresses,
+  Settings,
+} from "../components/componentsExport";
 import Mockman from "mockman-js";
 import { ProtectedRoute } from "../ProtectedRoute/ProtectedRoute";
 import { useAuth } from "../contexts/contextExport";
+import { Checkout } from "../pages/pagesExport";
 const MyRoutes = () => {
   const { auth } = useAuth();
   return (
@@ -34,6 +39,7 @@ const MyRoutes = () => {
       <Route element={<ProtectedRoute />}>
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route
           path="/profile"
           element={<ProfilePage page={<ProfileCard />} />}
@@ -41,6 +47,10 @@ const MyRoutes = () => {
         <Route
           path="/profile/addresses"
           element={<ProfilePage page={<Addresses />} />}
+        />
+        <Route
+          path="/profile/settings"
+          element={<ProfilePage page={<Settings />} />}
         />
       </Route>
       <Route path="/mock" element={<Mockman />} />

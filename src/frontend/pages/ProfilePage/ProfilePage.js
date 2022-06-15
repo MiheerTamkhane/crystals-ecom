@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./ProfilePage.css";
 const ProfilePage = ({ page }) => {
   const profileLinks = [

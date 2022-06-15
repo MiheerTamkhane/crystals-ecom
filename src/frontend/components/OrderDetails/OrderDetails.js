@@ -1,8 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./OrderDetails.css";
 const OrderDetails = ({ orderDetails }) => {
   const { cartQuantity, cartTotalPrice, discount, discountedPrice, subtotal } =
     orderDetails;
+  const navigate = useNavigate();
   return (
     <div className="order-container">
       <h2>Order Details</h2>
@@ -34,7 +36,12 @@ const OrderDetails = ({ orderDetails }) => {
           <input type="checkbox" id="giftbox" />
           🎁 Add Gift Wrap
         </label>
-        <button className="ct-btn order-checkout-btn">Check Out</button>
+        <button
+          onClick={() => navigate("/checkout")}
+          className="ct-btn order-checkout-btn"
+        >
+          Check Out
+        </button>
       </div>
     </div>
   );

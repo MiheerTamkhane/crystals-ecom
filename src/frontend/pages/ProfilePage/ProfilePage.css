@@ -39,3 +39,31 @@
   text-decoration: none;
   text-align: center;
 }
+
+@media only screen and (max-width: 750px) {
+  .profile-page-section {
+    flex-direction: column;
+  }
+  .user-profile-links {
+    font-size: 1rem;
+    flex-direction: row;
+    border: none;
+    border-bottom: 1px solid var(--violet-700);
+    margin-bottom: 1rem;
+  }
+  .profile-link-active {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+  .profile-link {
+    font-size: 1rem;
+    padding: 0.4rem 1.1rem;
+  }
+  .profile-container {
+    width: 360px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}

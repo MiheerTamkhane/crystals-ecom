@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./Addresses.css";
+import toast from "react-hot-toast";
 import { useAddress, useAuth } from "../../contexts/contextExport";
 import { Modal } from "../componentsExport";
 import {
@@ -14,6 +15,7 @@ const Addresses = () => {
   } = useAuth();
   const { dummyAddress, addressDispatch, addressState } = useAddress();
   const [showModal, setShowModal] = useState(false);
+
   useEffect(() => {
     (async () => {
       const data = await getAddressService(authToken);
@@ -39,9 +41,11 @@ const Addresses = () => {
     if (toBeEdited) {
       const data = await editAddressService(address._id, address, authToken);
       addressDispatch({ type: "ADDRESS", payload: data.address });
+      toast.success("Address Updated!");
     } else {
       const { data } = await addAddressService(authToken, address);
       addressDispatch({ type: "ADDRESS", payload: data.address });
+      toast.success("Address added!");
     }
     setAddress({
       name: "",
@@ -59,6 +63,7 @@ const Addresses = () => {
     const data = await deleteAddressService(authToken, id);
     addressDispatch({ type: "ADDRESS", payload: data.address });
     setShowModal(false);
+    toast.success("Address removed!");
   }
 
   return (
@@ -192,7 +197,9 @@ const Addresses = () => {
           );
         })
       ) : (
-        <p>NO ADDRESS</p>
+        <div className="user-address">
+          <h2>NO ADDRESSES</h2>
+        </div>
       )}
       <div className="add-addrs">
         <button
