@@ -35,13 +35,28 @@ React.js is the most popular front-end JavaScript library for building Web appli
   - Login
   - Logout
 
+- Address Management
+  - Add new address
+  - Remove address
+  - Update/Edit address
+
+- Test Payment Intigration
+  - Checkout
+  - Bill page
+ 
+ - Profile
+  - User profile
+  - settings 
+  - Addresses
+  - Orders
+
 ## Live Preview
 
 Link : [CrystalKart.com](https://crystalkart.netlify.app/)
 
 ## E-Commerce Backend
 
-This project contains the Mock Backend created for E-Commerce App. It contains different API end-points and database configuration for building E-Commerce; so that you can focus on building Frontend.
+This project contains the Mock Backend created for E-Commerce App (mockbee). It contains different API end-points and database configuration for building E-Commerce; so that you can focus on building Frontend.
 
 ## Tech Stack
 
