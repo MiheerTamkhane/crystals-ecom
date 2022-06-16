@@ -14,6 +14,7 @@ import {
   ProfileCard,
   Addresses,
   Settings,
+  UserOrders,
 } from "../components/componentsExport";
 import Mockman from "mockman-js";
 import { ProtectedRoute } from "../ProtectedRoute/ProtectedRoute";
@@ -47,6 +48,10 @@ const MyRoutes = () => {
         <Route
           path="/profile/addresses"
           element={<ProfilePage page={<Addresses />} />}
+        />
+        <Route
+          path="/profile/orders"
+          element={<ProfilePage page={<UserOrders />} />}
         />
         <Route
           path="/profile/settings"

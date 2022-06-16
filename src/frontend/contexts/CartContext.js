@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import { useAuth } from "../contexts/contextExport";
 import {
   addToCart,
@@ -6,23 +6,46 @@ import {
   removeFromCart,
   updateQtyOfCartProduct,
 } from "../services/servicesExport";
+
 const CartContext = createContext(null);
 
+const initialState = {
+  productsInCart: [],
+  isPamymentDone: false,
+  paymentId: "",
+};
+
+function cartReducer(state, action) {
+  switch (action.type) {
+    case "ADD_TO_CART":
+      return { ...state, productsInCart: action.payload };
+    case "RMV_FROM_CART":
+      return { ...state, productsInCart: action.payload };
+    case "UPDATE_QTY":
+      return { ...state, productsInCart: action.payload };
+    case "CLEAR_CART":
+      return { productsInCart: [], isPamymentDone: false, paymentId: "" };
+    default:
+      return state;
+  }
+}
+
 const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const [cart, cartDispatch] = useReducer(cartReducer, initialState);
+  // const [cart, setCart] = useState([]);
   const { auth } = useAuth();
   useEffect(() => {
     if (auth.status) {
       (async () => {
-        const newCart = await getUserCart(auth.authToken);
-        setCart(newCart);
+        const newProductsInCart = await getUserCart(auth.authToken);
+        cartDispatch({ type: "ADD_TO_CART", payload: newProductsInCart });
       })();
     } else {
-      setCart([]);
+      cartDispatch({ type: "CLEAR_CART" });
     }
   }, [auth]);
 
-  const orderDetails = cart.reduce(
+  const orderDetails = cart.productsInCart.reduce(
     (acc, curr) => {
       return {
         ...acc,
@@ -45,28 +68,28 @@ const CartProvider = ({ children }) => {
   // Add to Cart Handler function
   const addToCartHandler = async (authToken, product) => {
     const data = await addToCart(authToken, product);
-    setCart(data);
+    cartDispatch({ type: "ADD_TO_CART", payload: data });
   };
 
   // Remove product from cart Handler
   const removeFromCartHandler = async (authToken, id) => {
     const data = await removeFromCart(authToken, id);
-    setCart(data);
+    cartDispatch({ type: "RMV_FROM_CART", payload: data });
   };
 
   const updateQtyOfCartProductHandler = async (authToken, id, type) => {
     const data = await updateQtyOfCartProduct(authToken, id, type);
-    setCart(data);
+    cartDispatch({ type: "UPDATE_QTY", payload: data });
   };
   return (
     <CartContext.Provider
       value={{
         cart,
-        setCart,
         orderDetails,
         addToCartHandler,
         removeFromCartHandler,
         updateQtyOfCartProductHandler,
+        cartDispatch,
       }}
     >
       {children}

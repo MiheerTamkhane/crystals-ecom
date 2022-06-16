@@ -64,7 +64,7 @@ function Wishlist() {
                       className="ct-btn ct-addcart material-icons"
                       onClick={() => {
                         if (
-                          cart.find(
+                          cart.productsInCart.find(
                             (productInCart) => productInCart._id === product._id
                           )
                         ) {

@@ -18,10 +18,10 @@ function Cart() {
     <main className="cart-page">
       <h2>{auth?.user?.firstName}'s Cart</h2>
 
-      {cart.length !== 0 ? (
+      {cart.productsInCart.length !== 0 ? (
         <section className="cart-container">
           <section className="cart-items">
-            {cart.map((product) => {
+            {cart.productsInCart.map((product) => {
               const { _id, isBestSeller, image, name, price, rating, qty } =
                 product;
               return (
@@ -50,6 +50,9 @@ function Cart() {
                               _id,
                               "decrement"
                             );
+                            toast("Decreased quantity of product!", {
+                              icon: "➖",
+                            });
                           }
                         }}
                       >
@@ -58,13 +61,16 @@ function Cart() {
                       <small className="ct-product-info">{qty}</small>
                       <small
                         className="material-icons"
-                        onClick={() =>
+                        onClick={() => {
                           updateQtyOfCartProductHandler(
                             authToken,
                             _id,
                             "increment"
-                          )
-                        }
+                          );
+                          toast("Increased quantity of product!", {
+                            icon: "➕",
+                          });
+                        }}
                       >
                         add
                       </small>

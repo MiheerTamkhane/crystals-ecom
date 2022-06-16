@@ -77,7 +77,7 @@ const ProductsCard = () => {
                 </div>
 
                 <div className="ct-card-btns">
-                  {cart.find(
+                  {cart.productsInCart.find(
                     (productInCart) => productInCart._id === product._id
                   ) ? (
                     <button
