@@ -230,13 +230,9 @@ const Checkout = () => {
                       Place Order
                     </button>
                   ) : (
-                    <button
-                      disabled
-                      onClick={paymentDisplay}
-                      className="ct-btn "
-                    >
+                    <h2 disabled className="ct-btn ">
                       Select Address
-                    </button>
+                    </h2>
                   )}
                 </div>
               </div>
