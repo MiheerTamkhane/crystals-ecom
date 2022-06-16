@@ -86,7 +86,7 @@ function Wishlist() {
         ) : (
           <div className="empty-products-container-wishlist">
             <h1 className="empty-products">CART IS EMPTY! CHECK OUT</h1>
-            <Link to="/productspage" className="go-to-products-wishlist ct-btn">
+            <Link to="/products" className="go-to-products-wishlist ct-btn">
               PRODUCTS
             </Link>
           </div>
