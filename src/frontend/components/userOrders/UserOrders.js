@@ -35,7 +35,7 @@ const UserOrders = () => {
                 </div>
                 {orderData.length > 0 &&
                   orderData.map((item) => (
-                    <div className="order-items">
+                    <div key={item._id} className="order-items">
                       <div className="order-img">
                         <img
                           src={item.image}

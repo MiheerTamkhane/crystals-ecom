@@ -11,6 +11,8 @@
   max-width: 360px;
   display: flex;
   gap: 0.5rem;
+  /* margin-top: 0.5rem; */
+  padding: 0.5rem;
 }
 .order-img {
   width: 150px;
