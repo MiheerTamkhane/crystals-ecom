@@ -119,7 +119,7 @@ function Cart() {
         </section>
       ) : (
         <div className="empty-products-container">
-          <h1 className="empty-products">CART IS EMPTY! CHECK OUT</h1>
+          <h1 className="empty-products">CART IS EMPTY!</h1>
           <Link to="/products" className="go-to-products ct-btn">
             PRODUCTS
           </Link>
