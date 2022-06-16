@@ -17,7 +17,7 @@ function Poster({ data }) {
         <h2>{data.title}</h2>
         <p>{data.desc}</p>
         <button className="ct-btn ct-gray content-btn">
-          <Link to="/productspage" className="link">
+          <Link to="/products" className="link">
             SHOP HERE
           </Link>
         </button>

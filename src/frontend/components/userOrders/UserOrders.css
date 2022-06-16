@@ -1,0 +1,25 @@
+.order-bill-card {
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  margin-bottom: 1rem;
+}
+.bill-titles {
+  margin-bottom: 0.5rem;
+}
+.order-items {
+  max-width: 360px;
+  display: flex;
+  gap: 0.5rem;
+  /* margin-top: 0.5rem; */
+  padding: 0.5rem;
+}
+.order-img {
+  width: 150px;
+  height: 100px;
+  display: flex;
+}
+
+.checkout-user-address {
+  margin-bottom: 0.5rem;
+}

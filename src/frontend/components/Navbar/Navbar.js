@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import toast from "react-hot-toast";
 import "./Navbar.css";
 import {
@@ -13,7 +13,6 @@ function Navbar() {
   const { auth, setAuth } = useAuth();
   const { wishlist } = useWishlist();
   const { cart } = useCart();
-
   return (
     <nav className="nav-bar navbar">
       <div className="ct-nav-logo">
@@ -54,17 +53,16 @@ function Navbar() {
               }
             >
               <span className="material-icons-outlined">shopping_bag</span>
-              {cart.length > 0 && (
-                <small className="badge-pop badge">{cart.length}</small>
+              {cart.productsInCart.length > 0 && (
+                <small className="badge-pop badge">
+                  {cart.productsInCart.length}
+                </small>
               )}
             </NavLink>
 
             {auth.status ? (
               <>
-                <NavLink
-                  to="/productspage"
-                  className="basic-badge nav-icon icon"
-                >
+                <NavLink to="/products" className="basic-badge nav-icon icon">
                   <span
                     className="material-icons"
                     onClick={() => {
@@ -75,7 +73,18 @@ function Navbar() {
                     logout
                   </span>
                 </NavLink>
-                <h3>Hi, {auth.user}</h3>
+                <NavLink
+                  to="/profile"
+                  className={({ isActive }) =>
+                    isActive ? "nav-user-active" : "nav-user"
+                  }
+                >
+                  <span className="material-icons-round">person</span>
+                  <span className="user-name">
+                    {" "}
+                    Hi, {auth?.user?.firstName}
+                  </span>
+                </NavLink>
               </>
             ) : (
               <NavLink

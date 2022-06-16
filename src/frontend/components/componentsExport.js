@@ -10,3 +10,8 @@ export { Poster } from "./Poster/Poster";
 export { Products } from "./Products/Products";
 export { ProductsCard } from "./ProductsCard/ProductsCard";
 export { OrderDetails } from "./OrderDetails/OrderDetails";
+export { ProfileCard } from "./ProfileCard/ProfileCard";
+export { Addresses } from "./Addresses/Addresses";
+export { Modal } from "./Modal/Modal";
+export { Settings } from "./Settings/Settings";
+export { UserOrders } from "./userOrders/UserOrders";

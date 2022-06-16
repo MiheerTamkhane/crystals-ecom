@@ -1,0 +1,40 @@
+/* .address-page {
+} */
+.user-address {
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  margin-bottom: 0.5rem;
+  max-width: 360px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+.user-address h2 {
+  overflow-wrap: break-word;
+}
+.addrs-btns {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+.add-addrs {
+  margin: 1rem;
+}
+.addrs-form-title {
+  margin-bottom: 0.5rem;
+  color: var(--body);
+}
+.addrs-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.addrs-form-container input {
+  background-color: transparent;
+  color: var(--body);
+}
+.addrs-form-btns {
+  display: flex;
+  gap: 1rem;
+}

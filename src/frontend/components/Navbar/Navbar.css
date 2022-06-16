@@ -51,6 +51,35 @@
 .hamburger {
   display: none;
 }
+.nav-user {
+  margin-left: 0.3rem;
+  color: var(--gray-500);
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
+  border: 1px solid var(--gray-500);
+  transition: all 0.3s cubic-bezier(0, 1, 0, 1);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.nav-user:hover {
+  color: var(--violet-700);
+  border-color: var(--violet-700);
+}
+.nav-user-active {
+  color: var(--violet-700);
+  margin-left: 0.3rem;
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
+  border: 1px solid var(--violet-500);
+  transition: all 0.3s cubic-bezier(0, 1, 0, 1);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.user-name {
+  margin-left: 0.3rem;
+}
 /* 750px */
 
 @media only screen and (max-width: 750px) {
