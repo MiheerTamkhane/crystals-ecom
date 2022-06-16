@@ -9,6 +9,7 @@
   margin: 1rem;
 }
 .profile-page-section {
+  margin-top: 1rem;
   display: flex;
   justify-content: flex-start;
 }

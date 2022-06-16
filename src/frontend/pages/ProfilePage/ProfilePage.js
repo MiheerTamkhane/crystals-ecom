@@ -24,6 +24,9 @@ const ProfilePage = ({ page }) => {
   return (
     <div className="profile-page">
       <h1>User Profile</h1>
+      <Link to="/products" className="go-to-products-wishlist ct-btn">
+        Back to products page
+      </Link>
       <div className="profile-page-section">
         <ul className="user-profile-links">
           {profileLinks.map(({ route, name }) => {
