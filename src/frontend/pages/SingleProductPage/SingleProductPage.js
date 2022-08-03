@@ -73,7 +73,7 @@ const SingleProductPage = () => {
             )}
           </div>
           <div className="ct-card-btns single-page-btn">
-            {cart.productsInCart.find(
+            {cart?.productsInCart?.find(
               (productInCart) => productInCart._id === singleProduct._id
             ) ? (
               <button

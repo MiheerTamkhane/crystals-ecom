@@ -45,7 +45,7 @@ const CartProvider = ({ children }) => {
     }
   }, [auth]);
 
-  const orderDetails = cart.productsInCart.reduce(
+  const orderDetails = cart?.productsInCart?.reduce(
     (acc, curr) => {
       return {
         ...acc,

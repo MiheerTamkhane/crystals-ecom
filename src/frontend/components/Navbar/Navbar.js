@@ -53,9 +53,9 @@ function Navbar() {
               }
             >
               <span className="material-icons-outlined">shopping_bag</span>
-              {cart.productsInCart.length > 0 && (
+              {cart?.productsInCart?.length > 0 && (
                 <small className="badge-pop badge">
-                  {cart.productsInCart.length}
+                  {cart?.productsInCart?.length}
                 </small>
               )}
             </NavLink>

@@ -18,10 +18,10 @@ function Cart() {
     <main className="cart-page">
       <h2>{auth?.user?.firstName}'s Cart</h2>
 
-      {cart.productsInCart.length !== 0 ? (
+      {cart?.productsInCart?.length !== 0 ? (
         <section className="cart-container">
           <section className="cart-items">
-            {cart.productsInCart.map((product) => {
+            {cart?.productsInCart?.map((product) => {
               const { _id, isBestSeller, image, name, price, rating, qty } =
                 product;
               return (

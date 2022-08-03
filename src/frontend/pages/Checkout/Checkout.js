@@ -58,7 +58,7 @@ const Checkout = () => {
   };
 
   const clearCart = async () => {
-    cart.productsInCart.forEach((item) =>
+    cart?.productsInCart?.forEach((item) =>
       axios.delete(`/api/user/cart/${item._id}`, {
         headers: {
           authorization: authToken,
@@ -89,7 +89,7 @@ const Checkout = () => {
           type: "SET_ORDERS",
           payload: {
             order: {
-              orderData: cart.productsInCart,
+              orderData: cart?.productsInCart,
               paymentId: response.razorpay_payment_id,
               totalAmount: subtotal,
               address: deliveryAt,
@@ -123,7 +123,7 @@ const Checkout = () => {
         </button>
       </div>
       {!paymentId ? (
-        cart.productsInCart.length > 0 && (
+        cart?.productsInCart?.length > 0 && (
           <div className="checkout-page">
             <div className="addresses-container">
               {addressState?.addresses.length > 0 ? (
@@ -172,7 +172,7 @@ const Checkout = () => {
                   <h3>item</h3>
                   <h3>Quantity</h3>
                 </div>
-                {cart.productsInCart.map((prod) => {
+                {cart?.productsInCart?.map((prod) => {
                   return (
                     <div key={prod._id} className="order-detail-titles">
                       <p>{prod.name}</p>
