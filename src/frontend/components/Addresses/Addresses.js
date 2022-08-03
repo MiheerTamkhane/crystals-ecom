@@ -33,7 +33,7 @@ const Addresses = () => {
     mobile: "",
   });
 
-  const toBeEdited = addressState.addresses.find(
+  const toBeEdited = addressState?.addresses.find(
     (add) => add._id === address._id
   );
 
@@ -198,7 +198,7 @@ const Addresses = () => {
         })
       ) : (
         <div className="user-address">
-          <h2>NO ADDRESSES</h2>
+          <h2>No address left</h2>
         </div>
       )}
       <div className="add-addrs">

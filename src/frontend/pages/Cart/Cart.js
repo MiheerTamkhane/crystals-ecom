@@ -13,7 +13,7 @@ function Cart() {
     updateQtyOfCartProductHandler,
   } = useCart();
   const { wishlist, addToWishlistHandler } = useWishlist();
-
+  console.log(orderDetails + " from cart");
   return (
     <main className="cart-page">
       <h2>{auth?.user?.firstName}'s Cart</h2>

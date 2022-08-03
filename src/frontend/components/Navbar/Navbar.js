@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
 import "./Navbar.css";
 import {
@@ -13,6 +13,8 @@ function Navbar() {
   const { auth, setAuth } = useAuth();
   const { wishlist } = useWishlist();
   const { cart } = useCart();
+
+  const location = useLocation();
   return (
     <nav className="nav-bar navbar">
       <div className="ct-nav-logo">
@@ -75,15 +77,13 @@ function Navbar() {
                 </NavLink>
                 <NavLink
                   to="/profile/"
+                  state={{ from: location }}
                   className={({ isActive }) =>
                     isActive ? "nav-user-active" : "nav-user"
                   }
                 >
                   <span className="material-icons-round">person</span>
-                  <span className="user-name">
-                    {" "}
-                    Hi, {auth?.user?.firstName}
-                  </span>
+                  <span className="user-name"> Hi, {auth?.user.firstName}</span>
                 </NavLink>
               </>
             ) : (

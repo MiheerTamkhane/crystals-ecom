@@ -45,7 +45,6 @@ export function makeServer({ environment = "development" } = {}) {
       user: Model,
       cart: Model,
       wishlist: Model,
-      address: Model,
     },
 
     // Runs on the start of the server
@@ -61,18 +60,6 @@ export function makeServer({ environment = "development" } = {}) {
           ...item,
           cart: [],
           wishlist: [],
-          address: [
-            {
-              _id: uuid(),
-              name: "Miheer Tamkhane",
-              street: "Subhash Road Opp.united Inc.Vile Parle",
-              city: "Nashik",
-              state: "Maharashtra",
-              country: "India",
-              zipCode: 400057,
-              mobile: 9767656818,
-            },
-          ],
         })
       );
 

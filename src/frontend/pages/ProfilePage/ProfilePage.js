@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import "./ProfilePage.css";
 const ProfilePage = ({ page }) => {
   const profileLinks = [
@@ -21,12 +21,22 @@ const ProfilePage = ({ page }) => {
     },
   ];
 
+  // Taking location/pathname of previous page
+  const location = useLocation();
+  let prevPath = location?.state;
+
   return (
     <div className="profile-page">
       <h1>User Profile</h1>
-      <Link to="/products" className="go-to-products-wishlist ct-btn">
-        Back to products page
-      </Link>
+      {location.state && prevPath.addAddress ? (
+        <Link to={prevPath.from} className="go-to-products-wishlist ct-btn">
+          Back to previous page
+        </Link>
+      ) : (
+        <Link to="/products" className="go-to-products-wishlist ct-btn">
+          Back to products
+        </Link>
+      )}
       <div className="profile-page-section">
         <ul className="user-profile-links">
           {profileLinks.map(({ route, name }) => {

@@ -16,5 +16,17 @@ export const users = [
     password: bcyrpt.hashSync("miheer123", 5),
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    address: [
+      {
+        _id: uuid(),
+        name: "Miheer Tamkhane",
+        street: "Subhash Road Opp.united Inc.Vile Parle",
+        city: "Nashik",
+        state: "Maharashtra",
+        country: "India",
+        zipCode: 400057,
+        mobile: 9767656817,
+      },
+    ],
   },
 ];

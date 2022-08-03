@@ -1,3 +1,6 @@
+.checkout-page-container {
+  min-height: 80vh;
+}
 .checkout-page {
   width: 100%;
   display: flex;
@@ -5,7 +8,6 @@
   justify-content: space-evenly;
   align-items: stretch;
   flex-wrap: wrap;
-  min-height: 80vh;
 }
 
 .checkout-title {
@@ -44,6 +46,10 @@
   align-items: center;
   gap: 1rem;
   cursor: pointer;
+}
+.user-address > .ct-btn {
+  font-size: 1.2rem;
+  text-decoration: none;
 }
 
 .order-detail-titles {

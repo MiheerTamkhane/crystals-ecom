@@ -1,5 +1,4 @@
-import { createContext, useContext, useState, useReducer } from "react";
-import { v4 as uuid } from "uuid";
+import { createContext, useContext, useReducer } from "react";
 const AddressContext = createContext();
 const initialState = {
   addresses: [],

@@ -19,13 +19,14 @@ const SignUp = () => {
         lastName: lastName,
         email: email,
         password: password,
+        address: [],
       });
-      console.log(request);
-      localStorage.setItem("authToken", request.data.encodedToken);
-      localStorage.setItem("user", JSON.stringify(request.data.createdUser));
+
+      localStorage.setItem("authToken", request?.data?.encodedToken);
+      localStorage.setItem("user", JSON.stringify(request?.data?.createdUser));
       setAuth((prevAuth) => ({
         ...prevAuth,
-        user: request.data.createdUser.firstName,
+        user: request.data.createdUser,
         status: true,
         authToken: request.data.encodedToken,
       }));
