@@ -37,7 +37,6 @@ function cartReducer(state, action) {
 }
 
 function finalPriceReducer(state, action) {
-  console.log(state, action);
   switch (action.type) {
     case "CART_CHANGE":
       let newState = action.payload.reduce(
@@ -126,13 +125,12 @@ const CartProvider = ({ children }) => {
     }
   );
 
-  console.log(orderDetails);
   // const [orderDetailss, setOrderDetailss] = useReducer(orderCalc);
   const [finalPrice, dispatchFinalPrice] = useReducer(
     finalPriceReducer,
     orderDetails
   );
-  console.log("final value : ", finalPrice);
+
   // Add to Cart Handler function
   const addToCartHandler = async (authToken, product) => {
     const data = await addToCart(authToken, product);

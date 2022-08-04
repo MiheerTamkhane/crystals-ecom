@@ -15,3 +15,4 @@ export { Addresses } from "./Addresses/Addresses";
 export { Modal } from "./Modal/Modal";
 export { Settings } from "./Settings/Settings";
 export { UserOrders } from "./userOrders/UserOrders";
+export { ScrollToTop } from "./ScrollToTop/ScrollToTop";
