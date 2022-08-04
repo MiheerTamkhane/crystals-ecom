@@ -125,7 +125,6 @@ const CartProvider = ({ children }) => {
     }
   );
 
-  // const [orderDetailss, setOrderDetailss] = useReducer(orderCalc);
   const [finalPrice, dispatchFinalPrice] = useReducer(
     finalPriceReducer,
     orderDetails
