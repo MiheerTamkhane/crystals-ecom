@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import "./Checkout.css";
 import {
   useCart,
@@ -11,8 +11,14 @@ import {
 import { getAddressService } from "../../services/servicesExport";
 import toast from "react-hot-toast";
 const Checkout = () => {
-  const { orderDetails, cart, cartDispatch } = useCart();
-  const [chosenAdd, setChosenAdd] = useState("");
+  const {
+    finalPrice,
+    cart,
+    cartDispatch,
+    offerFiveCheckbox,
+    offerFourtyCheckbox,
+  } = useCart();
+  const [chosenAdd, setChosenAdd] = useState(null);
   const {
     auth: { authToken },
   } = useAuth();
@@ -21,13 +27,10 @@ const Checkout = () => {
 
   const [paymentId, setPaymentId] = useState("");
   const { cartQuantity, cartTotalPrice, discount, discountedPrice, subtotal } =
-    orderDetails;
+    finalPrice;
 
   const navigate = useNavigate();
-
-  const deliveryAt =
-    addressState.addresses.find((addrs) => addrs._id === chosenAdd) ||
-    addressState.addresses[0];
+  let location = useLocation();
 
   useEffect(() => {
     (async () => {
@@ -39,7 +42,9 @@ const Checkout = () => {
   useEffect(() => {
     paymentId &&
       setTimeout(() => {
-        navigate("/profile/orders");
+        navigate("/profile/orders", {
+          state: { from: location },
+        });
       }, 1000);
   }, [paymentId]);
 
@@ -58,7 +63,7 @@ const Checkout = () => {
   };
 
   const clearCart = async () => {
-    cart.productsInCart.forEach((item) =>
+    cart?.productsInCart?.forEach((item) =>
       axios.delete(`/api/user/cart/${item._id}`, {
         headers: {
           authorization: authToken,
@@ -81,7 +86,7 @@ const Checkout = () => {
     const options = {
       key: "rzp_test_w3LARPAir5woBM", // Enter the Key ID generated from the Dashboard
       currency: "INR",
-      amount: subtotal * 100,
+      amount: Math.floor(subtotal) * 100,
       name: "CrystalKart",
       description: "Thank you for trusting us",
       handler: async function (response) {
@@ -89,10 +94,10 @@ const Checkout = () => {
           type: "SET_ORDERS",
           payload: {
             order: {
-              orderData: cart.productsInCart,
+              orderData: cart?.productsInCart,
               paymentId: response.razorpay_payment_id,
               totalAmount: subtotal,
-              address: deliveryAt,
+              address: chosenAdd,
             },
           },
         });
@@ -115,7 +120,7 @@ const Checkout = () => {
   };
 
   return (
-    <>
+    <div className="checkout-page-container">
       <div className="checkout-title-container">
         <h1 className="checkout-title">Checkout</h1>
         <button className="ct-btn ct-gray" onClick={() => navigate("/cart")}>
@@ -123,45 +128,68 @@ const Checkout = () => {
         </button>
       </div>
       {!paymentId ? (
-        cart.productsInCart.length > 0 && (
+        cart?.productsInCart?.length > 0 && (
           <div className="checkout-page">
             <div className="addresses-container">
-              {addressState?.addresses.length > 0 ? (
-                addressState?.addresses.map((addrs) => {
-                  const {
-                    _id,
-                    name,
-                    street,
-                    city,
-                    state,
-                    country,
-                    zipCode,
-                    mobile,
-                  } = addrs;
-                  return (
-                    <label key={_id} htmlFor={_id} className="checkout-address">
-                      <input
-                        type="radio"
-                        id={_id}
-                        name="choose"
-                        value={_id}
-                        onChange={(e) => setChosenAdd(e.target.value)}
-                      />
-                      <div className="checkout-user-address">
-                        <h2>{name}</h2>
-                        <p>{street}</p>
-                        <p>
-                          {city}, {state}, {zipCode}, {country}
-                        </p>
+              <div>
+                {addressState?.addresses.length > 0 ? (
+                  addressState?.addresses.map((addrs) => {
+                    const {
+                      _id,
+                      name,
+                      street,
+                      city,
+                      state,
+                      country,
+                      zipCode,
+                      mobile,
+                    } = addrs;
+                    return (
+                      <label
+                        key={_id}
+                        htmlFor={_id}
+                        className="checkout-address"
+                      >
+                        <input
+                          type="radio"
+                          id={_id}
+                          name="choose"
+                          value={_id}
+                          onChange={(e) => setChosenAdd(addrs)}
+                        />
+                        <div className="checkout-user-address">
+                          <h2>{name}</h2>
+                          <p>{street}</p>
+                          <p>
+                            {city}, {state}, {zipCode}, {country}
+                          </p>
 
-                        <p>{mobile}</p>
-                      </div>
-                    </label>
-                  );
-                })
-              ) : (
+                          <p>{mobile}</p>
+                        </div>
+                      </label>
+                    );
+                  })
+                ) : (
+                  <div className="user-address">
+                    <Link
+                      to="/profile/addresses"
+                      state={{ from: location, addAddress: true }}
+                      className="ct-btn ct-gray"
+                    >
+                      Add Address
+                    </Link>
+                  </div>
+                )}
+              </div>
+              {addressState?.addresses?.length > 0 && (
                 <div className="user-address">
-                  <h2>Add Address</h2>
+                  <Link
+                    to="/profile/addresses"
+                    state={{ from: location, addAddress: true }}
+                    className="ct-btn ct-gray"
+                  >
+                    Add more address
+                  </Link>
                 </div>
               )}
             </div>
@@ -169,10 +197,10 @@ const Checkout = () => {
               <div className="checkout-order-container">
                 <h3>Order Details</h3>
                 <div className="order-detail-titles">
-                  <h3>item</h3>
+                  <h3>Item</h3>
                   <h3>Quantity</h3>
                 </div>
-                {cart.productsInCart.map((prod) => {
+                {cart?.productsInCart?.map((prod) => {
                   return (
                     <div key={prod._id} className="order-detail-titles">
                       <p>{prod.name}</p>
@@ -184,42 +212,59 @@ const Checkout = () => {
               <div className="checkout-order-container">
                 <h3>Delivery at</h3>
 
-                <div className="checkout-user-address">
-                  <h2>{deliveryAt?.name}</h2>
-                  <p>{deliveryAt?.street}</p>
-                  <p>
-                    {deliveryAt?.city}, {deliveryAt?.state},{" "}
-                    {deliveryAt?.zipCode}, {deliveryAt?.country}
-                  </p>
+                {chosenAdd ? (
+                  <div className="checkout-user-address">
+                    <h2>{chosenAdd.name}</h2>
+                    <p>{chosenAdd.street}</p>
+                    <p>
+                      {chosenAdd.city}, {chosenAdd.state}, {chosenAdd.zipCode},
+                      {chosenAdd.country}
+                    </p>
 
-                  <p>{deliveryAt?.mobile}</p>
-                </div>
+                    <p>{chosenAdd.mobile}</p>
+                  </div>
+                ) : (
+                  <h2 disabled className="ct-btn ">
+                    Select Address
+                  </h2>
+                )}
               </div>
               <div className="checkout-order-container">
                 <h3>Price Details</h3>
-                <small className="order-details">
-                  <small className="order-offer">
-                    CODEGHEFUKAT{" "}
-                    <span className="material-icons ">local_offer</span>
-                  </small>
-                  <small>-₹77</small>
-                </small>
                 <p className="order-details">
                   <span>Price (Total Quantity : {cartQuantity})</span>
                   <span>₹{cartTotalPrice}</span>
                 </p>
                 <p className="order-details ">
                   <span>Discount</span>
-                  <span className="discount">-₹{discount}</span>
+                  <span className="discount">-₹{Math.floor(discount)}</span>
                 </p>
                 <p className="order-details">
                   <span>Discounted Price</span>
-                  <span>₹{discountedPrice}</span>
+                  <span>₹{Math.floor(discountedPrice)}</span>
                 </p>
+                {offerFourtyCheckbox && (
+                  <div className="order-details">
+                    <small className="order-offer">
+                      GHEFUKAT{" "}
+                      <span className="material-icons ">local_offer</span>
+                    </small>
+                    <small>40%</small>
+                  </div>
+                )}
+                {offerFiveCheckbox && (
+                  <div className="order-details">
+                    <small className="order-offer">
+                      OFF500{" "}
+                      <span className="material-icons ">local_offer</span>
+                    </small>
+                    <small>-500Rs</small>
+                  </div>
+                )}
                 <hr />
                 <h2 className="order-details">
                   <span>Subtotal</span>
-                  <span>₹{subtotal}</span>
+                  <span>₹{Math.floor(subtotal)}</span>
                 </h2>
                 <div className="order-checkout">
                   {chosenAdd ? (
@@ -230,7 +275,7 @@ const Checkout = () => {
                       Place Order
                     </button>
                   ) : (
-                    <h2 disabled className="ct-btn ">
+                    <h2 disabled className="ct-btn">
                       Select Address
                     </h2>
                   )}
@@ -244,7 +289,7 @@ const Checkout = () => {
           <h2> ✨ Order placed successfully! ✨ </h2>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

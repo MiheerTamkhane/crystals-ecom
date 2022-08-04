@@ -71,13 +71,13 @@ const ProductsCard = () => {
                 <div className="price-rating">
                   <h4>₹ {price}</h4>
                   <div className="rating-div">
-                    <span className="material-icons star">star</span>/
-                    <span> {rating}</span>
+                    <span className="material-icons star">star</span>
+                    <span>{rating}</span>
                   </div>
                 </div>
 
                 <div className="ct-card-btns">
-                  {cart.productsInCart.find(
+                  {cart?.productsInCart?.find(
                     (productInCart) => productInCart._id === product._id
                   ) ? (
                     <button

@@ -35,7 +35,7 @@ const SingleProductPage = () => {
           <h2>{singleProduct?.name}</h2>
           <div className="details">
             <h4>
-              Rating :<span className="material-icons star">star</span>/
+              Rating :<span className="material-icons star">star</span>
               {singleProduct.rating}{" "}
             </h4>
             <h4>Name : {singleProduct.name}</h4>
@@ -73,7 +73,7 @@ const SingleProductPage = () => {
             )}
           </div>
           <div className="ct-card-btns single-page-btn">
-            {cart.productsInCart.find(
+            {cart?.productsInCart?.find(
               (productInCart) => productInCart._id === singleProduct._id
             ) ? (
               <button

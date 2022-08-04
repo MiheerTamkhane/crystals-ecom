@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 import { useAuth } from "../contexts/contextExport";
 import {
   addToCart,
@@ -30,9 +36,60 @@ function cartReducer(state, action) {
   }
 }
 
+function finalPriceReducer(state, action) {
+  switch (action.type) {
+    case "CART_CHANGE":
+      let newState = action.payload.reduce(
+        (acc, curr) => {
+          return {
+            ...acc,
+            cartQuantity: acc.cartQuantity + curr.qty,
+            cartTotalPrice: acc.cartTotalPrice + curr.qty * curr.price,
+            discount: acc.discount + curr.qty * (10 / 100) * curr.price,
+            discountedPrice:
+              acc.discountedPrice +
+              curr.qty * (curr.price - (10 / 100) * curr.price),
+            subtotal:
+              acc.subtotal + curr.qty * (curr.price - (10 / 100) * curr.price),
+          };
+        },
+        {
+          cartQuantity: 0,
+          cartTotalPrice: 0,
+          discount: 0,
+          discountedPrice: 0,
+          subtotal: 0,
+        }
+      );
+      return newState;
+    case "OFFER40":
+      return {
+        ...state,
+        subtotal: state.subtotal - (40 / 100) * state.subtotal,
+      };
+    case "RMV_OFFER40":
+      return {
+        ...state,
+        subtotal: state.discountedPrice,
+      };
+    case "OFFER500":
+      return {
+        ...state,
+        subtotal: state.subtotal - 500,
+      };
+    case "RMV_OFFER500":
+      return {
+        ...state,
+        subtotal: state.discountedPrice,
+      };
+    default:
+      return state;
+  }
+}
+
 const CartProvider = ({ children }) => {
   const [cart, cartDispatch] = useReducer(cartReducer, initialState);
-  // const [cart, setCart] = useState([]);
+
   const { auth } = useAuth();
   useEffect(() => {
     if (auth.status) {
@@ -45,15 +102,18 @@ const CartProvider = ({ children }) => {
     }
   }, [auth]);
 
-  const orderDetails = cart.productsInCart.reduce(
+  const orderDetails = cart?.productsInCart?.reduce(
     (acc, curr) => {
       return {
         ...acc,
         cartQuantity: acc.cartQuantity + curr.qty,
         cartTotalPrice: acc.cartTotalPrice + curr.qty * curr.price,
-        discount: acc.discount + curr.qty * 77,
-        discountedPrice: acc.discountedPrice + curr.qty * (curr.price - 77),
-        subtotal: acc.discountedPrice + curr.qty * (curr.price - 77),
+        discount: acc.discount + curr.qty * (10 / 100) * curr.price,
+        discountedPrice:
+          acc.discountedPrice +
+          curr.qty * (curr.price - (10 / 100) * curr.price),
+        subtotal:
+          acc.subtotal + curr.qty * (curr.price - (10 / 100) * curr.price),
       };
     },
     {
@@ -65,10 +125,18 @@ const CartProvider = ({ children }) => {
     }
   );
 
+  const [finalPrice, dispatchFinalPrice] = useReducer(
+    finalPriceReducer,
+    orderDetails
+  );
+  const [offerFourtyCheckbox, setOfferFourtyCheckbox] = useState(false);
+  const [offerFiveCheckbox, setOfferFiveCheckbox] = useState(false);
+
   // Add to Cart Handler function
   const addToCartHandler = async (authToken, product) => {
     const data = await addToCart(authToken, product);
     cartDispatch({ type: "ADD_TO_CART", payload: data });
+    dispatchFinalPrice({ type: "CART_CHANGE", payload: data });
   };
 
   // Remove product from cart Handler
@@ -80,7 +148,9 @@ const CartProvider = ({ children }) => {
   const updateQtyOfCartProductHandler = async (authToken, id, type) => {
     const data = await updateQtyOfCartProduct(authToken, id, type);
     cartDispatch({ type: "UPDATE_QTY", payload: data });
+    dispatchFinalPrice({ type: "CART_CHANGE", payload: data });
   };
+
   return (
     <CartContext.Provider
       value={{
@@ -90,6 +160,12 @@ const CartProvider = ({ children }) => {
         removeFromCartHandler,
         updateQtyOfCartProductHandler,
         cartDispatch,
+        finalPrice,
+        dispatchFinalPrice,
+        offerFiveCheckbox,
+        setOfferFiveCheckbox,
+        offerFourtyCheckbox,
+        setOfferFourtyCheckbox,
       }}
     >
       {children}

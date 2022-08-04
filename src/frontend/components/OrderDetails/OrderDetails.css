@@ -8,6 +8,10 @@
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
+
+.order-container > h2 {
+  margin-top: 1rem;
+}
 .order-details {
   display: flex;
   justify-content: space-between;
@@ -27,6 +31,52 @@
   transition: all 250ms ease;
   margin: 5px;
   font-size: 1.2rem;
+}
+.coupon-section > h2 {
+  color: var(--gray-100);
+}
+.coupon-btn.ct-blue.ct-btn {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--gray-100);
+  background-color: var(--blue-500);
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  transition: all 250ms ease;
+}
+.fiber-sell {
+  font-size: 1.25rem;
+  margin-left: 5px;
+  color: var(--blue-300);
+}
+
+.coupon-container {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--gray-900);
+}
+.coupon-container > li {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.first-child {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+.first-child > input {
+  width: 15px;
+  height: 15px;
+}
+.first-child > label {
+  font-weight: bolder;
+  letter-spacing: 0.07em;
 }
 .order-checkout-btn:hover {
   color: var(--gray-100);

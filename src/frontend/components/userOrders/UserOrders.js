@@ -20,7 +20,7 @@ const UserOrders = () => {
                     Payment Id : <b>{paymentId}</b>
                   </p>
                   <p>
-                    Bill paid : <b>₹{totalAmount}</b>
+                    Bill paid : <b>₹{Math.floor(totalAmount)}</b>
                   </p>
                 </div>
                 <div className="checkout-user-address">

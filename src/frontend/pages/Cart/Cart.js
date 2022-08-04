@@ -18,10 +18,10 @@ function Cart() {
     <main className="cart-page">
       <h2>{auth?.user?.firstName}'s Cart</h2>
 
-      {cart.productsInCart.length !== 0 ? (
+      {cart?.productsInCart?.length !== 0 ? (
         <section className="cart-container">
           <section className="cart-items">
-            {cart.productsInCart.map((product) => {
+            {cart?.productsInCart?.map((product) => {
               const { _id, isBestSeller, image, name, price, rating, qty } =
                 product;
               return (
@@ -78,7 +78,7 @@ function Cart() {
                     <div className="price-rating">
                       <h3>₹{price}</h3>
                       <div className="rating-div">
-                        <span className="material-icons star">star</span>/
+                        <span className="material-icons star">star</span>
                         <span>{rating}</span>
                       </div>
                     </div>

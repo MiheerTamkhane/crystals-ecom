@@ -45,7 +45,7 @@ function Wishlist() {
                   <div className="price-rating">
                     <h4>₹{price}</h4>
                     <div className="rating-div">
-                      <span className="material-icons star">star</span>/
+                      <span className="material-icons star">star</span>
                       <span>{rating}</span>
                     </div>
                   </div>
@@ -64,7 +64,7 @@ function Wishlist() {
                       className="ct-btn ct-addcart material-icons"
                       onClick={() => {
                         if (
-                          cart.productsInCart.find(
+                          cart?.productsInCart?.find(
                             (productInCart) => productInCart._id === product._id
                           )
                         ) {
