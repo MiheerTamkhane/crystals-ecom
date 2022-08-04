@@ -6,9 +6,15 @@ import "./OrderDetails.css";
 
 const OrderDetails = () => {
   const [showModal, setShowModal] = useState(false);
-  const { finalPrice, dispatchFinalPrice } = useCart();
-  const [offerFourtyCheckbox, setOfferFourtyCheckbox] = useState(false);
-  const [offerFiveCheckbox, setOfferFiveCheckbox] = useState(false);
+  const {
+    finalPrice,
+    dispatchFinalPrice,
+    offerFiveCheckbox,
+    offerFourtyCheckbox,
+    setOfferFiveCheckbox,
+    setOfferFourtyCheckbox,
+  } = useCart();
+
   const { cartQuantity, cartTotalPrice, discount, subtotal, discountedPrice } =
     finalPrice;
   const navigate = useNavigate();

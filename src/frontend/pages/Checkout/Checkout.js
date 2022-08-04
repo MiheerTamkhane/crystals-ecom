@@ -11,7 +11,13 @@ import {
 import { getAddressService } from "../../services/servicesExport";
 import toast from "react-hot-toast";
 const Checkout = () => {
-  const { finalPrice, cart, cartDispatch } = useCart();
+  const {
+    finalPrice,
+    cart,
+    cartDispatch,
+    offerFiveCheckbox,
+    offerFourtyCheckbox,
+  } = useCart();
   const [chosenAdd, setChosenAdd] = useState(null);
   const {
     auth: { authToken },
@@ -237,6 +243,24 @@ const Checkout = () => {
                   <span>Discounted Price</span>
                   <span>₹{Math.floor(discountedPrice)}</span>
                 </p>
+                {offerFourtyCheckbox && (
+                  <div className="order-details">
+                    <small className="order-offer">
+                      GHEFUKAT{" "}
+                      <span className="material-icons ">local_offer</span>
+                    </small>
+                    <small>40%</small>
+                  </div>
+                )}
+                {offerFiveCheckbox && (
+                  <div className="order-details">
+                    <small className="order-offer">
+                      OFF500{" "}
+                      <span className="material-icons ">local_offer</span>
+                    </small>
+                    <small>-500Rs</small>
+                  </div>
+                )}
                 <hr />
                 <h2 className="order-details">
                   <span>Subtotal</span>

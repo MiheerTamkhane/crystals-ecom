@@ -129,6 +129,8 @@ const CartProvider = ({ children }) => {
     finalPriceReducer,
     orderDetails
   );
+  const [offerFourtyCheckbox, setOfferFourtyCheckbox] = useState(false);
+  const [offerFiveCheckbox, setOfferFiveCheckbox] = useState(false);
 
   // Add to Cart Handler function
   const addToCartHandler = async (authToken, product) => {
@@ -160,6 +162,10 @@ const CartProvider = ({ children }) => {
         cartDispatch,
         finalPrice,
         dispatchFinalPrice,
+        offerFiveCheckbox,
+        setOfferFiveCheckbox,
+        offerFourtyCheckbox,
+        setOfferFourtyCheckbox,
       }}
     >
       {children}
