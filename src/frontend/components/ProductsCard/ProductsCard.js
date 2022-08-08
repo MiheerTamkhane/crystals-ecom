@@ -65,7 +65,7 @@ const ProductsCard = () => {
                 </button>
               )}
               <img src={image} alt="fist" className="ct-card-img" />
-              <div className="ct-product-stats">
+              <div className="ct-product-stats product-stats">
                 <h4>{name}</h4>
                 <small className="ct-product-info">{material}</small>
                 <div className="price-rating">

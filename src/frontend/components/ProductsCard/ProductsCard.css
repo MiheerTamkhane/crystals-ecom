@@ -1,7 +1,6 @@
 .products-div {
   display: flex;
   justify-content: center;
-  justify-content: center;
 }
 
 .product-card {
@@ -22,7 +21,9 @@
   height: 100%;
   object-fit: cover;
 }
-
+.product-stats {
+  width: 100%;
+}
 .product-card h4 {
   padding-top: 0.4rem;
 }
