@@ -1,11 +1,16 @@
-import { createContext, useContext, useState } from "react";
-import { addToWishlist, removeFromWishlist } from "../services/servicesExport";
+import { createContext, useContext, useState, useEffect } from "react";
+import {
+  addToWishlist,
+  removeFromWishlist,
+  getUserWishlist,
+} from "../services/servicesExport";
+import { useAuth } from "./AuthContext";
 
 const WishlistContext = createContext(null);
 
 const WishlistProvider = ({ children }) => {
   const [wishlist, setWishlist] = useState([]);
-
+  const { auth } = useAuth();
   // Add to wishlist Handler function
   const addToWishlistHandler = async (authToken, product) => {
     const data = await addToWishlist(authToken, product);
@@ -17,6 +22,17 @@ const WishlistProvider = ({ children }) => {
     const data = await removeFromWishlist(authToken, id);
     setWishlist(data);
   };
+
+  useEffect(() => {
+    if (auth.status) {
+      (async () => {
+        const newProductsInWishlist = await getUserWishlist(auth.authToken);
+        setWishlist(newProductsInWishlist);
+      })();
+    } else {
+      setWishlist([]);
+    }
+  }, [auth]);
 
   return (
     <WishlistContext.Provider

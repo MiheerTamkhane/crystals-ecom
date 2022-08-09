@@ -41,8 +41,8 @@ function Navbar() {
               }
             >
               <span className="material-icons-round">favorite_border</span>
-              {wishlist.length > 0 && (
-                <small className="badge-pop badge">{wishlist.length}</small>
+              {wishlist?.length > 0 && (
+                <small className="badge-pop badge">{wishlist?.length}</small>
               )}
             </NavLink>
 
