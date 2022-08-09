@@ -20,7 +20,7 @@ const SingleProductPage = () => {
       setSingleProduct(data?.product);
     })();
   }, []);
-  console.log(singleProduct);
+
   return (
     <div className="single-product-page">
       {singleProduct ? (
