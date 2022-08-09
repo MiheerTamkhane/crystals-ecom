@@ -16,6 +16,7 @@ import {
   Settings,
   UserOrders,
   ScrollToTop,
+  PageNotFound,
 } from "../components/componentsExport";
 import Mockman from "mockman-js";
 import { ProtectedRoute } from "../ProtectedRoute/ProtectedRoute";
@@ -61,7 +62,7 @@ const MyRoutes = () => {
           />
         </Route>
         <Route path="/mock" element={<Mockman />} />
-        <Route path="*" element={<Home />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </ScrollToTop>
   );

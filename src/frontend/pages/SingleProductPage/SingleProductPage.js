@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useCart, useAuth, useWishlist } from "../../contexts/contextExport";
+import { PageNotFound } from "../../components/componentsExport";
 import axios from "axios";
 import "./SingleProductPage.css";
 const SingleProductPage = () => {
@@ -106,12 +107,7 @@ const SingleProductPage = () => {
           </div>
         </div>
       ) : (
-        <div className="empty-products-container">
-          <h1 className="empty-products">404 page not found!</h1>
-          <Link to="/products" className="go-to-products ct-btn">
-            Back to products
-          </Link>
-        </div>
+        <PageNotFound />
       )}
     </div>
   );
